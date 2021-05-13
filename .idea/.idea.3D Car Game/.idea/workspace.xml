@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3974133a-403b-485c-9701-1a2fccd89f62" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6AF207EC-D210-4462-8913-F7CC589986AE/89/26b6a268/Input.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1DE90147-4F3C-423D-B1AB-A532B12C7B1B/f5/cfe78fbf/WheelCollider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/ce/0b09c964/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D971898-EA0F-4307-A8ED-DF491EA76525/fe/5b811366/Rigidbody.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/73/83a37d56/AnimationCurve.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/Suspension.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Arcade_Car_Physics/Scripts/WheelVehicle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D971898-EA0F-4307-A8ED-DF491EA76525/ed/b4717c2f/RigidbodyConstraints.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/Camera.cs" />
+      <option value="$PROJECT_DIR$/Assets/Arcade_Car_Physics/Scripts/DemoScripts/CameraFollow.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Parent/TractionType.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Parent/Vehicle.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/TrailEmitter.cs" />
+      <option value="$PROJECT_DIR$/Assets/Arcade_Car_Physics/Scripts/WheelVehicle.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Suspension.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Trail.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/EngineSoundManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Vehicle.cs" />
+    </changedPaths>
+  </component>
+  <component name="ProjectId" id="1rzUrHIsnNENMvSG8DY2w48mZTp" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="http.certificates" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3974133a-403b-485c-9701-1a2fccd89f62" name="Default Changelist" comment="" />
+      <created>1619978618249</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619978618249</updated>
+      <workItem from="1619978631306" duration="1065000" />
+      <workItem from="1620132291321" duration="2908000" />
+      <workItem from="1620151038948" duration="2816000" />
+      <workItem from="1620169934266" duration="753000" />
+      <workItem from="1620211640210" duration="9908000" />
+      <workItem from="1620236442368" duration="7537000" />
+      <workItem from="1620301420681" duration="9534000" />
+      <workItem from="1620323410528" duration="7879000" />
+      <workItem from="1620390989303" duration="647000" />
+      <workItem from="1620430660117" duration="596000" />
+      <workItem from="1620497372249" duration="1241000" />
+      <workItem from="1620602074010" duration="486000" />
+      <workItem from="1620755696967" duration="57000" />
+      <workItem from="1620755881225" duration="2034000" />
+      <workItem from="1620880956671" duration="232000" />
+      <workItem from="1620910376410" duration="669000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
