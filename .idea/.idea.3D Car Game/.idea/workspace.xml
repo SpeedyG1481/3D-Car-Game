@@ -14,7 +14,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D971898-EA0F-4307-A8ED-DF491EA76525/fe/5b811366/Rigidbody.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/73/83a37d56/AnimationCurve.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/Suspension.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Arcade_Car_Physics/Scripts/WheelVehicle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D971898-EA0F-4307-A8ED-DF491EA76525/ed/b4717c2f/RigidbodyConstraints.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -28,6 +27,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Suspension.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Trail.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/EngineSoundManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/Suspension.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Trail/Trail.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/EngineSoundManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Trail/TrailEmitter.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Test.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Vehicle.cs" />
     </changedPaths>
   </component>
@@ -90,6 +94,8 @@
       <workItem from="1620755881225" duration="2034000" />
       <workItem from="1620880956671" duration="232000" />
       <workItem from="1620910376410" duration="669000" />
+      <workItem from="1620929072063" duration="3568000" />
+      <workItem from="1620989582900" duration="586000" />
     </task>
     <servers />
   </component>
