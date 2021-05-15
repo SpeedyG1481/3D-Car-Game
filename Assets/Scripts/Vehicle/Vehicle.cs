@@ -4,18 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Vehicle : MonoBehaviour
 {
-    private float _steering;
-    private float _throttle;
-
     private bool _isGrounded = false;
     public bool boosting = false;
     public bool jumping = false;
 
     private int _lastGroundCheck = 0;
-
-
-    private Vector3 _spawnPosition;
-    private Quaternion _spawnRotation;
 
     private Rigidbody _rb;
     private WheelCollider[] _wheels;
@@ -23,9 +16,21 @@ public class Vehicle : MonoBehaviour
     [Header("Specifications")] [SerializeField]
     private float maxHealth = 1000;
 
+    [SerializeField] private float maxFuel = 100;
+    [Range(0.0f, 2.5f)] [SerializeField] private float idlingFuelConsumption = 0.1F;
+    [Range(0.1f, 5.0f)] [SerializeField] private float gasFuelConsumption = 0.25F;
+    [SerializeField] private float motorTorque = 675;
+    [SerializeField] private float brakeForce = 1500.0f;
+    [Range(0f, 50.0f)] [SerializeField] private float steerAngle = 30.0f;
+    [Range(1f, 2.5f)] [SerializeField] private float jumpVel = 1.45f;
     [SerializeField] private float durability = 150;
+    [SerializeField] private float maxBoost = 10f;
 
-    private float health;
+    private float _boost;
+    private float _health;
+    private float _fuel;
+    private float _steering;
+    private float _throttle;
 
 
     [Header("Inputs")] [SerializeField] private string throttleInput = "Throttle";
@@ -37,29 +42,25 @@ public class Vehicle : MonoBehaviour
     [Header("Wheels")] [SerializeField] private WheelCollider[] driveWheel;
     [SerializeField] private WheelCollider[] turnWheel;
 
-    [Header("Behaviour")] [SerializeField] private float motorTorque = 350;
-    [Range(2, 16)] [SerializeField] private float diffGearing = 4.0f;
-    [SerializeField] private float brakeForce = 1500.0f;
-    [Range(0f, 50.0f)] [SerializeField] private float steerAngle = 30.0f;
-    [Range(0.001f, 1.0f)] [SerializeField] private float steerSpeed = 0.2f;
-    [Range(1f, 2.5f)] [SerializeField] private float jumpVel = 1.45f;
-    [Range(0.0f, 2f)] [SerializeField] private float driftIntensity = 1f;
+    private float steerSpeed = 0.25f;
+
     [SerializeField] private Transform centerOfMass;
     [Range(0.5f, 10f)] [SerializeField] private float downforce = 1.0f;
     [SerializeField] private bool handbrake;
     public bool Handbrake => handbrake;
     [SerializeField] private float speed = 0.0f;
+    private float _lastSpeed;
     public float Speed => speed;
     [Header("Particles")] [SerializeField] ParticleSystem[] gasParticles;
     [Header("Boost")] [HideInInspector] public bool allowBoost = true;
-    [SerializeField] private float maxBoost = 10f;
-    [SerializeField] private float boost = 10f;
     [Range(0f, 1f)] [SerializeField] private float boostRegen = 0.2f;
     [SerializeField] private float boostForce = 5000;
     [SerializeField] private AnimationCurve turnInputCurve = AnimationCurve.Linear(-1.0f, -1.0f, 1.0f, 1.0f);
     [SerializeField] private ParticleSystem[] boostParticles;
     [SerializeField] private AudioClip boostClip;
     [SerializeField] private AudioSource boostSource;
+
+    public bool IsDead => _health <= 0;
 
     public virtual void Start()
     {
@@ -68,14 +69,12 @@ public class Vehicle : MonoBehaviour
             boostSource.clip = boostClip;
         }
 
-        health = maxHealth;
-
-
-        boost = maxBoost;
+        _health = maxHealth;
+        _boost = maxBoost;
+        _fuel = maxFuel;
+        _boost = maxBoost;
 
         _rb = GetComponent<Rigidbody>();
-        _spawnPosition = transform.position;
-        _spawnRotation = transform.rotation;
 
         if (_rb != null && centerOfMass != null)
         {
@@ -90,7 +89,7 @@ public class Vehicle : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         foreach (var gasParticle in gasParticles)
         {
@@ -103,22 +102,21 @@ public class Vehicle : MonoBehaviour
 
         if (allowBoost)
         {
-            boost += Time.deltaTime * boostRegen;
-            if (boost > maxBoost)
+            _boost += Time.deltaTime * boostRegen;
+            if (_boost > maxBoost)
             {
-                boost = maxBoost;
+                _boost = maxBoost;
             }
         }
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         HandleVehicle();
         HandleWheels();
         HandleMotor();
         Jump();
         Boost();
-        //HandleDrift();
         DownForce();
     }
 
@@ -129,14 +127,14 @@ public class Vehicle : MonoBehaviour
 
     private void Boost()
     {
-        if (boosting && allowBoost && boost > 0.1f)
+        if (boosting && allowBoost && _boost > 0.1f)
         {
             _rb.AddForce(transform.forward * boostForce);
 
-            boost -= Time.fixedDeltaTime;
-            if (boost < 0f)
+            _boost -= Time.fixedDeltaTime;
+            if (_boost < 0f)
             {
-                boost = 0f;
+                _boost = 0f;
             }
 
             if (boostParticles.Length > 0 && !boostParticles[0].isPlaying)
@@ -197,7 +195,7 @@ public class Vehicle : MonoBehaviour
     {
         if (handbrake)
         {
-            foreach (WheelCollider wheel in _wheels)
+            foreach (var wheel in _wheels)
             {
                 wheel.motorTorque = 0.0001f;
                 wheel.brakeTorque = brakeForce;
@@ -205,14 +203,14 @@ public class Vehicle : MonoBehaviour
         }
         else if (Mathf.Abs(speed) < 4 || Mathf.Sign(speed) == Mathf.Sign(_throttle))
         {
-            foreach (WheelCollider wheel in driveWheel)
+            foreach (var wheel in driveWheel)
             {
-                wheel.motorTorque = _throttle * motorTorque * diffGearing / driveWheel.Length;
+                wheel.motorTorque = _throttle * motorTorque / driveWheel.Length;
             }
         }
         else
         {
-            foreach (WheelCollider wheel in _wheels)
+            foreach (var wheel in _wheels)
             {
                 wheel.brakeTorque = Mathf.Abs(_throttle) * brakeForce;
             }
@@ -232,15 +230,6 @@ public class Vehicle : MonoBehaviour
         boosting = (GetInput(boostInput) > 0.5f);
         _steering = turnInputCurve.Evaluate(GetInput(turnInput)) * steerAngle;
         jumping = GetInput(jumpInput) != 0;
-    }
-
-    public void ResetPos()
-    {
-        transform.position = _spawnPosition;
-        transform.rotation = _spawnRotation;
-
-        _rb.velocity = Vector3.zero;
-        _rb.angularVelocity = Vector3.zero;
     }
 
     public void ToggleHandbrake(bool h)
@@ -288,18 +277,28 @@ public class Vehicle : MonoBehaviour
         }
     }
 
+
     private void OnCollisionEnter(Collision other)
     {
-        var velocity = speed / 3 * 2;
-        float otherVelocity = 0;
+        _lastSpeed = speed;
+    }
 
-        if (other.rigidbody != null)
+    private void OnCollisionExit(Collision other)
+    {
+        var currentSpeed = speed;
+        var lastSpeed = _lastSpeed;
+
+        var damage = Math.Abs(currentSpeed - lastSpeed);
+        Hit(damage);
+        Debug.Log("Exit Last Speed: " + lastSpeed + " - Current: " + currentSpeed + " -> Damage: " + damage);
+    }
+
+    private void Hit(float damage)
+    {
+        _health -= damage;
+        if (_health < 0)
         {
-            otherVelocity = transform.InverseTransformDirection(other.rigidbody.velocity).z * 3.6f;
+            _health = 0;
         }
-
-        var absVelocity = Math.Abs(velocity - otherVelocity);
-
-        Debug.Log("Other: " + otherVelocity + " - Our: " + velocity + " -> " + absVelocity);
     }
 }
