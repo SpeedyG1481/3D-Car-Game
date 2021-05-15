@@ -293,7 +293,7 @@ public class Vehicle : MonoBehaviour
         Debug.Log("Exit Last Speed: " + lastSpeed + " - Current: " + currentSpeed + " -> Damage: " + damage);
     }
 
-    private void Hit(float damage)
+    public void Hit(float damage)
     {
         _health -= damage;
         if (_health < 0)

@@ -7,18 +7,27 @@ public class Entity : MonoBehaviour
     public float speed = 2.0f;
     public float jump = 1.0f;
     public float detectorRange = 50.0f;
+    public bool IsGrounded;
     private float _gravityValue = -9.81f;
 
     private float _verticalSpeed = 0;
 
 
     private Animator _animator;
-    private CharacterController _characterController;
+    protected float distance;
+    protected Vehicle _target;
+    protected CharacterController _characterController;
 
     public Animator Animator => _animator;
     public CharacterController CharacterController => _characterController;
 
-    private Vehicle _target;
+    public Vector3 Velocity
+    {
+        get => _velocity;
+        set
+         => _velocity = value;
+
+    }
 
     private Vector3 _velocity;
 
@@ -29,11 +38,12 @@ public class Entity : MonoBehaviour
     }
 
 
-    private void Update()
+    public virtual void Update()
     {
         FindTarget();
         LocateTarget();
         Move();
+        // Debug.Log(distance);
     }
 
     private void LocateTarget()
@@ -62,7 +72,7 @@ public class Entity : MonoBehaviour
 
         if (vehicle != null)
         {
-            var distance = Vector3.Distance(transform.position, vehicle.transform.position);
+            distance = Vector3.Distance(transform.position, vehicle.transform.position);
 
             if (distance <= detectorRange)
             {
@@ -88,5 +98,10 @@ public class Entity : MonoBehaviour
         _velocity.y += _gravityValue * Time.deltaTime;
         _characterController.Move(_velocity * Time.deltaTime);
         _animator.SetBool("Walk", !(Math.Abs(_characterController.velocity.magnitude) < 0.2F));
+    }
+    public void damage(float amount)
+    {
+        //car will be damaged
+        _target.Hit(amount);
     }
 }

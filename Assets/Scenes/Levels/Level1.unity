@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 510990176}
   m_Layer: 0
   m_Name: TerrainGroup_0
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -790,7 +790,7 @@ LightingSettings:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  serializedVersion: 3
+  serializedVersion: 2
   m_GIWorkflowMode: 1
   m_EnableBakedLightmaps: 1
   m_EnableRealtimeLightmaps: 0
@@ -829,7 +829,7 @@ LightingSettings:
   m_PVREnvironmentReferencePointCount: 2048
   m_LightProbeSampleCountMultiplier: 4
   m_PVRBounces: 2
-  m_PVRMinBounces: 1
+  m_PVRRussianRouletteStartBounce: 2
   m_PVREnvironmentMIS: 1
   m_PVRFilteringMode: 1
   m_PVRDenoiserTypeDirect: 1
@@ -1302,7 +1302,7 @@ GameObject:
   - component: {fileID: 1596989873}
   m_Layer: 0
   m_Name: Terrain_0_0_83985f26-8807-4230-887c-dd66948c5109
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1606,7 +1606,6 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &1997454795
@@ -2165,7 +2164,7 @@ GameObject:
   - component: {fileID: 919132147686098076}
   - component: {fileID: 919132147686098077}
   m_Layer: 0
-  m_Name: Idle
+  m_Name: zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2198,12 +2197,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 919132147686098075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4c5416ea7d59184d865246dc109ba9c, type: 3}
+  m_Script: {fileID: 11500000, guid: b108a93a0ae1dae498490738f1b6ab99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7.92
-  jump: 1
+  speed: 2
+  jump: 3
   detectorRange: 50
+  IsGrounded: 0
+  Zombie_jumpRange: 15
+  Zombie_Jump_Offset: {x: 4, y: 0, z: 0}
 --- !u!1 &919132148901708502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2498,7 +2500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1531058121110219492, guid: 3af6932de18f3664aa76dd37de51382c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 66.11
+      value: 61.31
       objectReference: {fileID: 0}
     - target: {fileID: 1531058121110219492, guid: 3af6932de18f3664aa76dd37de51382c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2506,7 +2508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1531058121110219492, guid: 3af6932de18f3664aa76dd37de51382c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 120.354416
+      value: 102.03
       objectReference: {fileID: 0}
     - target: {fileID: 1531058121110219492, guid: 3af6932de18f3664aa76dd37de51382c, type: 3}
       propertyPath: m_LocalRotation.w
