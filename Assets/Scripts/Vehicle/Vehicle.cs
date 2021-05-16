@@ -82,7 +82,7 @@ public class Vehicle : MonoBehaviour
     public bool Handbrake => handbrake;
     public float Speed => speed;
 
-    public bool CanUseSkill => _timer >= _lastSkillTime;
+    public bool CanUseSkill => (_timer >= _lastSkillTime) && CanMove;
 
     public float SkillTimer => _lastSkillTime - _timer;
     public float HealthPercentage => health / maxHealth;
