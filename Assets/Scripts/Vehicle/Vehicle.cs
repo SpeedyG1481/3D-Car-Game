@@ -393,7 +393,7 @@ public class Vehicle : MonoBehaviour
         }
     }
 
-    private void Hit(float damage)
+    public void Hit(float damage)
     {
         health -= damage;
         if (health < 0)
