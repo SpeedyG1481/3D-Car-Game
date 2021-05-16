@@ -11,7 +11,6 @@ public class Entity : MonoBehaviour
 
     private float _verticalSpeed = 0;
 
-
     private Animator _animator;
     private CharacterController _characterController;
 
@@ -38,6 +37,7 @@ public class Entity : MonoBehaviour
 
     private void LocateTarget()
     {
+        
         if (_target != null)
         {
             var targetDirection = _target.transform.position - transform.position;

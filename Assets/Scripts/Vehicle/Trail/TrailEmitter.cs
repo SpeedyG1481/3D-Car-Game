@@ -26,12 +26,8 @@ public class TrailEmitter : MonoBehaviour
 
     WheelCollider _wheel;
     Vehicle _vehicle;
-
-    //Checks if the most recent trail is active or not
-    public bool Active
-    {
-        get { return (trails.Count == 0 ? false : (!trails.Last.Value.Finished)); }
-    }
+    
+    public bool Active => (trails.Count == 0 ? false : !trails.Last.Value.Finished);
 
     void Start()
     {

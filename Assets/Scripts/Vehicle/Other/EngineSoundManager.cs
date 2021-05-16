@@ -4,8 +4,7 @@
 [RequireComponent(typeof(AudioSource))]
 public class EngineSoundManager : MonoBehaviour
 {
-    [Header("AudioClips")] public AudioClip starting;
-    public AudioClip rolling;
+    [Header("AudioClips")] public AudioClip rolling;
     public AudioClip stopping;
 
     [Header("pitch parameter")] public float flatoutSpeed = 20.0f;
@@ -29,13 +28,13 @@ public class EngineSoundManager : MonoBehaviour
             _source.Play();
         }
 
-        if (!_vehicle.Handbrake && (_source.clip == stopping || _source.clip == null))
+        /*if (!_vehicle.Handbrake && (_source.clip == stopping || _source.clip == null))
         {
             _source.clip = starting;
             _source.Play();
 
             _source.pitch = 1;
-        }
+        }*/
 
         if (!_vehicle.Handbrake && !_source.isPlaying)
         {
