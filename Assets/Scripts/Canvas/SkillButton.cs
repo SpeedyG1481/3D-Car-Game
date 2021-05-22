@@ -62,9 +62,16 @@ public class SkillButton : ButtonEffect, IPointerDownHandler, IPointerUpHandler
             }
             else
             {
+                var value = ((int) Math.Round(_vehicle.SkillTimer));
+                if (value < 0)
+                {
+                    value = 0;
+                }
+
+                var t = value.ToString();
                 subImage.gameObject.SetActive(false);
                 text.gameObject.SetActive(true);
-                text.text = ((int) Math.Round(_vehicle.SkillTimer)).ToString();
+                text.text = t;
             }
         }
         else

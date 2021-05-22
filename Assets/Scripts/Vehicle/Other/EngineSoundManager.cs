@@ -22,6 +22,7 @@ public class EngineSoundManager : MonoBehaviour
 
     void Update()
     {
+        _source.volume = GameController.GetSfxVolume;
         if (_vehicle.Handbrake && _source.clip == rolling)
         {
             _source.clip = stopping;

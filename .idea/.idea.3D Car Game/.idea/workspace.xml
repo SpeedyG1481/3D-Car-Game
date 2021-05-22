@@ -44,14 +44,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Entity.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Trail/TrailEmitter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/Suspension.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/LeftRotate.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/GasButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/BrakeButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/RightRotate.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/RightButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/LeftButton.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/BoostButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/SpeedShower.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/SpeedShow.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/DistanceShow.cs" />
@@ -60,10 +58,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/VehicleType.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/FuelShow.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/ButtonEffect.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/SkillButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/MenuButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/BoostButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/EngineSoundManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Vehicle.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/SkillButton.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rzUrHIsnNENMvSG8DY2w48mZTp" />
@@ -130,6 +130,8 @@
       <workItem from="1620997789993" duration="12799000" />
       <workItem from="1621072998821" duration="23940000" />
       <workItem from="1621159968435" duration="25563000" />
+      <workItem from="1621251108145" duration="1231000" />
+      <workItem from="1621679243832" duration="3026000" />
     </task>
     <servers />
   </component>

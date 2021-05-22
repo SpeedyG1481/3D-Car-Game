@@ -21,14 +21,11 @@ public class Vehicle : MonoBehaviour
     [SerializeField] private float boostForce = 5000;
     [SerializeField] private float skillCooldown = 3.75f;
     [SerializeField] private float skillPower = 1.45f;
+    [SerializeField] private int ammo = 0;
+    [SerializeField] private float boostRegen = 0.2f;
+    [SerializeField] private float idlingFuelConsumption = 0.5F;
+    [SerializeField] private float gasFuelConsumption = 1.25F;
 
-    [Range(10f, 100f)] [SerializeField] private float rotationSpeed = 35F;
-    [Range(0.5f, 2.5f)] [SerializeField] private float idlingFuelConsumption = 0.5F;
-    [Range(1f, 8.0f)] [SerializeField] private float gasFuelConsumption = 1.25F;
-    [Range(0f, 50.0f)] [SerializeField] private float steerAngle = 30.0f;
-    [Range(0f, 1f)] [SerializeField] private float boostRegen = 0.2f;
-    [Range(0.1f, 1f)] [SerializeField] private float steerSpeed = 0.25f;
-    [Range(0.5f, 10f)] [SerializeField] private float downforce = 6.75f;
 
     [Header("Geçici Veriler")] [SerializeField]
     private float boost;
@@ -55,6 +52,10 @@ public class Vehicle : MonoBehaviour
     private float _realHorizontalInput;
     private float _lastSkillTime;
 
+    private float downforce = 7f;
+    private float steerSpeed = 0.25f;
+    private float rotationSpeed = 65F;
+    private float steerAngle = 30.0f;
 
     [Header("Wheels")] [SerializeField] private WheelCollider[] driveWheel;
     [SerializeField] private WheelCollider[] turnWheel;
@@ -143,6 +144,11 @@ public class Vehicle : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (GameController.DebugMode)
+        {
+            GameController.GetDebugInputs();
+        }
+
         GetHorizontalInput();
         GetHandleValues();
         HandleWheels();
@@ -169,7 +175,7 @@ public class Vehicle : MonoBehaviour
 
     private void Boost()
     {
-        if (CanMove && BoostParam && canBoost && boost > 0.1f)
+        if (CanMove && BoostParam && canBoost && boost > 0f)
         {
             _rb.AddForce(transform.forward * boostForce);
 
