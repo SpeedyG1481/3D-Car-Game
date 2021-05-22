@@ -1,92 +1,65 @@
 using System;
 using UnityEngine;
-
-[RequireComponent(typeof(Animator), typeof(CharacterController))]
 public class Entity : MonoBehaviour
 {
-    public float speed = 2.0f;
-    public float jump = 1.0f;
-    public float detectorRange = 50.0f;
-    private float _gravityValue = -9.81f;
+    private Vehicle _player;
+    private float _health;
+    protected static bool IsChasing, IsJumping, IsShotting;
 
-    private float _verticalSpeed = 0;
-
-    private Animator _animator;
-    private CharacterController _characterController;
-
-    public Animator Animator => _animator;
-    public CharacterController CharacterController => _characterController;
-
-    private Vehicle _target;
-
-    private Vector3 _velocity;
-
-    private void Start()
+    public virtual void Start()
     {
-        _animator = GetComponent<Animator>();
-        _characterController = GetComponent<CharacterController>();
+
+    }
+    public Vehicle Player
+    {
+        get { return _player; }
+        set { _player = value; } 
+    }
+    public float Health
+    {
+        get { return _health; }
+    }
+
+    public float Distance(Transform player,GameObject enemy)
+    {
+        float dist = Vector3.Distance(player.position, enemy.transform.position);
+
+        return dist;
+    }
+
+    public  Vector3 Tracking(Transform player,GameObject enemy)
+    {
+        Vector3 direction = player.position - enemy.transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        enemy.transform.LookAt(player);
+        direction.Normalize();
+        return direction;
     }
 
 
-    private void Update()
+   public void Chase(Vector3 direction,float moveSpeed,Rigidbody rb)
     {
-        FindTarget();
-        LocateTarget();
-        Move();
+        rb.MovePosition((Vector3)transform.position + (direction * moveSpeed * Time.deltaTime));
+        IsChasing = true;
     }
-
-    private void LocateTarget()
+    public void Jump(Rigidbody rb,float amountX, float amountY,float amountZ,string position)
     {
         
-        if (_target != null)
+        if (position == "right") 
         {
-            var targetDirection = _target.transform.position - transform.position;
-            var singleStep = speed * Time.deltaTime;
-
-            var newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
-            // Bir saniyede alacağı yol!
-            Debug.DrawRay(transform.position, newDirection * speed, Color.red);
-            transform.rotation = Quaternion.LookRotation(newDirection);
-            _velocity = new Vector3(newDirection.x, 0, newDirection.z);
+            Debug.Log("right");
+            rb.velocity += _player.transform.right * -amountX + Vector3.up * amountY + _player.transform.forward * amountZ;
         }
-        else
+        else if(position == "left")
         {
-            _velocity = Vector3.zero;
+            Debug.Log("left");
+            rb.velocity += _player.transform.right * amountX + Vector3.up * amountY + _player.transform.forward * amountZ;
         }
+        IsJumping = true;
     }
-
-    // ReSharper disable Unity.PerformanceAnalysis
-    private void FindTarget()
+    void Shotting()
     {
-        var vehicle = FindObjectOfType<Vehicle>();
-
-        if (vehicle != null)
-        {
-            var distance = Vector3.Distance(transform.position, vehicle.transform.position);
-
-            if (distance <= detectorRange)
-            {
-                _target = vehicle;
-            }
-            else
-            {
-                _target = null;
-            }
-        }
-        else
-        {
-            _target = null;
-        }
-
-        Debug.Log(_target);
+        IsShotting = true;
     }
 
-
-    public virtual void Move()
-    {
-        _characterController.Move(_velocity * (speed * Time.deltaTime));
-        _velocity.y += _gravityValue * Time.deltaTime;
-        _characterController.Move(_velocity * Time.deltaTime);
-        _animator.SetBool("Walk", !(Math.Abs(_characterController.velocity.magnitude) < 0.2F));
-    }
 }
