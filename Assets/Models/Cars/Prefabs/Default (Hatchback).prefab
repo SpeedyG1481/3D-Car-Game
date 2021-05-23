@@ -319,14 +319,15 @@ MonoBehaviour:
   maxHealth: 45
   maxFuel: 55
   durability: 50
-  maxBoost: 0.5
+  maxBoost: 2.5
   boostForce: 3250
-  skillCooldown: 0
-  skillPower: 0
-  ammo: 5
   boostRegen: 0
   idlingFuelConsumption: 0.75
   gasFuelConsumption: 1.25
+  wheelStiffness: 2
+  skillCooldown: 0
+  skillPower: 0
+  ammo: 5
   boost: 0
   health: 0
   fuel: 0
@@ -468,6 +469,7 @@ MonoBehaviour:
   flatoutSpeed: 20
   minPitch: 0.7
   pitchSpeed: 0.05
+  pitchBroker: 7
 --- !u!82 &8328908068503591110
 AudioSource:
   m_ObjectHideFlags: 0

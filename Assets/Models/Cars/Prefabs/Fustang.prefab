@@ -500,16 +500,17 @@ MonoBehaviour:
   motorTorque: 1550
   brakeForce: 1175
   maxHealth: 75
-  maxFuel: 115
+  maxFuel: 130
   durability: 175
-  maxBoost: 2
+  maxBoost: 5
   boostForce: 4500
+  boostRegen: 0.13
+  idlingFuelConsumption: 0.6
+  gasFuelConsumption: 1.05
+  wheelStiffness: 2.5
   skillCooldown: 135
   skillPower: 50
   ammo: 30
-  boostRegen: 0
-  idlingFuelConsumption: 2
-  gasFuelConsumption: 6.25
   boost: 0
   health: 0
   fuel: 0
@@ -651,6 +652,7 @@ MonoBehaviour:
   flatoutSpeed: 30
   minPitch: 0.7
   pitchSpeed: 0.002
+  pitchBroker: 7
 --- !u!82 &5849823748107193457
 AudioSource:
   m_ObjectHideFlags: 0

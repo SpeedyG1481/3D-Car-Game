@@ -19,12 +19,13 @@ public class Vehicle : MonoBehaviour
     [SerializeField] private float durability = 150;
     [SerializeField] private float maxBoost = 10f;
     [SerializeField] private float boostForce = 5000;
-    [SerializeField] private float skillCooldown = 3.75f;
-    [SerializeField] private float skillPower = 1.45f;
-    [SerializeField] private int ammo = 0;
     [SerializeField] private float boostRegen = 0.2f;
     [SerializeField] private float idlingFuelConsumption = 0.5F;
     [SerializeField] private float gasFuelConsumption = 1.25F;
+    [SerializeField] private float wheelStiffness = 1.8F;
+    [SerializeField] private float skillCooldown = 3.75f;
+    [SerializeField] private float skillPower = 1.45f;
+    [SerializeField] private int ammo = 0;
 
 
     [Header("Geçici Veriler")] [SerializeField]
@@ -115,6 +116,14 @@ public class Vehicle : MonoBehaviour
 
         foreach (var wheel in _wheels)
         {
+            var forward = wheel.forwardFriction;
+            var sideways = wheel.sidewaysFriction;
+            forward.stiffness = wheelStiffness;
+            sideways.stiffness = wheelStiffness;
+
+            wheel.sidewaysFriction = sideways;
+            wheel.forwardFriction = forward;
+
             wheel.motorTorque = 0.0001f;
         }
     }
@@ -177,8 +186,10 @@ public class Vehicle : MonoBehaviour
     {
         if (CanMove && BoostParam && canBoost && boost > 0f)
         {
+            
             _rb.AddForce(transform.forward * boostForce);
-
+            boostSource.volume = GameController.GetSfxVolume;
+            
             boost -= Time.fixedDeltaTime;
             if (boost < 0f)
             {

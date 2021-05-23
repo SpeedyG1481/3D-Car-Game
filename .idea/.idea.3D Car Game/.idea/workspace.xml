@@ -16,7 +16,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D971898-EA0F-4307-A8ED-DF491EA76525/fe/5b811366/Rigidbody.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Canvas/BoostButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/73/83a37d56/AnimationCurve.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/CloseButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/34/fcec7be3/Quaternion.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D971898-EA0F-4307-A8ED-DF491EA76525/98/2e5b0802/WheelFrictionCurve.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6AF207EC-D210-4462-8913-F7CC589986AE/89/26b6a268/Input.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1DE90147-4F3C-423D-B1AB-A532B12C7B1B/f5/cfe78fbf/WheelCollider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Canvas/SpeedShow.cs" root0="FORCE_HIGHLIGHTING" />
@@ -60,11 +62,13 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/MenuButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/BoostButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Vehicle.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/SkillButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Entity.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/EngineSoundManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Zombie.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Vehicle.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/CloseButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/HomeButton.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rzUrHIsnNENMvSG8DY2w48mZTp" />
@@ -133,6 +137,7 @@
       <workItem from="1621159968435" duration="25563000" />
       <workItem from="1621251108145" duration="1231000" />
       <workItem from="1621679243832" duration="7501000" />
+      <workItem from="1621766699707" duration="1869000" />
     </task>
     <servers />
   </component>
