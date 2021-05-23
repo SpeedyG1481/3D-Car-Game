@@ -41,7 +41,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/EngineSoundManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Trail/Trail.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Test.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Entity.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Trail/TrailEmitter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/Suspension.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/LeftRotate.cs" />
@@ -61,9 +60,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/MenuButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/BoostButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/EngineSoundManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Vehicle.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/SkillButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Entity.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/EngineSoundManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Zombie.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rzUrHIsnNENMvSG8DY2w48mZTp" />
@@ -131,7 +132,7 @@
       <workItem from="1621072998821" duration="23940000" />
       <workItem from="1621159968435" duration="25563000" />
       <workItem from="1621251108145" duration="1231000" />
-      <workItem from="1621679243832" duration="3026000" />
+      <workItem from="1621679243832" duration="7501000" />
     </task>
     <servers />
   </component>

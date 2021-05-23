@@ -724,16 +724,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vehicleType: 1
   canBoost: 1
-  motorTorque: 1500
-  brakeForce: 1125
+  motorTorque: 2050
+  brakeForce: 1625
   maxHealth: 85
-  maxFuel: 87.5
+  maxFuel: 140
   durability: 150
   maxBoost: 2.5
-  boostForce: 4000
+  boostForce: 5000
   skillCooldown: 10
   skillPower: 17.5
-  ammo: 22
+  ammo: 32
   boostRegen: 0
   idlingFuelConsumption: 2.5
   gasFuelConsumption: 6.75

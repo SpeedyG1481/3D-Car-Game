@@ -49,11 +49,11 @@ public class Zombie : Entity
             {
                 if (positionX < 0)
                 {
-                    Jump(rb, 5, jumpAmount, -1, "right");
+                    Jump(rb, -5, jumpAmount, -1);
                 }
                 else if (positionX > 0) 
                 {
-                    Jump(rb, 5, jumpAmount, -1, "left");
+                    Jump(rb, 5, jumpAmount, -1);
                 }
                 
 
@@ -62,7 +62,6 @@ public class Zombie : Entity
             else if (minRange < Distance(player, enemy))
             {
                 Chase(Tracking(player, enemy), moveSpeed + Player.Speed/2, rb);
-                Debug.Log("up");
             }
 
         }

@@ -10,6 +10,7 @@ public class EngineSoundManager : MonoBehaviour
     [Header("pitch parameter")] public float flatoutSpeed = 20.0f;
     [Range(0.0f, 3.0f)] public float minPitch = 0.7f;
     [Range(0.0f, 0.1f)] public float pitchSpeed = 0.05f;
+    public float pitchBroker = 7f;
 
     private AudioSource _source;
     private Vehicle _vehicle;
@@ -45,8 +46,8 @@ public class EngineSoundManager : MonoBehaviour
 
         if (_source.clip == rolling)
         {
-            _source.pitch = Mathf.Lerp(_source.pitch, minPitch + Mathf.Abs(_vehicle.Speed) / flatoutSpeed,
-                pitchSpeed);
+            _source.pitch = Mathf.Lerp(_source.pitch, Mathf.Abs(_vehicle.Speed) %
+                flatoutSpeed / (flatoutSpeed / pitchBroker), pitchSpeed);
         }
     }
 }
