@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(AudioSource)), RequireComponent(typeof(AudioSource))]
 public class Vehicle : MonoBehaviour
 {
     private Rigidbody _rb;
@@ -58,19 +58,29 @@ public class Vehicle : MonoBehaviour
     private float rotationSpeed = 65F;
     private float steerAngle = 30.0f;
 
-    [Header("Wheels")] [SerializeField] private WheelCollider[] driveWheel;
+    [SerializeField] private WheelCollider[] driveWheel;
     [SerializeField] private WheelCollider[] turnWheel;
 
 
     [SerializeField] private Transform centerOfMass;
-    [Header("Particles")] [SerializeField] private ParticleSystem[] gasParticles;
+    [SerializeField] private ParticleSystem[] gasParticles;
     [SerializeField] private ParticleSystem[] boostParticles;
     [SerializeField] private ParticleSystem[] explosionParticles;
 
-    [Header("Boost Sound")] [SerializeField]
-    private AudioClip boostClip;
 
-    [SerializeField] private AudioSource boostSource;
+    private AudioSource _boostSource;
+    private AudioSource _engineSource;
+
+    [SerializeField] private AudioClip boostClip;
+    [SerializeField] private AudioClip rolling;
+    [SerializeField] private AudioClip stopping;
+
+
+    public float flatoutSpeed = 45.0f;
+    [Range(0.0f, 3.0f)] public float minPitch = 0.7f;
+    [Range(0.0f, 0.1f)] public float pitchSpeed = 0.05f;
+    public float pitchBroker = 7f;
+
 
     private Vector3 _startPosition;
 
@@ -94,9 +104,14 @@ public class Vehicle : MonoBehaviour
 
     public virtual void Start()
     {
+        _rb = GetComponent<Rigidbody>();
+        _engineSource = GetComponent<AudioSource>();
+        _boostSource = GetComponent<AudioSource>();
+
+
         if (boostClip != null)
         {
-            boostSource.clip = boostClip;
+            _boostSource.clip = boostClip;
         }
 
         _startPosition = transform.position;
@@ -105,7 +120,6 @@ public class Vehicle : MonoBehaviour
         fuel = maxFuel;
         boost = maxBoost;
 
-        _rb = GetComponent<Rigidbody>();
 
         if (_rb != null && centerOfMass != null)
         {
@@ -130,6 +144,14 @@ public class Vehicle : MonoBehaviour
 
     private void Update()
     {
+        GasParticles();
+        BoostRegenerator();
+        EngineSound();
+        TimerController();
+    }
+
+    private void GasParticles()
+    {
         foreach (var gasParticle in gasParticles)
         {
             gasParticle.Play();
@@ -138,7 +160,10 @@ public class Vehicle : MonoBehaviour
                 ? 0
                 : Mathf.Lerp(em.rateOverTime.constant, Mathf.Clamp(150.0f * throttle, 30.0f, 100.0f), 0.1f);
         }
+    }
 
+    private void BoostRegenerator()
+    {
         if (canBoost && !BoostParam)
         {
             boost += Time.deltaTime * boostRegen;
@@ -147,8 +172,33 @@ public class Vehicle : MonoBehaviour
                 boost = maxBoost;
             }
         }
+    }
 
+    private void TimerController()
+    {
         _timer += Time.deltaTime;
+    }
+
+    private void EngineSound()
+    {
+        _engineSource.volume = GameController.GetSfxVolume;
+        if (Handbrake && _engineSource.clip == rolling)
+        {
+            _engineSource.clip = stopping;
+            _engineSource.Play();
+        }
+
+        if (!Handbrake && !_engineSource.isPlaying)
+        {
+            _engineSource.clip = rolling;
+            _engineSource.Play();
+        }
+
+        if (_engineSource.clip == rolling)
+        {
+            _engineSource.pitch = Mathf.Lerp(_engineSource.pitch, Mathf.Abs(Speed) %
+                flatoutSpeed / (flatoutSpeed / pitchBroker), pitchSpeed);
+        }
     }
 
     private void FixedUpdate()
@@ -186,10 +236,9 @@ public class Vehicle : MonoBehaviour
     {
         if (CanMove && BoostParam && canBoost && boost > 0f)
         {
-            
             _rb.AddForce(transform.forward * boostForce);
-            boostSource.volume = GameController.GetSfxVolume;
-            
+            _boostSource.volume = GameController.GetSfxVolume;
+
             boost -= Time.fixedDeltaTime;
             if (boost < 0f)
             {
@@ -204,9 +253,9 @@ public class Vehicle : MonoBehaviour
                 }
             }
 
-            if (boostSource != null && !boostSource.isPlaying)
+            if (_boostSource != null && !_boostSource.isPlaying)
             {
-                boostSource.Play();
+                _boostSource.Play();
             }
         }
         else
@@ -219,9 +268,9 @@ public class Vehicle : MonoBehaviour
                 }
             }
 
-            if (boostSource != null && boostSource.isPlaying)
+            if (_boostSource != null && _boostSource.isPlaying)
             {
-                boostSource.Stop();
+                _boostSource.Stop();
             }
         }
     }
@@ -398,21 +447,28 @@ public class Vehicle : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         lastSpeed = speed;
+        _rb.velocity = -transform.forward * 2.5F;
     }
+
 
     private void OnCollisionExit(Collision other)
     {
-        var currentSpeed = speed;
-        var damage = Math.Abs(currentSpeed - lastSpeed);
-        if (damage > 3.5F)
-        {
-            Hit(damage);
-        }
+        var damage = Math.Abs(speed - lastSpeed);
+        Hit(damage);
     }
 
-    private void Hit(float damage)
+    public void Hit(float damage)
     {
-        health -= damage;
+        if (damage < 0)
+            return;
+
+        var realDamage = (float) (damage - durability);
+        if (realDamage < 0)
+            realDamage = 0;
+
+        Debug.Log("Damage: " + damage + " - SQRT Durability: " + Math.Sqrt(durability) + " -> " + realDamage);
+
+        health -= realDamage;
         if (health < 0)
         {
             ExplosionEffect();

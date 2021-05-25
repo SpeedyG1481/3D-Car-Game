@@ -1,79 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
+[SuppressMessage("ReSharper", "Unity.PerformanceCriticalCodeInvocation")]
 public class Zombie : Entity
 {
-    public Transform player;
-    public GameObject enemy;
-    public float moveSpeed, maxRange, minRange, jumpRange,jumpAmount;
-    public Rigidbody rb;
-    // Start is called before the first frame update
+    public float moveSpeed = 12.5F, trackingRange = 50, minDamageRange = 10, jumpRange = 25, jumpAmount = 10;
+
     public override void Start()
     {
-        Player= FindObjectOfType<Vehicle>();
+        base.Start();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Update()
     {
-        HandleMovement();
-       
-        if (Input.GetKey(KeyCode.T))
+        if (!IsDead)
         {
-            
+            HandleMovement();
         }
+
+        base.Update();
     }
 
     private void HandleMovement()
     {
-
-
-
-        if (Distance(player, enemy) < maxRange)
+        if (Distance() < trackingRange)
         {
-            var positionX = enemy.transform.position.x - player.position.x;
-
-
-
-            if (minRange > Distance(player, enemy))
+            if (minDamageRange > Distance() && IsJumping)
             {
                 IsJumping = false;
-                Debug.Log("down");
-                Destroy(this);
-                //Damage to car
+                Player.Hit(12.5F);
+                Hit(float.MaxValue);
             }
 
-            else
-            if (jumpRange > Distance(player, enemy) && !IsJumping)//jump
+            else if (jumpRange > Distance() && !IsJumping)
             {
-                if (positionX < 0)
-                {
-                    Jump(rb, -5, jumpAmount, -1);
-                }
-                else if (positionX > 0) 
-                {
-                    Jump(rb, 5, jumpAmount, -1);
-                }
-                
-
-                Debug.Log("jump");
+                Jump(jumpAmount);
             }
-            else if (minRange < Distance(player, enemy))
+            else if (minDamageRange < Distance())
             {
-                Chase(Tracking(player, enemy), moveSpeed + Player.Speed/2, rb);
+                Chase(moveSpeed + Math.Abs(Player.Speed / 3));
             }
-
         }
-        else
-        {
-            //destroy enemy after a few munites
-
-        }
-
-
-
-
-        
     }
 }

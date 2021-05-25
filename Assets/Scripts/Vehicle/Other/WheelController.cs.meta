@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a05c62a4bfc8d2b4e8ac987e6d2b693b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - material: {fileID: 2100000, guid: ca052812ad64c374fbf63132668eaf2e, type: 2}
+  - trailSound: {instanceID: 0}
+  - parent: {instanceID: 0}
+  - wheelModel: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
