@@ -1,18 +1,20 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(AudioSource)), RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Rigidbody))]
 public class Vehicle : MonoBehaviour
 {
+    private const float TotalMaxSpeed = 225.0F;
+
     private Rigidbody _rb;
     private WheelCollider[] _wheels;
 
     [SerializeField] private VehicleType vehicleType;
+    [SerializeField] private Transform centerOfMass;
 
     [Header("Specifications")] [SerializeField]
-    private bool canBoost = false;
+    private float motorTorque = 675;
 
-    [SerializeField] private float motorTorque = 675;
     [SerializeField] private float brakeForce = 1500.0f;
     [SerializeField] private float maxHealth = 1000;
     [SerializeField] private float maxFuel = 100;
@@ -25,7 +27,9 @@ public class Vehicle : MonoBehaviour
     [SerializeField] private float wheelStiffness = 1.8F;
     [SerializeField] private float skillCooldown = 3.75f;
     [SerializeField] private float skillPower = 1.45f;
+
     [SerializeField] private int ammo = 0;
+    //[SerializeField] private int maxSpeed = 50;
 
 
     [Header("Geçici Veriler")] [SerializeField]
@@ -58,11 +62,10 @@ public class Vehicle : MonoBehaviour
     private float rotationSpeed = 65F;
     private float steerAngle = 30.0f;
 
-    [SerializeField] private WheelCollider[] driveWheel;
-    [SerializeField] private WheelCollider[] turnWheel;
+    [Header("Wheel & Particles")] [SerializeField]
+    private WheelCollider[] turnWheel;
 
 
-    [SerializeField] private Transform centerOfMass;
     [SerializeField] private ParticleSystem[] gasParticles;
     [SerializeField] private ParticleSystem[] boostParticles;
     [SerializeField] private ParticleSystem[] explosionParticles;
@@ -71,15 +74,19 @@ public class Vehicle : MonoBehaviour
     private AudioSource _boostSource;
     private AudioSource _engineSource;
 
-    [SerializeField] private AudioClip boostClip;
+    [Header("Clip Settings")] [SerializeField]
+    private AudioClip boostClip;
+
     [SerializeField] private AudioClip rolling;
     [SerializeField] private AudioClip stopping;
 
 
-    public float flatoutSpeed = 45.0f;
-    [Range(0.0f, 3.0f)] public float minPitch = 0.7f;
-    [Range(0.0f, 0.1f)] public float pitchSpeed = 0.05f;
-    public float pitchBroker = 7f;
+    [Header("Engine Audio Settings")] [SerializeField]
+    private float flatoutSpeed = 45.0f;
+
+    [Range(0.0f, 3.0f)] [SerializeField] private float minPitch = 0.7f;
+    [Range(0.0f, 0.1f)] [SerializeField] private float pitchSpeed = 0.05f;
+    [SerializeField] private float pitchBroker = 7f;
 
 
     private Vector3 _startPosition;
@@ -104,10 +111,9 @@ public class Vehicle : MonoBehaviour
 
     public virtual void Start()
     {
+        _boostSource = gameObject.AddComponent<AudioSource>();
+        _engineSource = gameObject.AddComponent<AudioSource>();
         _rb = GetComponent<Rigidbody>();
-        _engineSource = GetComponent<AudioSource>();
-        _boostSource = GetComponent<AudioSource>();
-
 
         if (boostClip != null)
         {
@@ -164,7 +170,7 @@ public class Vehicle : MonoBehaviour
 
     private void BoostRegenerator()
     {
-        if (canBoost && !BoostParam)
+        if (!BoostParam)
         {
             boost += Time.deltaTime * boostRegen;
             if (boost > maxBoost)
@@ -234,7 +240,7 @@ public class Vehicle : MonoBehaviour
 
     private void Boost()
     {
-        if (CanMove && BoostParam && canBoost && boost > 0f)
+        if (CanMove && BoostParam && boost > 0f)
         {
             _rb.AddForce(transform.forward * boostForce);
             _boostSource.volume = GameController.GetSfxVolume;
@@ -343,9 +349,19 @@ public class Vehicle : MonoBehaviour
         {
             if (CanMove)
             {
-                foreach (var wheel in driveWheel)
+                if (Math.Abs(Speed) < TotalMaxSpeed)
                 {
-                    wheel.motorTorque = throttle * motorTorque / driveWheel.Length;
+                    foreach (var wheel in _wheels)
+                    {
+                        wheel.motorTorque = throttle * motorTorque / _wheels.Length;
+                    }
+                }
+                else
+                {
+                    foreach (var wheel in _wheels)
+                    {
+                        wheel.motorTorque = 0.0001F;
+                    }
                 }
 
                 FuelConsumption();

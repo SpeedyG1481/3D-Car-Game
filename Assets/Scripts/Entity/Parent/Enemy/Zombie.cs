@@ -38,7 +38,7 @@ public class Zombie : Entity
             }
             else if (minDamageRange < Distance())
             {
-                Chase(moveSpeed + Math.Abs(Player.Speed / 3));
+                Chase(moveSpeed + Math.Abs(Player.Speed / (3 * 3.6F)));
             }
         }
     }
