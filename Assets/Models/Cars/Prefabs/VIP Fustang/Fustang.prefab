@@ -297,8 +297,8 @@ MonoBehaviour:
   - {fileID: 9205443877455191249}
   - {fileID: 2110273452240816389}
   explosionParticles: []
-  boostClip: {fileID: 0}
-  rolling: {fileID: 0}
+  boostClip: {fileID: 8300000, guid: 9da4de9ac9156df4bbf8f2bdc4365aaf, type: 3}
+  rolling: {fileID: 8300000, guid: 24965c7a3d1acc147b3bf7ce503bd45a, type: 3}
   stopping: {fileID: 0}
   flatoutSpeed: 45
   minPitch: 0.7
