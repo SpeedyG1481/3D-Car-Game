@@ -4,8 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Vehicle : MonoBehaviour
 {
-    private const float TotalMaxSpeed = 225.0F;
-
     private Rigidbody _rb;
     private WheelCollider[] _wheels;
 
@@ -45,6 +43,8 @@ public class Vehicle : MonoBehaviour
 
     [SerializeField] private int lastGroundCheck;
     [SerializeField] private bool handbrake;
+    [SerializeField] private float engineRpm = 0.0f;
+    [SerializeField] private int currentGear = 0;
 
 
     public static float HorizontalInput;
@@ -81,12 +81,17 @@ public class Vehicle : MonoBehaviour
     [SerializeField] private AudioClip stopping;
 
 
-    [Header("Engine Audio Settings")] [SerializeField]
-    private float flatoutSpeed = 45.0f;
+    [Header("Engine & Gear")] private float _maxEngineRpm = 6000.0f;
+    private float _minEngineRpm = 1500.0f;
 
-    [Range(0.0f, 3.0f)] [SerializeField] private float minPitch = 0.7f;
-    [Range(0.0f, 0.1f)] [SerializeField] private float pitchSpeed = 0.05f;
-    [SerializeField] private float pitchBroker = 7f;
+    private float[] _gearRatio =
+    {
+        4.25F,
+        3.25F,
+        2.25F,
+        1.25F,
+        0.5F
+    };
 
 
     private Vector3 _startPosition;
@@ -202,8 +207,49 @@ public class Vehicle : MonoBehaviour
 
         if (_engineSource.clip == rolling)
         {
-            _engineSource.pitch = Mathf.Lerp(_engineSource.pitch, Mathf.Abs(Speed) %
-                flatoutSpeed / (flatoutSpeed / pitchBroker), pitchSpeed);
+            engineRpm = (_wheels[0].rpm + _wheels[1].rpm) / 2 * _gearRatio[currentGear] * 10;
+            ShiftGears();
+
+            _engineSource.pitch = Mathf.Abs(engineRpm / _maxEngineRpm) + 1.0f;
+            if (_engineSource.pitch > 2.0f)
+            {
+                _engineSource.pitch = 2.0f;
+            }
+        }
+    }
+
+    void ShiftGears()
+    {
+        if (engineRpm >= _maxEngineRpm)
+        {
+            var appropriateGear = currentGear;
+
+            for (var i = 0; i < _gearRatio.Length; i++)
+            {
+                if (_wheels[0].rpm * _gearRatio[i] * 10 < _maxEngineRpm)
+                {
+                    appropriateGear = i;
+                    break;
+                }
+            }
+
+            currentGear = appropriateGear;
+        }
+
+        if (engineRpm <= _minEngineRpm)
+        {
+            var appropriateGear = currentGear;
+
+            for (var j = _gearRatio.Length - 1; j >= 0; j--)
+            {
+                if (_wheels[0].rpm * _gearRatio[j] * 10 > _minEngineRpm)
+                {
+                    appropriateGear = j;
+                    break;
+                }
+            }
+
+            currentGear = appropriateGear;
         }
     }
 
@@ -349,19 +395,9 @@ public class Vehicle : MonoBehaviour
         {
             if (CanMove)
             {
-                if (Math.Abs(Speed) < TotalMaxSpeed)
+                foreach (var wheel in _wheels)
                 {
-                    foreach (var wheel in _wheels)
-                    {
-                        wheel.motorTorque = throttle * motorTorque / _wheels.Length;
-                    }
-                }
-                else
-                {
-                    foreach (var wheel in _wheels)
-                    {
-                        wheel.motorTorque = 0.0001F;
-                    }
+                    wheel.motorTorque = throttle * motorTorque / _wheels.Length;
                 }
 
                 FuelConsumption();
@@ -482,7 +518,7 @@ public class Vehicle : MonoBehaviour
         if (realDamage < 0)
             realDamage = 0;
 
-        Debug.Log("Damage: " + damage + " - SQRT Durability: " + Math.Sqrt(durability) + " -> " + realDamage);
+        Debug.Log("Damage: " + damage + " - Durability: " + durability + " -> " + realDamage);
 
         health -= realDamage;
         if (health < 0)

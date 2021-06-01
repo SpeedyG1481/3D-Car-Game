@@ -1,20 +1,36 @@
+using System;
 using UnityEngine;
+using UnityEngine.AI;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(NavMeshAgent)), RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(Animator)),]
 public class Entity : MonoBehaviour
 {
+    private static readonly string DeathAnimatorString = "Death";
+    private static readonly string JumpAttackAnimatorString = "JumpAttack";
+    private static readonly string AttackAnimatorString = "Attack";
+    private static readonly string RunAnimatorString = "Run";
+
     private Vehicle _player;
     private Rigidbody _rigidbody;
     private Animator _animator;
+    private NavMeshAgent _navMeshAgent;
 
-    public float maxHealth = 100;
-    public float removeTime = 10;
+    [Header("Specifications")] [SerializeField]
+    private float maxHealth = 100;
+
+    [SerializeField] private float removeTime = 10;
+    [SerializeField] private float radius = 10;
+    [SerializeField] private float attackSpeed = 5;
+    [SerializeField] private float damagePower = 45;
+    [SerializeField] private float stopRange = 6.5F;
+    [SerializeField] private float damageRange = 6.5F;
+    [SerializeField] private float jumpPower = 7.5F;
 
     private float _health;
-    protected static bool IsChasing, IsJumping, IsShooting;
 
     public Rigidbody Rigidbody => _rigidbody;
     public Animator Animator => _animator;
+    public NavMeshAgent NavMeshAgent => _navMeshAgent;
 
     private float _timer = 0;
     private float _deadTimer = 0;
@@ -24,6 +40,13 @@ public class Entity : MonoBehaviour
 
     public float Health => _health;
     public bool IsDead => _health <= 0;
+    public float Timer => _timer;
+    public float Radius => radius;
+    public float AttackSpeed => attackSpeed;
+    public float DamagePower => damagePower;
+    public float StopRange => stopRange;
+    public float DamageRange => damageRange;
+    public float JumpPower => jumpPower;
 
     public virtual void Start()
     {
@@ -31,6 +54,8 @@ public class Entity : MonoBehaviour
         _player = FindTarget();
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
+        _navMeshAgent = GetComponent<NavMeshAgent>();
+        _navMeshAgent.stoppingDistance = stopRange;
     }
 
     public virtual void Update()
@@ -41,9 +66,21 @@ public class Entity : MonoBehaviour
         _timer += Time.deltaTime;
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        GizmoShow();
+    }
+
+    private void GizmoShow()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
     private void Walk()
     {
-        _animator.SetBool("Walk", _rigidbody.velocity.magnitude != 0 && !IsDead);
+        var velocity = Math.Abs(NavMeshAgent.velocity.magnitude);
+        _animator.SetBool(RunAnimatorString, velocity >= 0.35F && !IsDead);
     }
 
     private void Death()
@@ -52,7 +89,7 @@ public class Entity : MonoBehaviour
         {
             _deadTimer = _timer + removeTime;
             _deathAnimation = true;
-            _animator.SetTrigger("Death");
+            _animator.SetTrigger(DeathAnimatorString);
         }
 
         if (_deadTimer > 0 && _timer > _deadTimer)
@@ -93,31 +130,17 @@ public class Entity : MonoBehaviour
     }
 
 
+    public virtual void FaceTarget()
+    {
+        var direction = (Player.transform.position - transform.position).normalized;
+        var lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5F);
+    }
+
     public float Distance()
     {
         var dist = Vector3.Distance(_player.transform.position, transform.position);
-
         return dist;
-    }
-
-
-    public void Chase(float moveSpeed)
-    {
-        transform.LookAt(_player.transform);
-        _rigidbody.velocity = transform.forward * moveSpeed;
-        IsChasing = true;
-    }
-
-    public void Jump(float jumpAmount)
-    {
-        _rigidbody.velocity += Vector3.up * jumpAmount;
-        IsJumping = true;
-        _animator.SetTrigger("Jump Attack");
-    }
-
-    void Shooting()
-    {
-        IsShooting = true;
     }
 
     public virtual void Hit(float damage)
@@ -126,6 +149,29 @@ public class Entity : MonoBehaviour
         if (_health < 0)
         {
             _health = 0;
+        }
+    }
+
+    public virtual void JumpAttack()
+    {
+        _animator.SetTrigger(JumpAttackAnimatorString);
+    }
+
+    public virtual void Kill()
+    {
+        Hit(float.MaxValue);
+    }
+
+    public virtual void Attack()
+    {
+        _animator.SetTrigger(AttackAnimatorString);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Vehicle"))
+        {
+            Kill();
         }
     }
 }
