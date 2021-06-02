@@ -139,7 +139,7 @@ public class Entity : MonoBehaviour
 
     public float Distance()
     {
-        var dist = Vector3.Distance(_player.transform.position, transform.position);
+        var dist = Vector3.Distance(_player.CenterOfMass.position, transform.position);
         return dist;
     }
 

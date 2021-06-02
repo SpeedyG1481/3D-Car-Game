@@ -17,7 +17,7 @@ public class Alien : Entity
             {
                 NavMeshAgent.SetDestination(Player.transform.position);
 
-                if (Distance() < StopRange)
+                if (Distance() <= StopRange)
                 {
                     FaceTarget();
                     if (_isFirstAttack)

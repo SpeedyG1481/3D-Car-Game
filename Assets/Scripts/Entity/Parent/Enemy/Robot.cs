@@ -3,7 +3,9 @@
 public class Robot : Entity
 {
     [Header("Robot Specifications")] [SerializeField]
-    private float ammoSpeed = 15F;
+    private GameObject bullet;
+
+    private float _lastAttackTime = 0;
 
     public override void Start()
     {
@@ -14,11 +16,11 @@ public class Robot : Entity
     {
         if (!IsDead)
         {
-            if (Distance() < Radius)
+            if (Distance() <= Radius)
             {
                 NavMeshAgent.SetDestination(Player.transform.position);
 
-                if (Distance() < StopRange)
+                if (Distance() <= StopRange)
                 {
                     FaceTarget();
                     Attack();
@@ -31,10 +33,26 @@ public class Robot : Entity
 
     public override void Attack()
     {
-        if (Timer % AttackSpeed <= 0.35F && Distance() <= DamageRange)
+        var canAttack = Timer % AttackSpeed <= 0.35F && Distance() <= DamageRange;
+        if (canAttack)
         {
-            Player.Hit(DamagePower);
+            if (!(Timer - _lastAttackTime > AttackSpeed)) return;
+            _lastAttackTime = Timer;
+            Shoot();
             base.Attack();
+        }
+    }
+    
+    private void Shoot()
+    {
+        if (bullet != null)
+        {
+            var pos = transform.position;
+            pos.y = pos.y + 2.5f;
+            pos += transform.forward;
+            var b = Instantiate(bullet, pos, transform.rotation);
+            var bulletScript = b.GetComponent<Bullet>();
+            bulletScript.Damage = DamagePower;
         }
     }
 }

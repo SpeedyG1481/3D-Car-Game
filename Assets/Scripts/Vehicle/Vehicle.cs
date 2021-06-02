@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -6,6 +7,7 @@ public class Vehicle : MonoBehaviour
 {
     private Rigidbody _rb;
     private WheelCollider[] _wheels;
+    private List<Light> _brakeLights;
 
     [SerializeField] private VehicleType vehicleType;
     [SerializeField] private Transform centerOfMass;
@@ -114,11 +116,23 @@ public class Vehicle : MonoBehaviour
     public float FuelPercentage => fuel / maxFuel;
     public VehicleType VehicleType => vehicleType;
 
+    public Transform CenterOfMass => centerOfMass;
+
     public virtual void Start()
     {
         _boostSource = gameObject.AddComponent<AudioSource>();
         _engineSource = gameObject.AddComponent<AudioSource>();
         _rb = GetComponent<Rigidbody>();
+        _brakeLights = new List<Light>();
+        var lights = GetComponentsInChildren<Light>();
+        foreach (var light in lights)
+        {
+            if (light.type == LightType.Point && light.gameObject.name.Contains("Brake"))
+            {
+                _brakeLights.Add(light);
+            }
+        }
+
 
         if (boostClip != null)
         {
@@ -159,6 +173,21 @@ public class Vehicle : MonoBehaviour
         BoostRegenerator();
         EngineSound();
         TimerController();
+        BrakeLights();
+    }
+
+    private void BrakeLights()
+    {
+        float intensity = 2;
+        if (Brake)
+        {
+            intensity = 5;
+        }
+
+        foreach (var l in _brakeLights)
+        {
+            l.intensity = intensity;
+        }
     }
 
     private void GasParticles()
@@ -370,12 +399,12 @@ public class Vehicle : MonoBehaviour
 
     private void HandleWheels()
     {
-        foreach (WheelCollider wheel in turnWheel)
+        foreach (var wheel in turnWheel)
         {
             wheel.steerAngle = Mathf.Lerp(wheel.steerAngle, steering, steerSpeed);
         }
 
-        foreach (WheelCollider wheel in _wheels)
+        foreach (var wheel in _wheels)
         {
             wheel.brakeTorque = 0;
         }
@@ -397,7 +426,14 @@ public class Vehicle : MonoBehaviour
             {
                 foreach (var wheel in _wheels)
                 {
-                    wheel.motorTorque = throttle * motorTorque / _wheels.Length;
+                    var gear = _gearRatio[currentGear];
+                    if (gear > 2.0F)
+                    {
+                        gear /= 2;
+                    }
+
+                    var realMotorTorque = throttle * gear * motorTorque / _wheels.Length;
+                    wheel.motorTorque = realMotorTorque;
                 }
 
                 FuelConsumption();
