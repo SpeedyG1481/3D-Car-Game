@@ -1239,6 +1239,9 @@ MonoBehaviour:
   damagePower: 45
   stopRange: 6.5
   damageRange: 12.5
+  idlingAndRunning: {fileID: 8300000, guid: 0b5bfca3959699c478045a1b0c0430de, type: 3}
+  attacking: {fileID: 8300000, guid: 549ddea946b30424abfb41c6a3ae960a, type: 3}
+  death: {fileID: 8300000, guid: e78f6c8626e8de048a2aee1316692eaa, type: 3}
   jumpPower: 7.5
 --- !u!1 &4238316452644873214
 GameObject:

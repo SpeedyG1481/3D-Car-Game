@@ -2,7 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent)), RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(Animator)),]
+[RequireComponent(typeof(NavMeshAgent)), RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(Animator)),
+ RequireComponent(typeof(CapsuleCollider)), RequireComponent(typeof(AudioSource))]
 public class Entity : MonoBehaviour
 {
     private static readonly string DeathAnimatorString = "Death";
@@ -14,6 +15,8 @@ public class Entity : MonoBehaviour
     private Rigidbody _rigidbody;
     private Animator _animator;
     private NavMeshAgent _navMeshAgent;
+    private CapsuleCollider _capsuleCollider;
+    private AudioSource _audioSource;
 
     [Header("Specifications")] [SerializeField]
     private float maxHealth = 100;
@@ -24,7 +27,10 @@ public class Entity : MonoBehaviour
     [SerializeField] private float damagePower = 45;
     [SerializeField] private float stopRange = 6.5F;
     [SerializeField] private float damageRange = 6.5F;
-    [SerializeField] private float jumpPower = 7.5F;
+
+    [Header("Sounds")] [SerializeField] private AudioClip idlingAndRunning;
+    [SerializeField] private AudioClip attacking;
+    [SerializeField] private AudioClip death;
 
     private float _health;
 
@@ -34,6 +40,7 @@ public class Entity : MonoBehaviour
 
     private float _timer = 0;
     private float _deadTimer = 0;
+    private float _lastAttackTime = 0;
 
     private bool _deathAnimation = false;
 
@@ -46,7 +53,7 @@ public class Entity : MonoBehaviour
     public float DamagePower => damagePower;
     public float StopRange => stopRange;
     public float DamageRange => damageRange;
-    public float JumpPower => jumpPower;
+    public float LastAttackTime => _lastAttackTime;
 
     public virtual void Start()
     {
@@ -55,15 +62,24 @@ public class Entity : MonoBehaviour
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _capsuleCollider = GetComponent<CapsuleCollider>();
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.maxDistance = radius;
         _navMeshAgent.stoppingDistance = stopRange;
     }
 
     public virtual void Update()
     {
+        SoundController();
         Walk();
         if (IsDead)
             Death();
         _timer += Time.deltaTime;
+    }
+
+    private void SoundController()
+    {
+        _audioSource.volume = GameController.GetSfxVolume;
     }
 
     private void OnDrawGizmosSelected()
@@ -80,16 +96,26 @@ public class Entity : MonoBehaviour
     private void Walk()
     {
         var velocity = Math.Abs(NavMeshAgent.velocity.magnitude);
-        _animator.SetBool(RunAnimatorString, velocity >= 0.35F && !IsDead);
+        var isWalking = velocity >= 0.35F && !IsDead;
+        _animator.SetBool(RunAnimatorString, isWalking);
+        if (isWalking && !_audioSource.isPlaying)
+        {
+            _audioSource.clip = idlingAndRunning;
+            _audioSource.Play();
+        }
     }
 
     private void Death()
     {
         if (!_deathAnimation)
         {
-            _deadTimer = _timer + removeTime;
             _deathAnimation = true;
+            _deadTimer = _timer + removeTime;
+            _capsuleCollider.isTrigger = true;
             _animator.SetTrigger(DeathAnimatorString);
+            _audioSource.clip = death;
+            _audioSource.Stop();
+            _audioSource.PlayOneShot(death);
         }
 
         if (_deadTimer > 0 && _timer > _deadTimer)
@@ -165,6 +191,10 @@ public class Entity : MonoBehaviour
     public virtual void Attack()
     {
         _animator.SetTrigger(AttackAnimatorString);
+        _audioSource.clip = attacking;
+        _audioSource.Stop();
+        _audioSource.PlayOneShot(attacking);
+        _lastAttackTime = _timer;
     }
 
     private void OnCollisionEnter(Collision other)

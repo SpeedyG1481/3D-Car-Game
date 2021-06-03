@@ -175,7 +175,9 @@ MonoBehaviour:
   damagePower: 125
   stopRange: 65
   damageRange: 65
-  jumpPower: 7.5
+  idlingAndRunning: {fileID: 8300000, guid: 339c38c74c6437c468a959b2fa9b99bf, type: 3}
+  attacking: {fileID: 8300000, guid: 2580cff50d940d24c97018fe2d66c0da, type: 3}
+  death: {fileID: 8300000, guid: 60badb78d6be7f14c9f0bbccf228cd25, type: 3}
   bullet: {fileID: 3374181743433592018, guid: 7722c8b2ca75b624e86130c001f5bf28, type: 3}
 --- !u!136 &542749797534473992
 CapsuleCollider:

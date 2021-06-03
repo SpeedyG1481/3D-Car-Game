@@ -27,6 +27,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3/Editor/TerrainTools/BrushControllers/BaseBrushUIGroup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/86/14e5e3e6/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entity/Other/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EF667CDC-82BF-4A4E-911D-1DDEA9FF581D/6c/17d2a4f3/PlayerPrefs.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CAFB29D5-2338-47FB-B4ED-CF8D7C32B1E3/6c/09fe7471/Single.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneLoader/Loading.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Canvas/SkillButton.cs" root0="FORCE_HIGHLIGHTING" />
@@ -34,7 +35,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EF667CDC-82BF-4A4E-911D-1DDEA9FF581D/12/0f7e8ec9/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/CloseButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Intro/IntroAnimator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EF667CDC-82BF-4A4E-911D-1DDEA9FF581D/a8/852013bd/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Canvas/SpeedShow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B63C08E7-D0FC-4DA6-927A-9BB41A23D803/55/1cf71c24/Terrain.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Canvas/HealthShow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/63/42df3a9c/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Canvas/MenuButton.cs" root0="FORCE_HIGHLIGHTING" />
@@ -73,7 +76,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/ButtonEffect.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/MenuButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/BoostButton.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/SkillButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/CloseButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/HomeButton.cs" />
@@ -82,12 +84,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/Suspension.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/EngineSoundManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/Trail.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Zombie.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/WheelController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Alien.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Vehicle.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Entity.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Robot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Other/Bullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Intro/IntroAnimator.cs" />
       <option value="$PROJECT_DIR$/Assets/Gecici.cs" />
@@ -95,6 +91,15 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader/Scenes.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader/SceneLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader/Loading.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Component/ComponentType.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Component/Component.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Alien.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Robot.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Zombie.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Vehicle.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Entity.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/WheelController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rzUrHIsnNENMvSG8DY2w48mZTp" />
@@ -107,7 +112,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="CodeLensConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -174,7 +179,11 @@
       <workItem from="1622537912571" duration="8746000" />
       <workItem from="1622558552824" duration="2658000" />
       <workItem from="1622582613581" duration="4240000" />
-      <workItem from="1622626521453" duration="12054000" />
+      <workItem from="1622626521453" duration="12651000" />
+      <workItem from="1622713525466" duration="3948000" />
+      <workItem from="1622719131069" duration="5761000" />
+      <workItem from="1622737506396" duration="978000" />
+      <workItem from="1622742164934" duration="11142000" />
     </task>
     <servers />
   </component>
@@ -185,5 +194,9 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

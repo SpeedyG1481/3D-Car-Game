@@ -5,8 +5,6 @@ public class Robot : Entity
     [Header("Robot Specifications")] [SerializeField]
     private GameObject bullet;
 
-    private float _lastAttackTime = 0;
-
     public override void Start()
     {
         base.Start();
@@ -33,16 +31,15 @@ public class Robot : Entity
 
     public override void Attack()
     {
-        var canAttack = Timer % AttackSpeed <= 0.35F && Distance() <= DamageRange;
-        if (canAttack)
+        if (!(Timer - LastAttackTime > AttackSpeed)) return;
+
+        if (Timer % AttackSpeed <= 0.35F && Distance() <= DamageRange)
         {
-            if (!(Timer - _lastAttackTime > AttackSpeed)) return;
-            _lastAttackTime = Timer;
             Shoot();
             base.Attack();
         }
     }
-    
+
     private void Shoot()
     {
         if (bullet != null)
