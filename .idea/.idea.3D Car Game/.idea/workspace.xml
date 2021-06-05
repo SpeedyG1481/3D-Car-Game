@@ -13,10 +13,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Canvas/BoostShow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/43D2827F-B857-4CF9-8ACF-8EEAAD6DBC12/92/f9d12c75/ScreenCapture.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Unity/Editors/2020.3.3f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Graphic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1DE90147-4F3C-423D-B1AB-A532B12C7B1B/ef/f3cc4549/WheelHit.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/ce/0b09c964/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/fb/0db19f28/Mesh.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D971898-EA0F-4307-A8ED-DF491EA76525/fe/5b811366/Rigidbody.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Canvas/BoostButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gun/Gun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/73/83a37d56/AnimationCurve.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/DA2502C5-0798-42B1-9AAF-45D431B1301B/50/93f6b0ab/LinkedList`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/78/bd0b806e/Transform.cs" root0="SKIP_HIGHLIGHTING" />
@@ -37,24 +39,21 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Intro/IntroAnimator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EF667CDC-82BF-4A4E-911D-1DDEA9FF581D/a8/852013bd/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Canvas/SpeedShow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EF667CDC-82BF-4A4E-911D-1DDEA9FF581D/84/4be0db2a/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B63C08E7-D0FC-4DA6-927A-9BB41A23D803/55/1cf71c24/Terrain.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Canvas/HealthShow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/63/42df3a9c/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Canvas/MenuButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/e5/d08b3479/MeshRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/WheelController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/da/0c0aa2a5/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D971898-EA0F-4307-A8ED-DF491EA76525/ed/b4717c2f/RigidbodyConstraints.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7D971898-EA0F-4307-A8ED-DF491EA76525/3d/46854bed/Physics.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Camera.cs" />
-      <option value="$PROJECT_DIR$/Assets/Arcade_Car_Physics/Scripts/DemoScripts/CameraFollow.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Parent/TractionType.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Parent/Vehicle.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/TrailEmitter.cs" />
-      <option value="$PROJECT_DIR$/Assets/Arcade_Car_Physics/Scripts/WheelVehicle.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Suspension.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Trail.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/EngineSoundManager.cs" />
@@ -84,7 +83,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/Suspension.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/EngineSoundManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/Trail.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Other/Bullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Intro/IntroAnimator.cs" />
       <option value="$PROJECT_DIR$/Assets/Gecici.cs" />
       <option value="$PROJECT_DIR$/Editor/MultiScreenshotCapture.cs" />
@@ -92,14 +90,21 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader/SceneLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader/Loading.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Component/ComponentType.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Component/Component.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Alien.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Robot.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Zombie.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Vehicle.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Entity.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/GroundType.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/GroundData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/WheelController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/LevelController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Vehicle.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Gun/Fireball.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Other/Fireball.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Other/Bullet.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Gun/Gun.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Entity.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Alien.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Zombie.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Robot.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rzUrHIsnNENMvSG8DY2w48mZTp" />
@@ -184,6 +189,11 @@
       <workItem from="1622719131069" duration="5761000" />
       <workItem from="1622737506396" duration="978000" />
       <workItem from="1622742164934" duration="11142000" />
+      <workItem from="1622797494897" duration="2578000" />
+      <workItem from="1622815509439" duration="5163000" />
+      <workItem from="1622830761119" duration="9701000" />
+      <workItem from="1622881971247" duration="5623000" />
+      <workItem from="1622900240478" duration="2205000" />
     </task>
     <servers />
   </component>

@@ -70,7 +70,6 @@ public class Vehicle : MonoBehaviour
 
     [SerializeField] private ParticleSystem[] gasParticles;
     [SerializeField] private ParticleSystem[] boostParticles;
-    [SerializeField] private ParticleSystem[] explosionParticles;
 
 
     private AudioSource _boostSource;
@@ -108,7 +107,7 @@ public class Vehicle : MonoBehaviour
     public bool Handbrake => handbrake;
     public float Speed => speed;
 
-    public bool CanUseSkill => (_timer >= _lastSkillTime) && CanMove;
+    public bool CanUseSkill => _timer >= _lastSkillTime && CanMove;
 
     public float SkillTimer => _lastSkillTime - _timer;
     public float HealthPercentage => health / maxHealth;
@@ -152,6 +151,12 @@ public class Vehicle : MonoBehaviour
         }
 
         _wheels = GetComponentsInChildren<WheelCollider>();
+
+        var gun = GetComponentInChildren<Gun>();
+        if (gun != null)
+        {
+            gun.Ammo = ammo;
+        }
 
         foreach (var wheel in _wheels)
         {
@@ -247,7 +252,7 @@ public class Vehicle : MonoBehaviour
         }
     }
 
-    void ShiftGears()
+    private void ShiftGears()
     {
         if (engineRpm >= _maxEngineRpm)
         {
@@ -432,7 +437,7 @@ public class Vehicle : MonoBehaviour
                         gear /= 2;
                     }
 
-                    var realMotorTorque = throttle * gear * motorTorque / _wheels.Length;
+                    var realMotorTorque = throttle * gear * motorTorque / 4.0f;
                     wheel.motorTorque = realMotorTorque;
                 }
 
@@ -559,16 +564,7 @@ public class Vehicle : MonoBehaviour
         health -= realDamage;
         if (health < 0)
         {
-            ExplosionEffect();
             health = 0;
-        }
-    }
-
-    private void ExplosionEffect()
-    {
-        foreach (var particle in explosionParticles)
-        {
-            particle.Play();
         }
     }
 }

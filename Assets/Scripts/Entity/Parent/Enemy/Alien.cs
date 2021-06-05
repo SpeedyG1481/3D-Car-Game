@@ -14,7 +14,7 @@ public class Alien : Entity
 
     public override void Update()
     {
-        if (!IsDead)
+        if (!IsDead && !Player.IsDead)
         {
             if (Distance() < Radius)
             {

@@ -12,7 +12,7 @@ public class Robot : Entity
 
     public override void Update()
     {
-        if (!IsDead)
+        if (!IsDead && !Player.IsDead)
         {
             if (Distance() <= Radius)
             {
@@ -32,7 +32,6 @@ public class Robot : Entity
     public override void Attack()
     {
         if (!(Timer - LastAttackTime > AttackSpeed)) return;
-
         if (Timer % AttackSpeed <= 0.35F && Distance() <= DamageRange)
         {
             Shoot();
@@ -45,10 +44,12 @@ public class Robot : Entity
         if (bullet != null)
         {
             var pos = transform.position;
-            pos.y = pos.y + 2.5f;
+            pos.y = pos.y + 4f;
             pos += transform.forward;
             var b = Instantiate(bullet, pos, transform.rotation);
             var bulletScript = b.GetComponent<Bullet>();
+            Debug.Log(b);
+            bulletScript.Vehicle = Player;
             bulletScript.Damage = DamagePower;
         }
     }

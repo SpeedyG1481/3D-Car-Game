@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 85a914e91606439ca11eb65bf7c9ca1b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - snow: {fileID: 8300000, guid: 998c8f412b7e6504c9ab295a87d624bc, type: 3}
+  - dirt: {instanceID: 0}
+  - asphalt: {instanceID: 0}
+  - ice: {fileID: 8300000, guid: 363220ac8e2c84e4c94925fc088935be, type: 3}
+  - oldAsphalt: {instanceID: 0}
+  - sand: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

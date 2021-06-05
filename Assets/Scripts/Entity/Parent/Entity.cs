@@ -115,7 +115,7 @@ public class Entity : MonoBehaviour
             _animator.SetTrigger(DeathAnimatorString);
             _audioSource.clip = death;
             _audioSource.Stop();
-            _audioSource.PlayOneShot(death);
+            _audioSource.PlayOneShot(death, GameController.GetSfxVolume);
         }
 
         if (_deadTimer > 0 && _timer > _deadTimer)
@@ -171,6 +171,7 @@ public class Entity : MonoBehaviour
 
     public virtual void Hit(float damage)
     {
+        if (IsDead) return;
         _health -= damage;
         if (_health < 0)
         {
@@ -190,11 +191,12 @@ public class Entity : MonoBehaviour
 
     public virtual void Attack()
     {
+        _lastAttackTime = _timer;
         _animator.SetTrigger(AttackAnimatorString);
         _audioSource.clip = attacking;
         _audioSource.Stop();
-        _audioSource.PlayOneShot(attacking);
-        _lastAttackTime = _timer;
+        _audioSource.PlayOneShot(attacking, GameController.GetSfxVolume);
+        
     }
 
     private void OnCollisionEnter(Collision other)

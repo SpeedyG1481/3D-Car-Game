@@ -9654,7 +9654,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -24168,7 +24168,6 @@ GameObject:
   - component: {fileID: 493306}
   - component: {fileID: 5414576}
   - component: {fileID: 13598230}
-  - component: {fileID: 11441266}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: Untagged
@@ -24217,30 +24216,11 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179432}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11441266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aba4f60f1c542ae44ab00737321e4aea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pushOnAwake: 1
-  startDirection: {x: 0, y: 0, z: 0}
-  startMagnitude: 0
-  forceMode: 0
-  fieryEffect: {fileID: 191522}
-  smokeEffect: {fileID: 183770}
-  explodeEffect: {fileID: 152120}
 --- !u!1 &183770
 GameObject:
   m_ObjectHideFlags: 0
@@ -24559,7 +24539,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -24612,7 +24592,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 1
       minScalar: 1
       maxCurve:

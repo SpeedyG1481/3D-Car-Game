@@ -4,6 +4,8 @@ public static class GameController
 {
     public static bool DebugMode = true;
 
+    public static int CurrentPlayingLevel = 1;
+
     public static float GetMusicVolume => PlayerPrefs.GetFloat("MusicSound");
     public static float GetSfxVolume => PlayerPrefs.GetFloat("SFXSound");
 
@@ -67,5 +69,53 @@ public static class GameController
 
         realCount += count.Value;
         PlayerPrefs.SetInt(type.ToString(), realCount);
+    }
+
+    public static GroundData GroundStiffness(int layer)
+    {
+        var groundType = GroundType.Asphalt;
+        switch (CurrentPlayingLevel)
+        {
+            case 1:
+                switch (layer)
+                {
+                    case 1:
+                        groundType = GroundType.OldAsphalt;
+                        break;
+                }
+
+                break;
+            case 2:
+                switch (layer)
+                {
+                    case 0:
+                        groundType = GroundType.Sand;
+                        break;
+                }
+
+                break;
+            case 3:
+                switch (layer)
+                {
+                    case 0:
+                        groundType = GroundType.Snow;
+                        break;
+                    case 1:
+                        groundType = GroundType.Ice;
+                        break;
+                }
+
+                break;
+            case 4:
+                switch (layer)
+                {
+                    case 0:
+                        groundType = GroundType.Dirt;
+                        break;
+                }
+                break;
+        }
+
+        return new GroundData(groundType);
     }
 }

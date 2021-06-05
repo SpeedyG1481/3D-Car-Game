@@ -19,6 +19,18 @@ public class WheelController : MonoBehaviour
 
     private Vector3 _currentPose;
 
+    private float _normalStiffness;
+
+    private bool _firstUpdateController = false;
+
+
+    private AudioClip _currentAudioClip;
+
+    [Header("Sounds")] [SerializeField] private AudioClip snow;
+    [SerializeField] private AudioClip dirt;
+    [SerializeField] private AudioClip ice;
+    [SerializeField] private AudioClip sand;
+
     public void Start()
     {
         _lastUpdate = Time.realtimeSinceStartup;
@@ -27,31 +39,35 @@ public class WheelController : MonoBehaviour
     }
 
 
+    // ReSharper disable Unity.PerformanceAnalysis
     private int GetActiveTerrainTextureIdx()
     {
         WheelHit hit;
         _wheelCollider.GetGroundHit(out hit);
 
-        var terrain = hit.collider.gameObject.GetComponent<Terrain>();
-
-        if (terrain != null || _currentPose == null)
+        if (hit.collider)
         {
-            var mTerrainData = terrain.terrainData;
-            var alphamapWidth = mTerrainData.alphamapWidth;
-            var alphamapHeight = mTerrainData.alphamapHeight;
-            _mSplatmapData = mTerrainData.GetAlphamaps(0, 0, alphamapWidth, alphamapHeight);
-            _mNumTextures = _mSplatmapData.Length / (alphamapWidth * alphamapHeight);
+            var terrain = hit.collider.gameObject.GetComponent<Terrain>();
 
-            var terrainCord = ConvertToSplatMapCoordinate(terrain);
-            var ret = 0;
-            var comp = 0f;
-            for (var i = 0; i < _mNumTextures; i++)
+            if (terrain != null || _currentPose == null)
             {
-                if (comp < _mSplatmapData[(int) terrainCord.z, (int) terrainCord.x, i])
-                    ret = i;
-            }
+                var mTerrainData = terrain.terrainData;
+                var alphamapWidth = mTerrainData.alphamapWidth;
+                var alphamapHeight = mTerrainData.alphamapHeight;
+                _mSplatmapData = mTerrainData.GetAlphamaps(0, 0, alphamapWidth, alphamapHeight);
+                _mNumTextures = _mSplatmapData.Length / (alphamapWidth * alphamapHeight);
 
-            return ret;
+                var terrainCord = ConvertToSplatMapCoordinate(terrain);
+                var ret = 0;
+                var comp = 0f;
+                for (var i = 0; i < _mNumTextures; i++)
+                {
+                    if (comp < _mSplatmapData[(int) terrainCord.z, (int) terrainCord.x, i])
+                        ret = i;
+                }
+
+                return ret;
+            }
         }
 
         return -1;
@@ -60,12 +76,67 @@ public class WheelController : MonoBehaviour
 
     private void Update()
     {
-        var terrainIdx = GetActiveTerrainTextureIdx();
-        //Texture numarası
-        Debug.Log(terrainIdx);
+        SetStiffness();
+        SetCurrentData();
+        PlaySound();
     }
 
-    void FixedUpdate()
+    private void GroundStiffness(float s)
+    {
+        var stiffness = _normalStiffness + s;
+        var forward = _wheelCollider.forwardFriction;
+        var sideways = _wheelCollider.sidewaysFriction;
+        forward.stiffness = stiffness;
+        sideways.stiffness = stiffness;
+        _wheelCollider.forwardFriction = forward;
+        _wheelCollider.sidewaysFriction = sideways;
+    }
+
+    private void SetStiffness()
+    {
+        if (!_firstUpdateController)
+        {
+            _firstUpdateController = true;
+            _normalStiffness = _wheelCollider.forwardFriction.stiffness;
+        }
+    }
+
+    private void PlaySound()
+    {
+        if (_wheelCollider && _wheelCollider.isGrounded && _wheelCollider.rpm > 10 && _currentAudioClip != null)
+        {
+            _audioSource.clip = _currentAudioClip;
+            _audioSource.volume = GameController.GetSfxVolume;
+            _audioSource.Play();
+        }
+        else
+        {
+            _audioSource.Stop();
+        }
+    }
+
+    private void SetCurrentData()
+    {
+        var terrainIdx = GetActiveTerrainTextureIdx();
+        var data = GameController.GroundStiffness(terrainIdx);
+        GroundStiffness(data.GroundStiffness);
+        _currentAudioClip = GetSound(data);
+    }
+
+    private AudioClip GetSound(GroundData groundData)
+    {
+        return groundData.GroundType switch
+        {
+            GroundType.Snow => snow,
+            GroundType.Ice => ice,
+            GroundType.Dirt => dirt,
+            GroundType.OldAsphalt => dirt,
+            GroundType.Sand => sand,
+            _ => null
+        };
+    }
+
+    private void FixedUpdate()
     {
         if (Time.realtimeSinceStartup - _lastUpdate < 1f / 60f)
         {
