@@ -2213,6 +2213,7 @@ MonoBehaviour:
   boostClip: {fileID: 8300000, guid: 9da4de9ac9156df4bbf8f2bdc4365aaf, type: 3}
   rolling: {fileID: 8300000, guid: 43dffae8aac20eb43a98bb24492c4a6c, type: 3}
   stopping: {fileID: 8300000, guid: 059b25f30bd136049b7cd201f0a5cd76, type: 3}
+  damageSound: {fileID: 8300000, guid: 64a70108f218b9b4eba4cf9e2f01d920, type: 3}
 --- !u!65 &1948829993874997297
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Component : MonoBehaviour
 {
     [SerializeField] private ComponentType componentType;
@@ -30,11 +31,12 @@ public class Component : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name + " - " + other.gameObject.tag);
         if (other.gameObject.CompareTag("Vehicle"))
         {
             GameController.Add(componentType, 1);
             _collisionController = true;
+            _audioSource.volume = GameController.GetSfxVolume;
+            _audioSource.PlayOneShot(sound, GameController.GetSfxVolume);
         }
     }
 

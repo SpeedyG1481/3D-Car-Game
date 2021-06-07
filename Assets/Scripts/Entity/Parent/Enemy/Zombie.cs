@@ -29,7 +29,7 @@ public class Zombie : Entity
 
         if (Timer % AttackSpeed <= 0.35F && Distance() <= DamageRange)
         {
-            Player.Hit(DamagePower);
+            Player.Hit(DamagePower, DamageType.Entity);
             base.Attack();
         }
     }

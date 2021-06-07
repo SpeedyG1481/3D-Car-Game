@@ -2,9 +2,12 @@
 
 public static class GameController
 {
-    public static bool DebugMode = true;
+    public static readonly int TotalUpgrade = 7;
+    public static readonly bool DebugMode = true;
+
 
     public static int CurrentPlayingLevel = 1;
+    public static int CurrentPlayingCar = 1;
 
     public static float GetMusicVolume => PlayerPrefs.GetFloat("MusicSound");
     public static float GetSfxVolume => PlayerPrefs.GetFloat("SFXSound");
@@ -20,14 +23,53 @@ public static class GameController
         Vehicle.BoostParam = Input.GetKey(KeyCode.Space);
     }
 
-    public static int BrakeCount => PlayerPrefs.GetInt(ComponentType.Brake.ToString());
-    public static int MotorCount => PlayerPrefs.GetInt(ComponentType.Motor.ToString());
-    public static int TurboCount => PlayerPrefs.GetInt(ComponentType.Turbo.ToString());
-    public static int AmmoCount => PlayerPrefs.GetInt(ComponentType.Ammo.ToString());
-    public static int SuspensionCount => PlayerPrefs.GetInt(ComponentType.Suspension.ToString());
-    public static int SteelCount => PlayerPrefs.GetInt(ComponentType.Steel.ToString());
-    public static int CapsuleCount => PlayerPrefs.GetInt(ComponentType.Capsule.ToString());
-    public static int GasolineCount => PlayerPrefs.GetInt(ComponentType.Gasoline.ToString());
+    public static int BrakeCount
+    {
+        get => PlayerPrefs.GetInt(ComponentType.Brake.ToString());
+        set => PlayerPrefs.SetInt(ComponentType.Brake.ToString(), value);
+    }
+
+    public static int MotorCount
+    {
+        get => PlayerPrefs.GetInt(ComponentType.Motor.ToString());
+        set => PlayerPrefs.SetInt(ComponentType.Motor.ToString(), value);
+    }
+
+    public static int TurboCount
+    {
+        get => PlayerPrefs.GetInt(ComponentType.Turbo.ToString());
+        set => PlayerPrefs.SetInt(ComponentType.Turbo.ToString(), value);
+    }
+
+    public static int AmmoCount
+    {
+        get => PlayerPrefs.GetInt(ComponentType.Ammo.ToString());
+        set => PlayerPrefs.SetInt(ComponentType.Ammo.ToString(), value);
+    }
+
+    public static int SuspensionCount
+    {
+        get => PlayerPrefs.GetInt(ComponentType.Suspension.ToString());
+        set => PlayerPrefs.SetInt(ComponentType.Suspension.ToString(), value);
+    }
+
+    public static int SteelCount
+    {
+        get => PlayerPrefs.GetInt(ComponentType.Steel.ToString());
+        set => PlayerPrefs.SetInt(ComponentType.Steel.ToString(), value);
+    }
+
+    public static int CapsuleCount
+    {
+        get => PlayerPrefs.GetInt(ComponentType.Capsule.ToString());
+        set => PlayerPrefs.SetInt(ComponentType.Capsule.ToString(), value);
+    }
+
+    public static int GasolineCount
+    {
+        get => PlayerPrefs.GetInt(ComponentType.Gasoline.ToString());
+        set => PlayerPrefs.SetInt(ComponentType.Gasoline.ToString(), value);
+    }
 
 
     public static void Add(ComponentType type, int? count)
@@ -113,9 +155,73 @@ public static class GameController
                         groundType = GroundType.Dirt;
                         break;
                 }
+
                 break;
         }
 
         return new GroundData(groundType);
+    }
+
+    public static Vehicles GetCurrentCar
+    {
+        get
+        {
+            switch (CurrentPlayingCar)
+            {
+                case 2:
+                    return Vehicles.Sedan;
+                case 3:
+                    return Vehicles.Pickup;
+                case 4:
+                    return Vehicles.Bugee;
+                case 5:
+                    return Vehicles.Military6X6;
+                case 6:
+                    return Vehicles.Fustang;
+                case 7:
+                    return Vehicles.KnightRider;
+                default:
+                    return Vehicles.Hatchback;
+            }
+        }
+    }
+
+    public static bool CanUseCar()
+    {
+        return GetCurrentCar == Vehicles.Hatchback || PlayerPrefs.GetInt(GetCurrentCar.ToString()) > 0;
+    }
+
+    public static bool CanUpgradeCarLevel(UpgradeType upgradeType)
+    {
+        var upgrade = Upgrade.GetUpgradeData(upgradeType);
+        var canUpgradeThisCar = AmmoCount >= upgrade.AmmoNeed && BrakeCount >= upgrade.BrakeNeed &&
+                                CapsuleCount >= upgrade.CapsuleNeed && SuspensionCount >= upgrade.SuspensionNeed &&
+                                MotorCount >= upgrade.MotorNeed && TurboCount >= upgrade.TurboNeed &&
+                                SteelCount >= upgrade.SteelNeed && GasolineCount >= upgrade.GasolineNeed;
+        var isMaxUpgrade = GetCurrentUpgradeLevel(upgradeType) < TotalUpgrade;
+
+        return CanUseCar() && canUpgradeThisCar && isMaxUpgrade;
+    }
+
+    public static int GetCurrentUpgradeLevel(UpgradeType upgradeType)
+    {
+        return PlayerPrefs.GetInt(GetCurrentCar.ToString() + "_" + upgradeType.ToString());
+    }
+
+    public static void UpgradePartLevel(UpgradeType upgradeType)
+    {
+        var upgrade = Upgrade.GetUpgradeData(upgradeType);
+        AmmoCount -= upgrade.AmmoNeed;
+        BrakeCount -= upgrade.BrakeNeed;
+        CapsuleCount -= upgrade.CapsuleNeed;
+        GasolineCount -= upgrade.GasolineNeed;
+        MotorCount -= upgrade.MotorNeed;
+        SteelCount -= upgrade.SteelNeed;
+        SuspensionCount -= upgrade.SuspensionNeed;
+        TurboCount -= upgrade.TurboNeed;
+
+        var current = PlayerPrefs.GetInt(GetCurrentCar.ToString() + "_" + upgradeType.ToString());
+        current++;
+        PlayerPrefs.SetInt(GetCurrentCar.ToString() + "_" + upgradeType.ToString(), current);
     }
 }

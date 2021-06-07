@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 109204175}
   - component: {fileID: 109204174}
   - component: {fileID: 109204173}
+  - component: {fileID: 109204176}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -244,6 +245,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109204171}
   m_CullTransparentMesh: 1
+--- !u!114 &109204176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109204171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d63edac0c6c3a449eb529bb69bd193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &149291260
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +403,7 @@ GameObject:
   - component: {fileID: 164620653}
   - component: {fileID: 164620652}
   - component: {fileID: 164620651}
+  - component: {fileID: 164620654}
   m_Layer: 5
   m_Name: About
   m_TagString: Untagged
@@ -499,6 +513,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164620649}
   m_CullTransparentMesh: 1
+--- !u!114 &164620654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164620649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a1a6b08696d6647bae365785da0992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &396581041
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,6 +537,7 @@ GameObject:
   - component: {fileID: 396581045}
   - component: {fileID: 396581044}
   - component: {fileID: 396581043}
+  - component: {fileID: 396581046}
   m_Layer: 5
   m_Name: Forum
   m_TagString: Untagged
@@ -620,6 +647,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396581041}
   m_CullTransparentMesh: 1
+--- !u!114 &396581046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396581041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190cf00ad2c0d2d45962e8a9e9027468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: https://www.oyuncubilgisi.com
 --- !u!1 &512286918
 GameObject:
   m_ObjectHideFlags: 3
@@ -1847,6 +1887,7 @@ GameObject:
   - component: {fileID: 1834769919}
   - component: {fileID: 1834769918}
   - component: {fileID: 1834769917}
+  - component: {fileID: 1834769920}
   m_Layer: 5
   m_Name: Studio
   m_TagString: Untagged
@@ -1956,3 +1997,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834769915}
   m_CullTransparentMesh: 1
+--- !u!114 &1834769920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834769915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190cf00ad2c0d2d45962e8a9e9027468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: https://studio.megalowofficial.com

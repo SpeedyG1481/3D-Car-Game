@@ -1,4 +1,3 @@
-using SceneLoader;
 using UnityEngine;
 
 namespace Intro
@@ -19,7 +18,7 @@ namespace Intro
             _timer += Time.deltaTime;
             if (_timer >= IntroTime)
             {
-                SceneLoader.SceneLoader.Load(Scenes.Menu);
+                SceneLoader.Load(Scenes.Menu);
             }
         }
     }

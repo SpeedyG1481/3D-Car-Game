@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Diagnostics.CodeAnalysis;
+using UnityEngine;
 
+[SuppressMessage("ReSharper", "Unity.PerformanceCriticalCodeInvocation")]
 public class Alien : Entity
 {
     [Header("Alien Specific")] [SerializeField]
@@ -42,17 +44,17 @@ public class Alien : Entity
     public override void JumpAttack()
     {
         Rigidbody.velocity += Vector3.up * jumpPower;
-        Player.Hit(DamagePower / 2);
+        Player.Hit(DamagePower * 1.5f, DamageType.Entity);
         base.JumpAttack();
     }
 
     public override void Attack()
     {
         if (!(Timer - LastAttackTime > AttackSpeed)) return;
-        
+
         if (Timer % AttackSpeed <= 0.35F && Distance() <= DamageRange)
         {
-            Player.Hit(DamagePower);
+            Player.Hit(DamagePower, DamageType.Entity);
             base.Attack();
         }
     }

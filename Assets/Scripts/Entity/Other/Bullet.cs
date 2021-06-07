@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -8,15 +9,23 @@ public class Bullet : MonoBehaviour
     [SerializeField] private ParticleSystem explosionParticle;
     [SerializeField] private AudioClip boomSound;
 
+
     private Rigidbody _rigidbody;
     private float _timer = 0;
     private float _damage = 0;
     private Vehicle _vehicle;
+    private bool _follow = false;
 
     public float Damage
     {
         get => _damage;
         set => _damage = value;
+    }
+
+    public bool Follow
+    {
+        get => _follow;
+        set => _follow = value;
     }
 
     public Vehicle Vehicle
@@ -34,18 +43,16 @@ public class Bullet : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (_vehicle != null)
-        {
+        if (_follow && _vehicle != null)
             transform.LookAt(_vehicle.transform);
-            _rigidbody.velocity += transform.forward * (speed * Time.fixedDeltaTime);
-            _timer += Time.fixedDeltaTime;
-            if (_timer > lifeTime)
-            {
-                Destroy(gameObject);
-            }
-
-            transform.Rotate(Vector3.forward * (Time.fixedDeltaTime * speed));
+        _rigidbody.velocity += transform.forward * (speed * Time.fixedDeltaTime);
+        _timer += Time.fixedDeltaTime;
+        if (_timer > lifeTime)
+        {
+            Destroy(gameObject);
         }
+
+        transform.Rotate(Vector3.forward * (float) (Time.fixedDeltaTime * Math.Pow(speed, 5.5)));
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,7 +62,7 @@ public class Bullet : MonoBehaviour
             var vehicle = other.gameObject.GetComponentInParent<Vehicle>();
             if (vehicle != null)
             {
-                vehicle.Hit(_damage);
+                vehicle.Hit(_damage, DamageType.Entity);
                 if (explosionParticle)
                 {
                     var go = Instantiate(explosionParticle, transform.position, transform.rotation);

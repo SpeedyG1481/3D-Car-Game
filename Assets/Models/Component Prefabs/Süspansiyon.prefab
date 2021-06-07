@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   componentType: 6
+  sound: {fileID: 8300000, guid: 29f679c96e994484787f7b496e165980, type: 3}
   rotationDirectionY: 1
 --- !u!1 &7108367700973802132
 GameObject:

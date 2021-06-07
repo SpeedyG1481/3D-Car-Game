@@ -74,12 +74,14 @@ public class Vehicle : MonoBehaviour
 
     private AudioSource _boostSource;
     private AudioSource _engineSource;
+    private AudioSource _damageSource;
 
     [Header("Clip Settings")] [SerializeField]
     private AudioClip boostClip;
 
     [SerializeField] private AudioClip rolling;
     [SerializeField] private AudioClip stopping;
+    [SerializeField] private AudioClip damageSound;
 
 
     [Header("Engine & Gear")] private float _maxEngineRpm = 6000.0f;
@@ -121,6 +123,7 @@ public class Vehicle : MonoBehaviour
     {
         _boostSource = gameObject.AddComponent<AudioSource>();
         _engineSource = gameObject.AddComponent<AudioSource>();
+        _damageSource = gameObject.AddComponent<AudioSource>();
         _rb = GetComponent<Rigidbody>();
         _brakeLights = new List<Light>();
         var lights = GetComponentsInChildren<Light>();
@@ -539,18 +542,24 @@ public class Vehicle : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        lastSpeed = speed;
-        _rb.velocity = -transform.forward * 2.5F;
+        if (!other.gameObject.CompareTag("Enemy"))
+        {
+            lastSpeed = speed;
+            _rb.velocity = -transform.forward * 3.5F;
+        }
     }
 
 
     private void OnCollisionExit(Collision other)
     {
-        var damage = Math.Abs(speed - lastSpeed);
-        Hit(damage);
+        if (!other.gameObject.CompareTag("Enemy"))
+        {
+            var damage = Math.Abs(speed - lastSpeed);
+            Hit(damage, DamageType.Wall);
+        }
     }
 
-    public void Hit(float damage)
+    public void Hit(float damage, DamageType type)
     {
         if (damage < 0)
             return;
@@ -559,7 +568,11 @@ public class Vehicle : MonoBehaviour
         if (realDamage < 0)
             realDamage = 0;
 
-        Debug.Log("Damage: " + damage + " - Durability: " + durability + " -> " + realDamage);
+        if (damageSound != null && type == DamageType.Wall)
+        {
+            _damageSource.volume = GameController.GetSfxVolume;
+            _damageSource.PlayOneShot(damageSound, GameController.GetSfxVolume);
+        }
 
         health -= realDamage;
         if (health < 0)

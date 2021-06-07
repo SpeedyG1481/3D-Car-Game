@@ -3,7 +3,12 @@ guid: b19bfee1b3b9f8a4193dd81dae4e8866
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - centerOfMass: {instanceID: 0}
+  - boostClip: {instanceID: 0}
+  - rolling: {instanceID: 0}
+  - stopping: {instanceID: 0}
+  - damageSound: {fileID: 8300000, guid: 64a70108f218b9b4eba4cf9e2f01d920, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

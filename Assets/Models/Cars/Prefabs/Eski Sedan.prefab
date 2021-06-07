@@ -230,7 +230,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 0.15294118, a: 1}
   m_Intensity: 4
-  m_Range: 35
+  m_Range: 60
   m_SpotAngle: 65
   m_InnerSpotAngle: 1
   m_CookieSize: 10
@@ -416,7 +416,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 0.15294118, a: 1}
   m_Intensity: 4
-  m_Range: 35
+  m_Range: 60
   m_SpotAngle: 65
   m_InnerSpotAngle: 1
   m_CookieSize: 10
@@ -1328,6 +1328,7 @@ MonoBehaviour:
   boostClip: {fileID: 8300000, guid: 9da4de9ac9156df4bbf8f2bdc4365aaf, type: 3}
   rolling: {fileID: 8300000, guid: 3e84a25abdbd2f6459c878ed0208c2f7, type: 3}
   stopping: {fileID: 8300000, guid: 059b25f30bd136049b7cd201f0a5cd76, type: 3}
+  damageSound: {fileID: 8300000, guid: 64a70108f218b9b4eba4cf9e2f01d920, type: 3}
 --- !u!65 &1094720871794231551
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1339,8 +1340,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.1805093, z: 4.8677397}
-  m_Center: {x: 5.0910576e-16, y: 0.5902531, z: -0.17445531}
+  m_Size: {x: 1.8288797, y: 2.0645156, z: 4.8677397}
+  m_Center: {x: -0.020575207, y: 0.6482502, z: -0.17445533}
 --- !u!1 &6367787608176437098
 GameObject:
   m_ObjectHideFlags: 0
