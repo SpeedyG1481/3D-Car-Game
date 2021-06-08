@@ -10,4 +10,5 @@
     Level4,
     About,
     LevelPicker,
+    Settings
 }

@@ -19,6 +19,7 @@ public class UpgradePartButton : MonoBehaviour
 
     private void ButtonListener()
     {
+        if (audioSource.isPlaying) audioSource.Stop();
         if (GameController.CanUpgradeCarLevel(upgradeType))
         {
             GameController.UpgradePartLevel(upgradeType);

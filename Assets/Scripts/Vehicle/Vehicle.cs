@@ -10,6 +10,7 @@ public class Vehicle : MonoBehaviour
     private List<Light> _brakeLights;
 
     [SerializeField] private VehicleType vehicleType;
+    [SerializeField] private Vehicles vehicleEnum;
     [SerializeField] private Transform centerOfMass;
 
     [Header("Specifications")] [SerializeField]
@@ -116,11 +117,14 @@ public class Vehicle : MonoBehaviour
     public float BoostPercentage => boost / maxBoost;
     public float FuelPercentage => fuel / maxFuel;
     public VehicleType VehicleType => vehicleType;
+    public Vehicles VehicleEnum => vehicleEnum;
 
     public Transform CenterOfMass => centerOfMass;
 
+
     public virtual void Start()
     {
+        _startPosition = transform.position;
         _boostSource = gameObject.AddComponent<AudioSource>();
         _engineSource = gameObject.AddComponent<AudioSource>();
         _damageSource = gameObject.AddComponent<AudioSource>();
@@ -135,44 +139,19 @@ public class Vehicle : MonoBehaviour
             }
         }
 
-
         if (boostClip != null)
         {
             _boostSource.clip = boostClip;
         }
-
-        _startPosition = transform.position;
-        health = maxHealth;
-        boost = maxBoost;
-        fuel = maxFuel;
-        boost = maxBoost;
-
 
         if (_rb != null && centerOfMass != null)
         {
             _rb.centerOfMass = centerOfMass.localPosition;
         }
 
+
         _wheels = GetComponentsInChildren<WheelCollider>();
-
-        var gun = GetComponentInChildren<Gun>();
-        if (gun != null)
-        {
-            gun.Ammo = ammo;
-        }
-
-        foreach (var wheel in _wheels)
-        {
-            var forward = wheel.forwardFriction;
-            var sideways = wheel.sidewaysFriction;
-            forward.stiffness = wheelStiffness;
-            sideways.stiffness = wheelStiffness;
-
-            wheel.sidewaysFriction = sideways;
-            wheel.forwardFriction = forward;
-
-            wheel.motorTorque = 0.0001f;
-        }
+        PrepareCar();
     }
 
     private void Update()
@@ -182,6 +161,13 @@ public class Vehicle : MonoBehaviour
         EngineSound();
         TimerController();
         BrakeLights();
+        Deletesss();
+    }
+
+    private void Deletesss()
+    {
+        string[] names = QualitySettings.names;
+        Debug.Log(names[QualitySettings.GetQualityLevel()]);
     }
 
     private void BrakeLights()
@@ -579,5 +565,48 @@ public class Vehicle : MonoBehaviour
         {
             health = 0;
         }
+    }
+
+    private void PrepareCar()
+    {
+        var partUpgrade = PartUpgrade.GetPartUpgrade();
+        idlingFuelConsumption -= partUpgrade.FuelConsumptionIdle;
+        gasFuelConsumption -= partUpgrade.FuelConsumptionGas;
+        _rb.mass -= partUpgrade.Mass;
+        motorTorque += partUpgrade.Engine;
+        maxHealth += partUpgrade.Health;
+        maxBoost += partUpgrade.BoostFuel;
+        boostForce += partUpgrade.BoostPower;
+        boostRegen += partUpgrade.BoostRegen;
+        maxFuel += partUpgrade.Fuel;
+        brakeForce += partUpgrade.Brake;
+        durability += partUpgrade.Durability;
+        skillPower += partUpgrade.AbilityPower;
+        skillCooldown -= partUpgrade.AbilityTime;
+        ammo += partUpgrade.Ammo;
+
+        var gun = GetComponentInChildren<Gun>();
+        if (gun != null)
+        {
+            gun.Ammo = ammo;
+        }
+
+        foreach (var wheel in _wheels)
+        {
+            var forward = wheel.forwardFriction;
+            var sideways = wheel.sidewaysFriction;
+            forward.stiffness = wheelStiffness + partUpgrade.WheelStiffness;
+            sideways.stiffness = wheelStiffness + partUpgrade.WheelStiffness;
+
+            wheel.sidewaysFriction = sideways;
+            wheel.forwardFriction = forward;
+
+            wheel.motorTorque = 0.0001f;
+        }
+
+        health = maxHealth;
+        boost = maxBoost;
+        fuel = maxFuel;
+        boost = maxBoost;
     }
 }

@@ -3,34 +3,33 @@ using UnityEngine.UI;
 
 public class LevelButton : MonoBehaviour
 {
-    [SerializeField] private Scenes level;
-
+    [SerializeField] private int level = 1;
+    [SerializeField] private AudioClip clip;
+    [SerializeField] private GameObject lockObject;
+    [SerializeField] private AudioSource audioSource;
     private Button _button;
+
 
     private void Start()
     {
         _button = GetComponent<Button>();
         _button.onClick.AddListener(ButtonListener);
+        lockObject.SetActive(!GameController.CanPlay(level));
     }
 
     private void ButtonListener()
     {
-        switch (level)
+        if (GameController.CanPlay(level))
         {
-            case Scenes.Level1:
-                GameController.CurrentPlayingLevel = 1;
-                break;
-            case Scenes.Level2:
-                GameController.CurrentPlayingLevel = 2;
-                break;
-            case Scenes.Level3:
-                GameController.CurrentPlayingLevel = 3;
-                break;
-            case Scenes.Level4:
-                GameController.CurrentPlayingLevel = 4;
-                break;
+            GameController.CurrentPlayingLevel = level;
+            SceneLoader.Load(Scenes.Garage);
         }
-
-        SceneLoader.Load(level);
+        else
+        {
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+            audioSource.volume = GameController.GetSfxVolume;
+            audioSource.PlayOneShot(clip, GameController.GetSfxVolume);
+        }
     }
 }

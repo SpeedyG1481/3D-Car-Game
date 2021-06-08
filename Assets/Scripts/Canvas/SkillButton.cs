@@ -36,18 +36,19 @@ public class SkillButton : ButtonEffect, IPointerDownHandler, IPointerUpHandler
 
     private void SelectSprite()
     {
-        switch (_vehicle.VehicleType)
-        {
-            case VehicleType.KnightRider:
-                _showSprite = jump;
-                break;
-            case VehicleType.OldSedanVip:
-                _showSprite = heal;
-                break;
-            default:
-                _canShow = false;
-                break;
-        }
+        if (_vehicle != null && _vehicle.VehicleType != null)
+            switch (_vehicle.VehicleType)
+            {
+                case VehicleType.KnightRider:
+                    _showSprite = jump;
+                    break;
+                case VehicleType.OldSedanVip:
+                    _showSprite = heal;
+                    break;
+                default:
+                    _canShow = false;
+                    break;
+            }
     }
 
     void Update()

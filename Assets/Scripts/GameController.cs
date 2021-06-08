@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public static class GameController
 {
@@ -11,6 +12,21 @@ public static class GameController
 
     public static float GetMusicVolume => PlayerPrefs.GetFloat("MusicSound");
     public static float GetSfxVolume => PlayerPrefs.GetFloat("SFXSound");
+
+    public static int GetCurrentLevel => PlayerPrefs.GetInt("LevelValue") == 0 ? 1 : PlayerPrefs.GetInt("LevelValue");
+
+    public static bool CanPlay(int level)
+    {
+        return GetCurrentLevel > level - 1;
+    }
+
+    public static void GoNextLevel()
+    {
+        if (CurrentPlayingLevel > GetCurrentLevel)
+            return;
+
+        PlayerPrefs.SetInt("LevelValue", CurrentPlayingLevel + 1);
+    }
 
     public static void GetDebugInputs()
     {
@@ -223,5 +239,62 @@ public static class GameController
         var current = PlayerPrefs.GetInt(GetCurrentCar.ToString() + "_" + upgradeType.ToString());
         current++;
         PlayerPrefs.SetInt(GetCurrentCar.ToString() + "_" + upgradeType.ToString(), current);
+    }
+
+    public static void OpenCar(Vehicles vehicle)
+    {
+        PlayerPrefs.SetInt(vehicle.ToString(), 1);
+    }
+
+    public static CameraTypes GetCurrentCamera()
+    {
+        var cameraTypes = CameraTypes.Tps;
+        var cameraType = PlayerPrefs.GetString("CameraType");
+
+        foreach (var camera in (CameraTypes[]) Enum.GetValues(typeof(CameraTypes)))
+        {
+            if (camera.ToString() == cameraType)
+            {
+                cameraTypes = camera;
+                break;
+            }
+        }
+
+        return cameraTypes;
+    }
+
+    public static void ChangeCameraPosition()
+    {
+        switch (GetCurrentCamera())
+        {
+            case CameraTypes.Left:
+                PlayerPrefs.SetString("CameraType", CameraTypes.Tps.ToString());
+                break;
+            case CameraTypes.Right:
+                PlayerPrefs.SetString("CameraType", CameraTypes.Left.ToString());
+                break;
+            case CameraTypes.Tps:
+                PlayerPrefs.SetString("CameraType", CameraTypes.Right.ToString());
+                break;
+        }
+    }
+
+    public static void ReLoadCurrentLevel()
+    {
+        switch (CurrentPlayingLevel)
+        {
+            case 1:
+                SceneLoader.Load(Scenes.Level1);
+                break;
+            case 2:
+                SceneLoader.Load(Scenes.Level2);
+                break;
+            case 3:
+                SceneLoader.Load(Scenes.Level3);
+                break;
+            case 4:
+                SceneLoader.Load(Scenes.Level4);
+                break;
+        }
     }
 }

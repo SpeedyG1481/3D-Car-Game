@@ -1733,6 +1733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vehicleType: 0
+  vehicleEnum: 5
   centerOfMass: {fileID: 6154440240596211616}
   motorTorque: 2075
   brakeForce: 2125

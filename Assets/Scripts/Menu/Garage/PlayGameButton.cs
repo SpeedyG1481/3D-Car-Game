@@ -27,6 +27,7 @@ public class PlayGameButton : MonoBehaviour
                 break;
         }
 
-        SceneLoader.Load(level);
+        if (GameController.CanUseCar())
+            SceneLoader.Load(level);
     }
 }

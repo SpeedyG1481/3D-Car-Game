@@ -1,9 +1,10 @@
 ﻿public class Upgrade
 {
+
     /*
      *
      * This values maximum upgrade needs for cars. If you want to x level need
-     * you will user x(Current Upgrade Level) * Need / TotalUpgrade
+     * you will use x(Current Upgrade Level) * Need / TotalUpgrade
      * 
      */
 
@@ -247,7 +248,7 @@
         var ammoNeed = 0;
         var capsuleNeed = 0;
 
-        var currentUpgradeLevel = (GameController.GetCurrentUpgradeLevel(upgradeType) + 1);
+        var currentUpgradeLevel = GameController.GetCurrentUpgradeLevel(upgradeType) + 1;
 
         switch (GameController.GetCurrentCar)
         {

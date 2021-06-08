@@ -23,6 +23,7 @@ public class GarageController : MonoBehaviour
 
     private void Update()
     {
+        GameController.CurrentPlayingCar = TargetIndex + 1;
         _audioSource.volume = GameController.GetMusicVolume;
         if (clip != null)
         {
