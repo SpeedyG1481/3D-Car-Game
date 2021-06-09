@@ -7,7 +7,7 @@ public class Zombie : Entity
 
     public override void Update()
     {
-        if (!IsDead && !Player.IsDead)
+        if (!IsDead && !Player.CanMove)
         {
             if (Distance() < Radius)
             {

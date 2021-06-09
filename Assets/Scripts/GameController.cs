@@ -297,4 +297,46 @@ public static class GameController
                 break;
         }
     }
+
+    public static QualityTypes GetCurrentQuality()
+    {
+        switch (PlayerPrefs.GetInt("QualitySettings"))
+        {
+            case 0:
+                return QualityTypes.VeryLow;
+            case 1:
+                return QualityTypes.Low;
+            case 2:
+                return QualityTypes.Medium;
+            case 3:
+                return QualityTypes.High;
+            case 4:
+                return QualityTypes.UltraHd;
+        }
+
+        return QualityTypes.VeryLow;
+    }
+
+    public static void SetQualityLevel(QualityTypes qualityTypes)
+    {
+        var index = 0;
+        switch (qualityTypes)
+        {
+            case QualityTypes.Low:
+                index = 1;
+                break;
+            case QualityTypes.Medium:
+                index = 2;
+                break;
+            case QualityTypes.High:
+                index = 3;
+                break;
+            case QualityTypes.UltraHd:
+                index = 4;
+                break;
+        }
+
+        PlayerPrefs.SetInt("QualitySettings", index);
+        QualitySettings.SetQualityLevel(index, true);
+    }
 }

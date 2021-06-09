@@ -97,6 +97,21 @@ public class Vehicle : MonoBehaviour
         0.5F
     };
 
+    private bool _canUseGoTo10 = true;
+    private bool _canUseDoubleComponent = true;
+
+    public bool CanUseGoTo10
+    {
+        get => _canUseGoTo10;
+        set => _canUseGoTo10 = value;
+    } 
+    
+    public bool CanUseDoubleComponent
+    {
+        get => _canUseDoubleComponent;
+        set => _canUseDoubleComponent = value;
+    }
+
 
     private Vector3 _startPosition;
 
@@ -116,6 +131,8 @@ public class Vehicle : MonoBehaviour
     public float HealthPercentage => health / maxHealth;
     public float BoostPercentage => boost / maxBoost;
     public float FuelPercentage => fuel / maxFuel;
+    public float MaxFuel => maxFuel;
+    public float MaxHeal => maxHealth;
     public VehicleType VehicleType => vehicleType;
     public Vehicles VehicleEnum => vehicleEnum;
 
@@ -161,14 +178,8 @@ public class Vehicle : MonoBehaviour
         EngineSound();
         TimerController();
         BrakeLights();
-        Deletesss();
     }
 
-    private void Deletesss()
-    {
-        string[] names = QualitySettings.names;
-        Debug.Log(names[QualitySettings.GetQualityLevel()]);
-    }
 
     private void BrakeLights()
     {
@@ -380,6 +391,15 @@ public class Vehicle : MonoBehaviour
         if (fuel > maxFuel)
         {
             fuel = maxFuel;
+        }
+    }
+
+    public void AddHeal(float heal)
+    {
+        health += heal;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
         }
     }
 
@@ -608,5 +628,18 @@ public class Vehicle : MonoBehaviour
         boost = maxBoost;
         fuel = maxFuel;
         boost = maxBoost;
+    }
+
+    //DEAD SCREEN KARAKTER ÖLDÜĞÜNDE AÇILACAK VE RESET İÇERİSİNDE BELİRTİLEN BOOL VALUE İLE AÇILIMI KONTROL EDİLECEK.
+    //ÖLÜM OLDUĞUNDA TİMESCALE YADA FARKLI BİR YÖNTEM İLE OYUN DURACAK.
+    
+    public void DoubleComponent()
+    {
+        //Kullanıcının level içerisinde topladığı nesneler tutulacak ve 2x yapılacak kullanıcıya aktarılacak. (1x olarak aktaracağız toplam 2 olacak)
+    }
+
+    public void Reset()
+    {
+        //Menü kontrolü için kullanılan bool value oluşturulacak ve burada ters edilecek.
     }
 }

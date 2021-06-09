@@ -16,7 +16,7 @@ public class Robot : Entity
 
     public override void Update()
     {
-        if (!IsDead && !Player.IsDead)
+        if (!IsDead && !Player.CanMove)
         {
             if (Distance() <= Radius)
             {
