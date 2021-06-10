@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 public class Zombie : Entity
 {
     public override void Start()
@@ -7,7 +9,7 @@ public class Zombie : Entity
 
     public override void Update()
     {
-        if (!IsDead && !Player.CanMove)
+        if (!IsDead && Player.CanMove)
         {
             if (Distance() < Radius)
             {

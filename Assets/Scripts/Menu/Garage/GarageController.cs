@@ -25,18 +25,13 @@ public class GarageController : MonoBehaviour
     {
         GameController.CurrentPlayingCar = TargetIndex + 1;
         _audioSource.volume = GameController.GetMusicVolume;
-        if (clip != null)
+
+        if (!_audioSource.isPlaying)
         {
-            if (!_audioSource.isPlaying)
-            {
-                _audioSource.clip = clip;
-                _audioSource.Play();
-            }
+            _audioSource.clip = clip;
+            _audioSource.Play();
         }
-        else
-        {
-            _audioSource.Stop();
-        }
+
 
         if (TargetIndex >= cameraPositions.Length)
         {

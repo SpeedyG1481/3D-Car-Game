@@ -3,9 +3,11 @@ using UnityEngine;
 
 public static class GameController
 {
+    public static readonly string RewardedTestId = "ca-app-pub-3940256099942544/5224354917";
+    public static readonly string InterstitialTestId = "ca-app-pub-3940256099942544/1033173712";
+
     public static readonly int TotalUpgrade = 7;
     public static readonly bool DebugMode = true;
-
 
     public static int CurrentPlayingLevel = 1;
     public static int CurrentPlayingCar = 1;
@@ -129,55 +131,6 @@ public static class GameController
         PlayerPrefs.SetInt(type.ToString(), realCount);
     }
 
-    public static GroundData GroundStiffness(int layer)
-    {
-        var groundType = GroundType.Asphalt;
-        switch (CurrentPlayingLevel)
-        {
-            case 1:
-                switch (layer)
-                {
-                    case 1:
-                        groundType = GroundType.OldAsphalt;
-                        break;
-                }
-
-                break;
-            case 2:
-                switch (layer)
-                {
-                    case 0:
-                        groundType = GroundType.Sand;
-                        break;
-                }
-
-                break;
-            case 3:
-                switch (layer)
-                {
-                    case 0:
-                        groundType = GroundType.Snow;
-                        break;
-                    case 1:
-                        groundType = GroundType.Ice;
-                        break;
-                }
-
-                break;
-            case 4:
-                switch (layer)
-                {
-                    case 0:
-                        groundType = GroundType.Dirt;
-                        break;
-                }
-
-                break;
-        }
-
-        return new GroundData(groundType);
-    }
-
     public static Vehicles GetCurrentCar
     {
         get
@@ -201,6 +154,7 @@ public static class GameController
             }
         }
     }
+
 
     public static bool CanUseCar()
     {

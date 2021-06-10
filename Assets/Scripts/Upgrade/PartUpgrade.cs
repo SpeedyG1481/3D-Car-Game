@@ -397,8 +397,8 @@
     private static readonly float KnightRiderAbilityTimeMinimumValue = 10;
 
     //Ability Power
-    private static readonly float KnightRiderAbilityPowerMaximumValue = 20;
-    private static readonly float KnightRiderAbilityPowerMinimumValue = 10;
+    private static readonly float KnightRiderAbilityPowerMaximumValue = 30F;
+    private static readonly float KnightRiderAbilityPowerMinimumValue = 22.5F;
 
     //--------------------------------------------------------------
 

@@ -9,6 +9,8 @@ public class PlayGameButton : MonoBehaviour
     {
         _button = GetComponent<Button>();
         _button.onClick.AddListener(ButtonListener);
+        var garagePlayInterstitial = new GaragePlayInterstitial();
+        garagePlayInterstitial.Initialize();
     }
 
     private void ButtonListener()

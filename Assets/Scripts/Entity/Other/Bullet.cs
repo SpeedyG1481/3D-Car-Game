@@ -43,7 +43,7 @@ public class Bullet : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (_follow && _vehicle != null)
+        if (_follow)
             transform.LookAt(_vehicle.transform);
         _rigidbody.velocity += transform.forward * (speed * Time.fixedDeltaTime);
         _timer += Time.fixedDeltaTime;

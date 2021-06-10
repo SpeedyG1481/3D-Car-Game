@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
-[SuppressMessage("ReSharper", "Unity.PerformanceCriticalCodeInvocation")]
 public class Robot : Entity
 {
     [Header("Robot Specifications")] [SerializeField]
@@ -9,14 +8,17 @@ public class Robot : Entity
 
     [SerializeField] private bool followBullet = false;
 
+    private bool _canShoot;
+
     public override void Start()
     {
         base.Start();
+        _canShoot = bullet != null;
     }
 
     public override void Update()
     {
-        if (!IsDead && !Player.CanMove)
+        if (!IsDead && Player.CanMove)
         {
             if (Distance() <= Radius)
             {
@@ -46,7 +48,7 @@ public class Robot : Entity
 
     private void Shoot()
     {
-        if (bullet != null)
+        if (_canShoot)
         {
             var pos = transform.position;
             pos.y = pos.y + 3.7F;

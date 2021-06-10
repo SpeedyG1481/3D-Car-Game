@@ -12,6 +12,7 @@ public class Vehicle : MonoBehaviour
     [SerializeField] private VehicleType vehicleType;
     [SerializeField] private Vehicles vehicleEnum;
     [SerializeField] private Transform centerOfMass;
+    [SerializeField] private GameObject gameOverMenu;
 
     [Header("Specifications")] [SerializeField]
     private float motorTorque = 675;
@@ -60,6 +61,8 @@ public class Vehicle : MonoBehaviour
     private float _realHorizontalInput;
     private float _lastSkillTime;
 
+    private Dictionary<ComponentType, int> _pickedValues = new Dictionary<ComponentType, int>();
+
     private float downforce = 7f;
     private float steerSpeed = 0.25f;
     private float rotationSpeed = 65F;
@@ -104,8 +107,8 @@ public class Vehicle : MonoBehaviour
     {
         get => _canUseGoTo10;
         set => _canUseGoTo10 = value;
-    } 
-    
+    }
+
     public bool CanUseDoubleComponent
     {
         get => _canUseDoubleComponent;
@@ -122,7 +125,13 @@ public class Vehicle : MonoBehaviour
     public bool FuelEmpty => fuel <= 0;
 
     public bool CanMove => !IsDead && !FuelEmpty;
-    public bool Handbrake => handbrake;
+
+    public bool Handbrake
+    {
+        get => handbrake;
+        set => handbrake = value;
+    }
+
     public float Speed => speed;
 
     public bool CanUseSkill => _timer >= _lastSkillTime && CanMove;
@@ -137,6 +146,8 @@ public class Vehicle : MonoBehaviour
     public Vehicles VehicleEnum => vehicleEnum;
 
     public Transform CenterOfMass => centerOfMass;
+
+    public Dictionary<ComponentType, int> PickedValues => _pickedValues;
 
 
     public virtual void Start()
@@ -231,6 +242,7 @@ public class Vehicle : MonoBehaviour
         {
             _engineSource.clip = stopping;
             _engineSource.Play();
+            gameOverMenu.SetActive(true);
         }
 
         if (!Handbrake && !_engineSource.isPlaying)
@@ -291,7 +303,7 @@ public class Vehicle : MonoBehaviour
     {
         if (GameController.DebugMode)
         {
-            GameController.GetDebugInputs();
+            //GameController.GetDebugInputs();
         }
 
         GetHorizontalInput();
@@ -339,7 +351,7 @@ public class Vehicle : MonoBehaviour
                 }
             }
 
-            if (_boostSource != null && !_boostSource.isPlaying)
+            if ( /*_boostSource != null &&*/ !_boostSource.isPlaying)
             {
                 _boostSource.Play();
             }
@@ -354,7 +366,7 @@ public class Vehicle : MonoBehaviour
                 }
             }
 
-            if (_boostSource != null && _boostSource.isPlaying)
+            if ( /*_boostSource != null &&*/ _boostSource.isPlaying)
             {
                 _boostSource.Stop();
             }
@@ -574,7 +586,7 @@ public class Vehicle : MonoBehaviour
         if (realDamage < 0)
             realDamage = 0;
 
-        if (damageSound != null && type == DamageType.Wall)
+        if ( /*damageSound != null &&*/ type == DamageType.Wall)
         {
             _damageSource.volume = GameController.GetSfxVolume;
             _damageSource.PlayOneShot(damageSound, GameController.GetSfxVolume);
@@ -630,16 +642,11 @@ public class Vehicle : MonoBehaviour
         boost = maxBoost;
     }
 
-    //DEAD SCREEN KARAKTER ÖLDÜĞÜNDE AÇILACAK VE RESET İÇERİSİNDE BELİRTİLEN BOOL VALUE İLE AÇILIMI KONTROL EDİLECEK.
-    //ÖLÜM OLDUĞUNDA TİMESCALE YADA FARKLI BİR YÖNTEM İLE OYUN DURACAK.
-    
     public void DoubleComponent()
     {
-        //Kullanıcının level içerisinde topladığı nesneler tutulacak ve 2x yapılacak kullanıcıya aktarılacak. (1x olarak aktaracağız toplam 2 olacak)
-    }
-
-    public void Reset()
-    {
-        //Menü kontrolü için kullanılan bool value oluşturulacak ve burada ters edilecek.
+        foreach (var key in PickedValues.Keys)
+        {
+            GameController.Add(key, PickedValues[key]);
+        }
     }
 }

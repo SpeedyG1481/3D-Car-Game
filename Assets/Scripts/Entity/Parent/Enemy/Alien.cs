@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
-[SuppressMessage("ReSharper", "Unity.PerformanceCriticalCodeInvocation")]
 public class Alien : Entity
 {
     [Header("Alien Specific")] [SerializeField]
@@ -16,7 +15,7 @@ public class Alien : Entity
 
     public override void Update()
     {
-        if (!IsDead && !Player.CanMove)
+        if (!IsDead && Player.CanMove)
         {
             if (Distance() < Radius)
             {

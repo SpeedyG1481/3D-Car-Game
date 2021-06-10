@@ -36,7 +36,7 @@ public class SkillButton : ButtonEffect, IPointerDownHandler, IPointerUpHandler
 
     private void SelectSprite()
     {
-        if (_vehicle != null && _vehicle.VehicleType != null)
+        if (_vehicle != null)
             switch (_vehicle.VehicleType)
             {
                 case VehicleType.KnightRider:
