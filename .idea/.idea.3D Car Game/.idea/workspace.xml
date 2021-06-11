@@ -57,6 +57,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/Lock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EF667CDC-82BF-4A4E-911D-1DDEA9FF581D/84/4be0db2a/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B63C08E7-D0FC-4DA6-927A-9BB41A23D803/55/1cf71c24/Terrain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EF667CDC-82BF-4A4E-911D-1DDEA9FF581D/0b/90a39902/Application.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Canvas/HealthShow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/WheelController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Delete.cs" root0="FORCE_HIGHLIGHTING" />
@@ -71,7 +72,6 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.24/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestMustExpectAllLogsAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/DA2502C5-0798-42B1-9AAF-45D431B1301B/50/93f6b0ab/LinkedList`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/78/bd0b806e/Transform.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.purchasing@3.0.2/Runtime/Stores/FakeStore/UIFakeStore.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/34/fcec7be3/Quaternion.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/General/MusicVolumeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6AF207EC-D210-4462-8913-F7CC589986AE/89/26b6a268/Input.cs" root0="SKIP_HIGHLIGHTING" />
@@ -104,7 +104,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/UpgradePartButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/Lock.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/MainPanel.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Delete.cs" />
@@ -122,7 +121,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Main Menu/SettingsButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/FPS.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/FPSButton.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/FPSCounter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Level/EndLevelAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Settings/QualityTypes.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Settings/QualityButton.cs" />
@@ -147,14 +145,16 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/DoubleGameComponentButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Ads/RewardedDoubleComponent.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/GoTo10.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Ads/GaragePlayInterstitial.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/PlayGameButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IAP/IAPButtons.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/CarLock.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IAP/IAP.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Upgrade/PartUpgrade.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Vehicle.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Intro/IntroAnimator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Ads/GaragePlayInterstitial.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/FPSCounter.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rzUrHIsnNENMvSG8DY2w48mZTp" />
@@ -259,6 +259,9 @@
       <workItem from="1623330930118" duration="7339000" />
       <workItem from="1623340400766" duration="1041000" />
       <workItem from="1623349035802" duration="1046000" />
+      <workItem from="1623391974483" duration="295000" />
+      <workItem from="1623392794473" duration="298000" />
+      <workItem from="1623393239734" duration="12000" />
     </task>
     <servers />
   </component>

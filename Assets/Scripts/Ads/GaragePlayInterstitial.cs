@@ -20,7 +20,7 @@ public class GaragePlayInterstitial
             }
 
             if (GameController.DebugMode)
-                adId = GameController.RewardedTestId;
+                adId = GameController.InterstitialTestId;
 
             _interstitial = new InterstitialAd(adId);
             var adRequest = new AdRequest.Builder().Build();

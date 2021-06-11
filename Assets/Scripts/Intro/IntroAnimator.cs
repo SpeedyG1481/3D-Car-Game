@@ -1,25 +1,27 @@
 using UnityEngine;
 
-namespace Intro
+public class IntroAnimator : MonoBehaviour
 {
-    public class IntroAnimator : MonoBehaviour
+    private float _timer;
+    private const float IntroTime = 6.25F;
+
+    private void Awake()
     {
-        private float _timer;
-        private const float IntroTime = 6.25F;
+        Time.timeScale = 1F;
+    }
 
-        private void Awake()
+    private void Start()
+    {
+        Application.targetFrameRate = GameController.TargetFPS;
+    }
+
+
+    void Update()
+    {
+        _timer += Time.deltaTime;
+        if (_timer >= IntroTime)
         {
-            Time.timeScale = 1F;
-        }
-
-
-        void Update()
-        {
-            _timer += Time.deltaTime;
-            if (_timer >= IntroTime)
-            {
-                SceneLoader.Load(Scenes.Menu);
-            }
+            SceneLoader.Load(Scenes.Menu);
         }
     }
 }

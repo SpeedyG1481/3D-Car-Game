@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -7,18 +6,19 @@ public class FPSCounter : MonoBehaviour
     private TextMeshProUGUI _textMeshProUGUI;
     private float _timer = 0;
 
-    void Start()
+    private void Start()
     {
         _textMeshProUGUI = GetComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         _timer += Time.deltaTime;
-        if (_timer > 0.5F)
+        if (_timer > 0.25F)
         {
-            _textMeshProUGUI.text = String.Format("{0:.#}", 1.0f / Time.deltaTime);
+            var fps = 1.0f / Time.unscaledDeltaTime;
+            _textMeshProUGUI.text = Mathf.Ceil(fps).ToString();
+            //_textMeshProUGUI.text = String.Format("{0:.#}", Time.frameCount);
             _timer = 0;
         }
     }
