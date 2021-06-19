@@ -1,5 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
-
 public class Zombie : Entity
 {
     public override void Start()
@@ -7,7 +5,7 @@ public class Zombie : Entity
         base.Start();
     }
 
-    public override void Update()
+    public void Update()
     {
         if (!IsDead && Player.CanMove)
         {
@@ -21,8 +19,6 @@ public class Zombie : Entity
                 }
             }
         }
-
-        base.Update();
     }
 
     public override void Attack()

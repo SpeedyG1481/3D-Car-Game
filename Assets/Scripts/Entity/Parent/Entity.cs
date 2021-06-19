@@ -68,13 +68,13 @@ public class Entity : MonoBehaviour
         _navMeshAgent.stoppingDistance = stopRange;
     }
 
-    public virtual void Update()
+    public void FixedUpdate()
     {
         SoundController();
         Walk();
         if (IsDead)
             Death();
-        _timer += Time.deltaTime;
+        _timer += Time.fixedDeltaTime;
     }
 
     private void SoundController()
@@ -194,9 +194,9 @@ public class Entity : MonoBehaviour
         _lastAttackTime = _timer;
         _animator.SetTrigger(AttackAnimatorString);
         _audioSource.clip = attacking;
-        _audioSource.Stop();
+        if (_audioSource.isPlaying)
+            _audioSource.Stop();
         _audioSource.PlayOneShot(attacking, GameController.GetSfxVolume);
-        
     }
 
     private void OnCollisionEnter(Collision other)

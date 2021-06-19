@@ -9,6 +9,9 @@ public class GarageController : MonoBehaviour
 
     [SerializeField] private AudioClip clip;
 
+    [SerializeField] private GameObject[] mediumLights;
+    [SerializeField] private GameObject[] highLights;
+
     private AudioSource _audioSource;
     private CinemachineVirtualCamera _virtualCamera;
 
@@ -19,6 +22,18 @@ public class GarageController : MonoBehaviour
     {
         _audioSource = GetComponent<AudioSource>();
         _virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+
+        var qualityType = GameController.GetCurrentQuality();
+
+        foreach (var mediumLight in mediumLights)
+        {
+            mediumLight.SetActive(qualityType >= QualityTypes.Medium);
+        }
+
+        foreach (var mediumLight in highLights)
+        {
+            mediumLight.SetActive(qualityType >= QualityTypes.High);
+        }
     }
 
     private void Update()

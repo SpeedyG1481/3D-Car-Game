@@ -1,30 +1,40 @@
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class GameComponent : MonoBehaviour
 {
     [SerializeField] private ComponentType componentType;
-    [SerializeField] private AudioClip sound;
     private float _rotationSpeed = 60.0F;
     [SerializeField] private bool rotationDirectionY = true;
+    [SerializeField] private GameObject gameObject;
+    [SerializeField] private AudioClip clip;
     private bool _collisionController = false;
     private float _timer = 0;
     private float _deathTimer = 1.75F;
-
     private AudioSource _audioSource;
+
+    private QualityTypes _qualityTypes;
 
 
     private void Start()
     {
+        _qualityTypes = GameController.GetCurrentQuality();
         _audioSource = gameObject.AddComponent<AudioSource>();
+        if (_qualityTypes >= QualityTypes.Medium && gameObject != null)
+        {
+            gameObject.SetActive(true);
+        }
     }
 
     private void Update()
     {
-        var vector3 = Vector3.up;
-        if (!rotationDirectionY)
-            vector3 = Vector3.left;
-        transform.Rotate(vector3 * (_rotationSpeed * Time.deltaTime));
+        if (_qualityTypes >= QualityTypes.Medium)
+        {
+            var vector3 = Vector3.up;
+            if (!rotationDirectionY)
+                vector3 = Vector3.left;
+            transform.Rotate(vector3 * (_rotationSpeed * Time.deltaTime));
+        }
+
         DestroyEffect();
     }
 
@@ -40,8 +50,12 @@ public class GameComponent : MonoBehaviour
             else
                 vehicle.PickedValues[componentType] = vehicle.PickedValues[componentType] + 1;
             _collisionController = true;
-            _audioSource.volume = GameController.GetSfxVolume;
-            _audioSource.PlayOneShot(sound, GameController.GetSfxVolume);
+            if (_audioSource != null && !_audioSource.isPlaying)
+            {
+                _audioSource.clip = clip;
+                _audioSource.volume = GameController.GetSfxVolume;
+                _audioSource.PlayOneShot(clip, GameController.GetSfxVolume);
+            }
         }
     }
 

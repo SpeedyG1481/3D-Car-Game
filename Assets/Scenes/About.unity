@@ -726,10 +726,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "H\xFCseyin Avni \"NYCTO\" KILI\xC7\nMutsafa \u0130lkay \"centos\" \xC7EL\u0130K\n\nYusuf
-    Serhat \"SpeedyG\" \xD6ZGEN\n\nEmir \"OneNOOB\" EKER\nYasin Mert \"kelmeret\"
-    KE\xC7\u0130C\u0130\nYusuf Serhat \"SpeedyG\" \xD6ZGEN\n\nU\u011Fur \"kentos\"
-    ERTU\u011ERAL\nYusuf Serhat \"SpeedyG\" \xD6ZGEN\nMustafa \u0130lkay \"centos\"
-    \xC7EL\u0130K"
+    Serhat \"SpeedyG\" \xD6ZGEN\n\nYusuf Serhat \"SpeedyG\" \xD6ZGEN\n\n\nU\u011Fur
+    \"kentos\" ERTU\u011ERAL\nYusuf Serhat \"SpeedyG\" \xD6ZGEN\nMustafa \u0130lkay
+    \"centos\" \xC7EL\u0130K"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -1099,7 +1098,6 @@ MonoBehaviour:
 
 
     Backend
-
 
 
 

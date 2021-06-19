@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Robot : Entity
 {
@@ -8,15 +7,13 @@ public class Robot : Entity
 
     [SerializeField] private bool followBullet = false;
 
-    private bool _canShoot;
 
     public override void Start()
     {
         base.Start();
-        _canShoot = bullet != null;
     }
 
-    public override void Update()
+    public void Update()
     {
         if (!IsDead && Player.CanMove)
         {
@@ -31,9 +28,6 @@ public class Robot : Entity
                 }
             }
         }
-
-
-        base.Update();
     }
 
     public override void Attack()
@@ -48,16 +42,13 @@ public class Robot : Entity
 
     private void Shoot()
     {
-        if (_canShoot)
-        {
-            var pos = transform.position;
-            pos.y = pos.y + 3.7F;
-            pos += transform.forward;
-            var b = Instantiate(bullet, pos, transform.rotation);
-            var bulletScript = b.GetComponent<Bullet>();
-            bulletScript.Vehicle = Player;
-            bulletScript.Follow = followBullet;
-            bulletScript.Damage = DamagePower;
-        }
+        var pos = transform.position;
+        pos.y = pos.y + 3.7F;
+        pos += transform.forward;
+        var b = Instantiate(bullet, pos, transform.rotation);
+        var bulletScript = b.GetComponent<Bullet>();
+        bulletScript.Vehicle = Player;
+        bulletScript.Follow = followBullet;
+        bulletScript.Damage = DamagePower;
     }
 }

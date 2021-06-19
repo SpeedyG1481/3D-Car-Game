@@ -20,11 +20,16 @@ public class EndLevelAnimation : MonoBehaviour
         if (_timer > AnimationTime)
         {
             _timer = -1;
-            GameController.CurrentPlayingLevel++;
-            if (GameController.CurrentPlayingLevel >= 4)
+
+            if (GameController.CurrentPlayingLevel == 4)
+            {
                 SceneLoader.Load(Scenes.About);
+            }
             else
+            {
                 SceneLoader.Load(Scenes.Garage);
+                GameController.CurrentPlayingLevel++;
+            }
         }
     }
 }

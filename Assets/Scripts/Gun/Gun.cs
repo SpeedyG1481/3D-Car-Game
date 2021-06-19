@@ -37,7 +37,7 @@ public class Gun : MonoBehaviour
                 if (vCollider.gameObject.CompareTag("Enemy"))
                 {
                     var entity = vCollider.gameObject.GetComponent<Entity>();
-                    if (entity != null && !entity.IsDead)
+                    if (!entity.IsDead)
                     {
                         transform.LookAt(vCollider.gameObject.transform);
                         transform.localRotation *= Quaternion.Euler(localRotationOffset);

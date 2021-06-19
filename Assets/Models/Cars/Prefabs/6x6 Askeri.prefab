@@ -1332,6 +1332,7 @@ MonoBehaviour:
   vehicleEnum: 5
   centerOfMass: {fileID: 6154440240596211616}
   gameOverMenu: {fileID: 0}
+  lightsObject: {fileID: 5284728000206733815}
   motorTorque: 2075
   brakeForce: 2125
   maxHealth: 250

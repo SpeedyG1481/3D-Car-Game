@@ -13,6 +13,8 @@ public class Vehicle : MonoBehaviour
     [SerializeField] private Vehicles vehicleEnum;
     [SerializeField] private Transform centerOfMass;
     [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject lightsObject;
+    [SerializeField] private GameObject decorationLights;
 
     [Header("Specifications")] [SerializeField]
     private float motorTorque = 675;
@@ -179,6 +181,15 @@ public class Vehicle : MonoBehaviour
 
 
         _wheels = GetComponentsInChildren<WheelCollider>();
+        if (GameController.GetCurrentQuality() < QualityTypes.Medium)
+        {
+            lightsObject.SetActive(false);
+        }
+        else if (decorationLights != null && GameController.GetCurrentQuality() > QualityTypes.Medium)
+        {
+            decorationLights.SetActive(true);
+        }
+
         PrepareCar();
     }
 

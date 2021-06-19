@@ -13,14 +13,14 @@ public class Alien : Entity
         base.Start();
     }
 
-    public override void Update()
+    public  void Update()
     {
         if (!IsDead && Player.CanMove)
         {
             if (Distance() < Radius)
             {
                 NavMeshAgent.SetDestination(Player.transform.position);
-
+        
                 if (Distance() <= StopRange)
                 {
                     FaceTarget();
@@ -36,8 +36,7 @@ public class Alien : Entity
                 }
             }
         }
-
-        base.Update();
+        
     }
 
     public override void JumpAttack()

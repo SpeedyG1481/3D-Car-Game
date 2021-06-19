@@ -111,8 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   componentType: 6
-  sound: {fileID: 8300000, guid: 29f679c96e994484787f7b496e165980, type: 3}
   rotationDirectionY: 1
+  gameObject: {fileID: 7108367700973802132}
 --- !u!1 &7108367700973802132
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9218256639924597263
 Transform:
   m_ObjectHideFlags: 0

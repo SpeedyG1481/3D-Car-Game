@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5674702151310049577
 Transform:
   m_ObjectHideFlags: 0
@@ -204,5 +204,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   componentType: 7
-  sound: {fileID: 8300000, guid: 29f679c96e994484787f7b496e165980, type: 3}
   rotationDirectionY: 1
+  gameObject: {fileID: 552254137643916358}

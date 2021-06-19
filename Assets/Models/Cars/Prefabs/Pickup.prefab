@@ -965,7 +965,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5191381078146149275
 Transform:
   m_ObjectHideFlags: 0
@@ -1775,6 +1775,8 @@ MonoBehaviour:
   vehicleEnum: 3
   centerOfMass: {fileID: 5382130531857217725}
   gameOverMenu: {fileID: 0}
+  lightsObject: {fileID: 5152075501408125774}
+  decorationLights: {fileID: 5219716085660875774}
   motorTorque: 1650
   brakeForce: 1585
   maxHealth: 95
