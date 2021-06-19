@@ -112,6 +112,7 @@ MonoBehaviour:
   componentType: 2
   rotationDirectionY: 1
   gameObject: {fileID: 5566633905534919407}
+  clip: {fileID: 8300000, guid: 157473a08671f9f4f8265c6c696ba6f6, type: 3}
 --- !u!1 &5566633905534919407
 GameObject:
   m_ObjectHideFlags: 0

@@ -206,3 +206,4 @@ MonoBehaviour:
   componentType: 3
   rotationDirectionY: 1
   gameObject: {fileID: 7279676309057730273}
+  clip: {fileID: 8300000, guid: 157473a08671f9f4f8265c6c696ba6f6, type: 3}
