@@ -4,7 +4,7 @@ using UnityEngine;
 public static class GameController
 {
     public static readonly int TargetFPS = 300;
-    
+
     public static readonly string RewardedTestId = "ca-app-pub-3940256099942544/5224354917";
     public static readonly string InterstitialTestId = "ca-app-pub-3940256099942544/1033173712";
 
@@ -156,7 +156,6 @@ public static class GameController
             }
         }
     }
-    
 
 
     public static bool CanUseCar()
@@ -273,6 +272,29 @@ public static class GameController
 
         return QualityTypes.VeryLow;
     }
+
+    public static SteeringTypes GetCurrentSteeringType()
+    {
+        var steering = SteeringTypes.Wheel;
+        var steeringStoreValue = PlayerPrefs.GetString("SteeringType");
+
+        foreach (var steeringType in (SteeringTypes[]) Enum.GetValues(typeof(SteeringTypes)))
+        {
+            if (steeringType.ToString() == steeringStoreValue)
+            {
+                steering = steeringType;
+                break;
+            }
+        }
+
+        return steering;
+    }
+
+    public static void SetSteeringType(SteeringTypes steeringType)
+    {
+        PlayerPrefs.SetString("SteeringType", steeringType.ToString());
+    }
+
 
     public static void SetQualityLevel(QualityTypes qualityTypes)
     {

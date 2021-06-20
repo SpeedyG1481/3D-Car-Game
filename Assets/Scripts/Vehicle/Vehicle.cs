@@ -33,7 +33,6 @@ public class Vehicle : MonoBehaviour
     [SerializeField] private float skillPower = 1.45f;
 
     [SerializeField] private int ammo = 0;
-    //[SerializeField] private int maxSpeed = 50;
 
 
     [Header("Geçici Veriler")] [SerializeField]
@@ -104,6 +103,7 @@ public class Vehicle : MonoBehaviour
 
     private bool _canUseGoTo10 = true;
     private bool _canUseDoubleComponent = true;
+    private SteeringTypes _steeringType;
 
     public bool CanUseGoTo10
     {
@@ -154,6 +154,7 @@ public class Vehicle : MonoBehaviour
 
     public virtual void Start()
     {
+        _steeringType = GameController.GetCurrentSteeringType();
         _startPosition = transform.position;
         _boostSource = gameObject.AddComponent<AudioSource>();
         _engineSource = gameObject.AddComponent<AudioSource>();
@@ -161,6 +162,7 @@ public class Vehicle : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _brakeLights = new List<Light>();
         var lights = GetComponentsInChildren<Light>();
+        Input.gyro.enabled = _steeringType == SteeringTypes.Tilt;
         foreach (var light in lights)
         {
             if (light.type == LightType.Point && light.gameObject.name.Contains("Brake"))
@@ -514,25 +516,36 @@ public class Vehicle : MonoBehaviour
 
     private void GetHorizontalInput()
     {
-        if (HorizontalInput > 0)
+        if (_steeringType == SteeringTypes.Button)
         {
-            _realHorizontalInput += 0.075F;
-            if (_realHorizontalInput > 1.0F)
+            if (HorizontalInput > 0)
             {
-                _realHorizontalInput = 1.0F;
+                _realHorizontalInput += 0.075F;
+                if (_realHorizontalInput > 1.0F)
+                {
+                    _realHorizontalInput = 1.0F;
+                }
+            }
+            else if (HorizontalInput < 0)
+            {
+                _realHorizontalInput -= 0.075F;
+                if (_realHorizontalInput < -1.0F)
+                {
+                    _realHorizontalInput = -1.0F;
+                }
+            }
+            else
+            {
+                _realHorizontalInput = 0.0F;
             }
         }
-        else if (HorizontalInput < 0)
+        else if (_steeringType == SteeringTypes.Tilt)
         {
-            _realHorizontalInput -= 0.075F;
-            if (_realHorizontalInput < -1.0F)
-            {
-                _realHorizontalInput = -1.0F;
-            }
+            _realHorizontalInput = Input.gyro.attitude.z;
         }
         else
         {
-            _realHorizontalInput = 0.0F;
+            _realHorizontalInput = HorizontalInput;
         }
     }
 

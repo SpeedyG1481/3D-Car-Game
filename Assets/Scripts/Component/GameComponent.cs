@@ -1,11 +1,12 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class GameComponent : MonoBehaviour
 {
     [SerializeField] private ComponentType componentType;
     private float _rotationSpeed = 60.0F;
     [SerializeField] private bool rotationDirectionY = true;
-    [SerializeField] private GameObject gameObject;
+    [SerializeField] private GameObject pointLight;
     [SerializeField] private AudioClip clip;
     private bool _collisionController = false;
     private float _timer = 0;
@@ -18,10 +19,10 @@ public class GameComponent : MonoBehaviour
     private void Start()
     {
         _qualityTypes = GameController.GetCurrentQuality();
-        _audioSource = gameObject.AddComponent<AudioSource>();
-        if (_qualityTypes >= QualityTypes.Medium && gameObject != null)
+        _audioSource = GetComponent<AudioSource>();
+        if (_qualityTypes >= QualityTypes.Medium && pointLight != null)
         {
-            gameObject.SetActive(true);
+            pointLight.SetActive(true);
         }
     }
 
@@ -49,13 +50,14 @@ public class GameComponent : MonoBehaviour
                 vehicle.PickedValues.Add(componentType, 1);
             else
                 vehicle.PickedValues[componentType] = vehicle.PickedValues[componentType] + 1;
-            _collisionController = true;
             if (_audioSource != null && !_audioSource.isPlaying)
             {
                 _audioSource.clip = clip;
                 _audioSource.volume = GameController.GetSfxVolume;
                 _audioSource.PlayOneShot(clip, GameController.GetSfxVolume);
             }
+
+            _collisionController = true;
         }
     }
 

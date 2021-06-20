@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class UpgradePartButton : MonoBehaviour
 {
-    [SerializeField] private UpgradeType upgradeType;
+    [HideInInspector] public UpgradeType upgradeType;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip wrongSound;
     [SerializeField] private AudioClip successSound;

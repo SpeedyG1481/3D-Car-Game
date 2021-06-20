@@ -404,139 +404,139 @@
 
     //Mass
 
-    private float _massMaximumValue;
+    public float MassMaximumValue;
 
-    private float _massMinimumValue;
+    public float MassMinimumValue;
     //Engine
 
-    private float _engineMaximumValue;
+    public float EngineMaximumValue;
 
-    private float _engineMinimumValue;
+    public float EngineMinimumValue;
     //Brake
 
-    private float _brakeMaximumValue;
+    public float BrakeMaximumValue;
 
-    private float _brakeMinimumValue;
+    public float BrakeMinimumValue;
     //Health
 
-    private float _healthMaximumValue;
+    public float HealthMaximumValue;
 
-    private float _healthMinimumValue;
+    public float HealthMinimumValue;
     //Fuel
 
-    private float _fuelMaximumValue;
+    public float FuelMaximumValue;
 
-    private float _fuelMinimumValue;
+    public float FuelMinimumValue;
     //Durability
 
-    private float _durabilityMaximumValue;
+    public float DurabilityMaximumValue;
 
-    private float _durabilityMinimumValue;
+    public float DurabilityMinimumValue;
     //Boost Fuel
 
-    private float _boostFuelMaximumValue;
+    public float BoostFuelMaximumValue;
 
-    private float _boostFuelMinimumValue;
+    public float BoostFuelMinimumValue;
     //Boost Power
 
-    private float _boostPowerMaximumValue;
+    public float BoostPowerMaximumValue;
 
-    private float _boostPowerMinimumValue;
+    public float BoostPowerMinimumValue;
     //Fuel Consumption Idle
 
-    private float _fuelConsumptionIdleMaximumValue;
+    public float FuelConsumptionIdleMaximumValue;
 
-    private float _fuelConsumptionIdleMinimumValue;
+    public float FuelConsumptionIdleMinimumValue;
     //Fuel Consumption Gas
 
-    private float _fuelConsumptionGasMaximumValue;
+    public float FuelConsumptionGasMaximumValue;
 
-    private float _fuelConsumptionGasMinimumValue;
+    public float FuelConsumptionGasMinimumValue;
     //Boost Regen
 
-    private float _boostRegenMaximumValue;
+    public float BoostRegenMaximumValue;
 
-    private float _boostRegenMinimumValue;
+    public float BoostRegenMinimumValue;
     //Wheel Stiffness
 
-    private float _wheelStiffnessMaximumValue;
+    public float WheelStiffnessMaximumValue;
 
-    private float _wheelStiffnessMinimumValue;
+    public float WheelStiffnessMinimumValue;
     //Ammo
 
-    private int _ammoMaximumValue;
+    public int AmmoMaximumValue;
 
-    private int _ammoMinimumValue;
+    public int AmmoMinimumValue;
     //Ability Time
 
-    private float _abilityTimeMaximumValue;
+    public float AbilityTimeMaximumValue;
 
-    private float _abilityTimeMinimumValue;
+    public float AbilityTimeMinimumValue;
     //Ability Power
 
-    private float _abilityPowerMaximumValue;
+    public float AbilityPowerMaximumValue;
 
-    private float _abilityPowerMinimumValue;
+    public float AbilityPowerMinimumValue;
 
 
     public float AbilityPower =>
-        (_abilityPowerMaximumValue - _abilityPowerMinimumValue) *
+        (AbilityPowerMaximumValue - AbilityPowerMinimumValue) *
         GameController.GetCurrentUpgradeLevel(UpgradeType.Ability) / GameController.TotalUpgrade;
 
     public float AbilityTime =>
-        (_abilityTimeMinimumValue - _abilityTimeMaximumValue) *
+        (AbilityTimeMinimumValue - AbilityTimeMaximumValue) *
         GameController.GetCurrentUpgradeLevel(UpgradeType.Ability) / GameController.TotalUpgrade;
 
     public int Ammo =>
-        (_ammoMaximumValue - _ammoMinimumValue) *
+        (AmmoMaximumValue - AmmoMinimumValue) *
         GameController.GetCurrentUpgradeLevel(UpgradeType.Gun) / GameController.TotalUpgrade;
 
     public float WheelStiffness =>
-        (_wheelStiffnessMaximumValue - _wheelStiffnessMinimumValue) *
+        (WheelStiffnessMaximumValue - WheelStiffnessMinimumValue) *
         GameController.GetCurrentUpgradeLevel(UpgradeType.Brake) / GameController.TotalUpgrade;
 
     public float BoostRegen =>
-        (_boostRegenMaximumValue - _boostRegenMinimumValue) *
+        (BoostRegenMaximumValue - BoostRegenMinimumValue) *
         GameController.GetCurrentUpgradeLevel(UpgradeType.Boost) / GameController.TotalUpgrade;
 
     public float FuelConsumptionIdle =>
-        (_fuelConsumptionIdleMinimumValue - _fuelConsumptionIdleMaximumValue) *
+        (FuelConsumptionIdleMinimumValue - FuelConsumptionIdleMaximumValue) *
         GameController.GetCurrentUpgradeLevel(UpgradeType.Fuel) / GameController.TotalUpgrade;
 
     public float FuelConsumptionGas =>
-        (_fuelConsumptionGasMinimumValue - _fuelConsumptionGasMaximumValue) *
+        (FuelConsumptionGasMinimumValue - FuelConsumptionGasMaximumValue) *
         GameController.GetCurrentUpgradeLevel(UpgradeType.Fuel) / GameController.TotalUpgrade;
 
     public float BoostPower =>
-        (_boostPowerMaximumValue - _boostPowerMinimumValue) *
+        (BoostPowerMaximumValue - BoostPowerMinimumValue) *
         GameController.GetCurrentUpgradeLevel(UpgradeType.Boost) / GameController.TotalUpgrade;
 
     public float BoostFuel =>
-        (_boostFuelMaximumValue - _boostFuelMinimumValue) *
+        (BoostFuelMaximumValue - BoostFuelMinimumValue) *
         GameController.GetCurrentUpgradeLevel(UpgradeType.Boost) / GameController.TotalUpgrade;
 
     public float Durability =>
-        (_durabilityMaximumValue - _durabilityMinimumValue) *
+        (DurabilityMaximumValue - DurabilityMinimumValue) *
         GameController.GetCurrentUpgradeLevel(UpgradeType.Durability) / GameController.TotalUpgrade;
 
     public float Fuel =>
-        (_fuelMaximumValue - _fuelMinimumValue) *
+        (FuelMaximumValue - FuelMinimumValue) *
         GameController.GetCurrentUpgradeLevel(UpgradeType.Fuel) / GameController.TotalUpgrade;
 
     public float Health =>
-        (_healthMaximumValue - _healthMinimumValue) *
+        (HealthMaximumValue - HealthMinimumValue) *
         GameController.GetCurrentUpgradeLevel(UpgradeType.Durability) / GameController.TotalUpgrade;
 
     public float Brake =>
-        (_brakeMaximumValue - _brakeMinimumValue) *
+        (BrakeMaximumValue - BrakeMinimumValue) *
         GameController.GetCurrentUpgradeLevel(UpgradeType.Brake) / GameController.TotalUpgrade;
 
     public float Engine =>
-        (_engineMaximumValue - _engineMinimumValue) *
+        (EngineMaximumValue - EngineMinimumValue) *
         GameController.GetCurrentUpgradeLevel(UpgradeType.Engine) / GameController.TotalUpgrade;
 
     public float Mass =>
-        (_massMinimumValue - _massMaximumValue) *
+        (MassMinimumValue - MassMaximumValue) *
         GameController.GetCurrentUpgradeLevel(UpgradeType.Gun) / GameController.TotalUpgrade;
 
 
@@ -547,240 +547,240 @@
             case Vehicles.Sedan:
                 return new PartUpgrade
                 {
-                    _ammoMaximumValue = SedanAmmoMaximumValue,
-                    _ammoMinimumValue = SedanAmmoMinimumValue,
-                    _brakeMaximumValue = SedanBrakeMaximumValue,
-                    _brakeMinimumValue = SedanBrakeMinimumValue,
-                    _durabilityMaximumValue = SedanDurabilityMaximumValue,
-                    _durabilityMinimumValue = SedanDurabilityMinimumValue,
-                    _engineMaximumValue = SedanMotorMaximumValue,
-                    _engineMinimumValue = SedanMotorMinimumValue,
-                    _fuelMaximumValue = SedanFuelMaximumValue,
-                    _fuelMinimumValue = SedanFuelMinimumValue,
-                    _healthMaximumValue = SedanHealthMaximumValue,
-                    _healthMinimumValue = SedanHealthMinimumValue,
-                    _massMaximumValue = SedanMassMaximumValue,
-                    _massMinimumValue = SedanMassMinimumValue,
-                    _boostFuelMaximumValue = SedanBoostFuelMaximumValue,
-                    _boostFuelMinimumValue = SedanBoostFuelMinimumValue,
-                    _fuelConsumptionIdleMinimumValue = SedanIdleFuelConsumptionMinimumValue,
-                    _fuelConsumptionIdleMaximumValue = SedanIdleFuelConsumptionMaximumValue,
-                    _fuelConsumptionGasMaximumValue = SedanGasFuelConsumptionMaximumValue,
-                    _fuelConsumptionGasMinimumValue = SedanGasFuelConsumptionMinimumValue,
-                    _boostPowerMaximumValue = SedanBoostPowerMaximumValue,
-                    _boostPowerMinimumValue = SedanBoostPowerMinimumValue,
-                    _boostRegenMaximumValue = SedanBoostRegenMaximumValue,
-                    _boostRegenMinimumValue = SedanBoostRegenMinimumValue,
-                    _wheelStiffnessMaximumValue = SedanWheelStiffnessMaximumValue,
-                    _wheelStiffnessMinimumValue = SedanWheelStiffnessMinimumValue,
-                    _abilityPowerMaximumValue = 0,
-                    _abilityPowerMinimumValue = 0,
-                    _abilityTimeMaximumValue = 0,
-                    _abilityTimeMinimumValue = 0,
+                    AmmoMaximumValue = SedanAmmoMaximumValue,
+                    AmmoMinimumValue = SedanAmmoMinimumValue,
+                    BrakeMaximumValue = SedanBrakeMaximumValue,
+                    BrakeMinimumValue = SedanBrakeMinimumValue,
+                    DurabilityMaximumValue = SedanDurabilityMaximumValue,
+                    DurabilityMinimumValue = SedanDurabilityMinimumValue,
+                    EngineMaximumValue = SedanMotorMaximumValue,
+                    EngineMinimumValue = SedanMotorMinimumValue,
+                    FuelMaximumValue = SedanFuelMaximumValue,
+                    FuelMinimumValue = SedanFuelMinimumValue,
+                    HealthMaximumValue = SedanHealthMaximumValue,
+                    HealthMinimumValue = SedanHealthMinimumValue,
+                    MassMaximumValue = SedanMassMaximumValue,
+                    MassMinimumValue = SedanMassMinimumValue,
+                    BoostFuelMaximumValue = SedanBoostFuelMaximumValue,
+                    BoostFuelMinimumValue = SedanBoostFuelMinimumValue,
+                    FuelConsumptionIdleMinimumValue = SedanIdleFuelConsumptionMinimumValue,
+                    FuelConsumptionIdleMaximumValue = SedanIdleFuelConsumptionMaximumValue,
+                    FuelConsumptionGasMaximumValue = SedanGasFuelConsumptionMaximumValue,
+                    FuelConsumptionGasMinimumValue = SedanGasFuelConsumptionMinimumValue,
+                    BoostPowerMaximumValue = SedanBoostPowerMaximumValue,
+                    BoostPowerMinimumValue = SedanBoostPowerMinimumValue,
+                    BoostRegenMaximumValue = SedanBoostRegenMaximumValue,
+                    BoostRegenMinimumValue = SedanBoostRegenMinimumValue,
+                    WheelStiffnessMaximumValue = SedanWheelStiffnessMaximumValue,
+                    WheelStiffnessMinimumValue = SedanWheelStiffnessMinimumValue,
+                    AbilityPowerMaximumValue = 0,
+                    AbilityPowerMinimumValue = 0,
+                    AbilityTimeMaximumValue = 0,
+                    AbilityTimeMinimumValue = 0,
                 };
             case Vehicles.Pickup:
                 return new PartUpgrade
                 {
-                    _ammoMaximumValue = PickupAmmoMaximumValue,
-                    _ammoMinimumValue = PickupAmmoMinimumValue,
-                    _brakeMaximumValue = PickupBrakeMaximumValue,
-                    _brakeMinimumValue = PickupBrakeMinimumValue,
-                    _durabilityMaximumValue = PickupDurabilityMaximumValue,
-                    _durabilityMinimumValue = PickupDurabilityMinimumValue,
-                    _engineMaximumValue = PickupMotorMaximumValue,
-                    _engineMinimumValue = PickupMotorMinimumValue,
-                    _fuelMaximumValue = PickupFuelMaximumValue,
-                    _fuelMinimumValue = PickupFuelMinimumValue,
-                    _healthMaximumValue = PickupHealthMaximumValue,
-                    _healthMinimumValue = PickupHealthMinimumValue,
-                    _massMaximumValue = PickupMassMaximumValue,
-                    _massMinimumValue = PickupMassMinimumValue,
-                    _boostFuelMaximumValue = PickupBoostFuelMaximumValue,
-                    _boostFuelMinimumValue = PickupBoostFuelMinimumValue,
-                    _fuelConsumptionIdleMinimumValue = PickupIdleFuelConsumptionMinimumValue,
-                    _fuelConsumptionIdleMaximumValue = PickupIdleFuelConsumptionMaximumValue,
-                    _fuelConsumptionGasMaximumValue = PickupGasFuelConsumptionMaximumValue,
-                    _fuelConsumptionGasMinimumValue = PickupGasFuelConsumptionMinimumValue,
-                    _boostPowerMaximumValue = PickupBoostPowerMaximumValue,
-                    _boostPowerMinimumValue = PickupBoostPowerMinimumValue,
-                    _boostRegenMaximumValue = PickupBoostRegenMaximumValue,
-                    _boostRegenMinimumValue = PickupBoostRegenMinimumValue,
-                    _wheelStiffnessMaximumValue = PickupWheelStiffnessMaximumValue,
-                    _wheelStiffnessMinimumValue = PickupWheelStiffnessMinimumValue,
-                    _abilityPowerMaximumValue = 0,
-                    _abilityPowerMinimumValue = 0,
-                    _abilityTimeMaximumValue = 0,
-                    _abilityTimeMinimumValue = 0,
+                    AmmoMaximumValue = PickupAmmoMaximumValue,
+                    AmmoMinimumValue = PickupAmmoMinimumValue,
+                    BrakeMaximumValue = PickupBrakeMaximumValue,
+                    BrakeMinimumValue = PickupBrakeMinimumValue,
+                    DurabilityMaximumValue = PickupDurabilityMaximumValue,
+                    DurabilityMinimumValue = PickupDurabilityMinimumValue,
+                    EngineMaximumValue = PickupMotorMaximumValue,
+                    EngineMinimumValue = PickupMotorMinimumValue,
+                    FuelMaximumValue = PickupFuelMaximumValue,
+                    FuelMinimumValue = PickupFuelMinimumValue,
+                    HealthMaximumValue = PickupHealthMaximumValue,
+                    HealthMinimumValue = PickupHealthMinimumValue,
+                    MassMaximumValue = PickupMassMaximumValue,
+                    MassMinimumValue = PickupMassMinimumValue,
+                    BoostFuelMaximumValue = PickupBoostFuelMaximumValue,
+                    BoostFuelMinimumValue = PickupBoostFuelMinimumValue,
+                    FuelConsumptionIdleMinimumValue = PickupIdleFuelConsumptionMinimumValue,
+                    FuelConsumptionIdleMaximumValue = PickupIdleFuelConsumptionMaximumValue,
+                    FuelConsumptionGasMaximumValue = PickupGasFuelConsumptionMaximumValue,
+                    FuelConsumptionGasMinimumValue = PickupGasFuelConsumptionMinimumValue,
+                    BoostPowerMaximumValue = PickupBoostPowerMaximumValue,
+                    BoostPowerMinimumValue = PickupBoostPowerMinimumValue,
+                    BoostRegenMaximumValue = PickupBoostRegenMaximumValue,
+                    BoostRegenMinimumValue = PickupBoostRegenMinimumValue,
+                    WheelStiffnessMaximumValue = PickupWheelStiffnessMaximumValue,
+                    WheelStiffnessMinimumValue = PickupWheelStiffnessMinimumValue,
+                    AbilityPowerMaximumValue = 0,
+                    AbilityPowerMinimumValue = 0,
+                    AbilityTimeMaximumValue = 0,
+                    AbilityTimeMinimumValue = 0,
                 };
             case Vehicles.Bugee:
                 return new PartUpgrade
                 {
-                    _ammoMaximumValue = BugeeAmmoMaximumValue,
-                    _ammoMinimumValue = BugeeAmmoMinimumValue,
-                    _brakeMaximumValue = BugeeBrakeMaximumValue,
-                    _brakeMinimumValue = BugeeBrakeMinimumValue,
-                    _durabilityMaximumValue = BugeeDurabilityMaximumValue,
-                    _durabilityMinimumValue = BugeeDurabilityMinimumValue,
-                    _engineMaximumValue = BugeeMotorMaximumValue,
-                    _engineMinimumValue = BugeeMotorMinimumValue,
-                    _fuelMaximumValue = BugeeFuelMaximumValue,
-                    _fuelMinimumValue = BugeeFuelMinimumValue,
-                    _healthMaximumValue = BugeeHealthMaximumValue,
-                    _healthMinimumValue = BugeeHealthMinimumValue,
-                    _massMaximumValue = BugeeMassMaximumValue,
-                    _massMinimumValue = BugeeMassMinimumValue,
-                    _boostFuelMaximumValue = BugeeBoostFuelMaximumValue,
-                    _boostFuelMinimumValue = BugeeBoostFuelMinimumValue,
-                    _fuelConsumptionIdleMinimumValue = BugeeIdleFuelConsumptionMinimumValue,
-                    _fuelConsumptionIdleMaximumValue = BugeeIdleFuelConsumptionMaximumValue,
-                    _fuelConsumptionGasMaximumValue = BugeeGasFuelConsumptionMaximumValue,
-                    _fuelConsumptionGasMinimumValue = BugeeGasFuelConsumptionMinimumValue,
-                    _boostPowerMaximumValue = BugeeBoostPowerMaximumValue,
-                    _boostPowerMinimumValue = BugeeBoostPowerMinimumValue,
-                    _boostRegenMaximumValue = BugeeBoostRegenMaximumValue,
-                    _boostRegenMinimumValue = BugeeBoostRegenMinimumValue,
-                    _wheelStiffnessMaximumValue = BugeeWheelStiffnessMaximumValue,
-                    _wheelStiffnessMinimumValue = BugeeWheelStiffnessMinimumValue,
-                    _abilityPowerMaximumValue = 0,
-                    _abilityPowerMinimumValue = 0,
-                    _abilityTimeMaximumValue = 0,
-                    _abilityTimeMinimumValue = 0,
+                    AmmoMaximumValue = BugeeAmmoMaximumValue,
+                    AmmoMinimumValue = BugeeAmmoMinimumValue,
+                    BrakeMaximumValue = BugeeBrakeMaximumValue,
+                    BrakeMinimumValue = BugeeBrakeMinimumValue,
+                    DurabilityMaximumValue = BugeeDurabilityMaximumValue,
+                    DurabilityMinimumValue = BugeeDurabilityMinimumValue,
+                    EngineMaximumValue = BugeeMotorMaximumValue,
+                    EngineMinimumValue = BugeeMotorMinimumValue,
+                    FuelMaximumValue = BugeeFuelMaximumValue,
+                    FuelMinimumValue = BugeeFuelMinimumValue,
+                    HealthMaximumValue = BugeeHealthMaximumValue,
+                    HealthMinimumValue = BugeeHealthMinimumValue,
+                    MassMaximumValue = BugeeMassMaximumValue,
+                    MassMinimumValue = BugeeMassMinimumValue,
+                    BoostFuelMaximumValue = BugeeBoostFuelMaximumValue,
+                    BoostFuelMinimumValue = BugeeBoostFuelMinimumValue,
+                    FuelConsumptionIdleMinimumValue = BugeeIdleFuelConsumptionMinimumValue,
+                    FuelConsumptionIdleMaximumValue = BugeeIdleFuelConsumptionMaximumValue,
+                    FuelConsumptionGasMaximumValue = BugeeGasFuelConsumptionMaximumValue,
+                    FuelConsumptionGasMinimumValue = BugeeGasFuelConsumptionMinimumValue,
+                    BoostPowerMaximumValue = BugeeBoostPowerMaximumValue,
+                    BoostPowerMinimumValue = BugeeBoostPowerMinimumValue,
+                    BoostRegenMaximumValue = BugeeBoostRegenMaximumValue,
+                    BoostRegenMinimumValue = BugeeBoostRegenMinimumValue,
+                    WheelStiffnessMaximumValue = BugeeWheelStiffnessMaximumValue,
+                    WheelStiffnessMinimumValue = BugeeWheelStiffnessMinimumValue,
+                    AbilityPowerMaximumValue = 0,
+                    AbilityPowerMinimumValue = 0,
+                    AbilityTimeMaximumValue = 0,
+                    AbilityTimeMinimumValue = 0,
                 };
             case Vehicles.Military6X6:
                 return new PartUpgrade
                 {
-                    _ammoMaximumValue = MilitaryAmmoMaximumValue,
-                    _ammoMinimumValue = MilitaryAmmoMinimumValue,
-                    _brakeMaximumValue = MilitaryBrakeMaximumValue,
-                    _brakeMinimumValue = MilitaryBrakeMinimumValue,
-                    _durabilityMaximumValue = MilitaryDurabilityMaximumValue,
-                    _durabilityMinimumValue = MilitaryDurabilityMinimumValue,
-                    _engineMaximumValue = MilitaryMotorMaximumValue,
-                    _engineMinimumValue = MilitaryMotorMinimumValue,
-                    _fuelMaximumValue = MilitaryFuelMaximumValue,
-                    _fuelMinimumValue = MilitaryFuelMinimumValue,
-                    _healthMaximumValue = MilitaryHealthMaximumValue,
-                    _healthMinimumValue = MilitaryHealthMinimumValue,
-                    _massMaximumValue = MilitaryMassMaximumValue,
-                    _massMinimumValue = MilitaryMassMinimumValue,
-                    _boostFuelMaximumValue = MilitaryBoostFuelMaximumValue,
-                    _boostFuelMinimumValue = MilitaryBoostFuelMinimumValue,
-                    _fuelConsumptionIdleMinimumValue = MilitaryIdleFuelConsumptionMinimumValue,
-                    _fuelConsumptionIdleMaximumValue = MilitaryIdleFuelConsumptionMaximumValue,
-                    _fuelConsumptionGasMaximumValue = MilitaryGasFuelConsumptionMaximumValue,
-                    _fuelConsumptionGasMinimumValue = MilitaryGasFuelConsumptionMinimumValue,
-                    _boostPowerMaximumValue = MilitaryBoostPowerMaximumValue,
-                    _boostPowerMinimumValue = MilitaryBoostPowerMinimumValue,
-                    _boostRegenMaximumValue = MilitaryBoostRegenMaximumValue,
-                    _boostRegenMinimumValue = MilitaryBoostRegenMinimumValue,
-                    _wheelStiffnessMaximumValue = MilitaryWheelStiffnessMaximumValue,
-                    _wheelStiffnessMinimumValue = MilitaryWheelStiffnessMinimumValue,
-                    _abilityPowerMaximumValue = 0,
-                    _abilityPowerMinimumValue = 0,
-                    _abilityTimeMaximumValue = 0,
-                    _abilityTimeMinimumValue = 0,
+                    AmmoMaximumValue = MilitaryAmmoMaximumValue,
+                    AmmoMinimumValue = MilitaryAmmoMinimumValue,
+                    BrakeMaximumValue = MilitaryBrakeMaximumValue,
+                    BrakeMinimumValue = MilitaryBrakeMinimumValue,
+                    DurabilityMaximumValue = MilitaryDurabilityMaximumValue,
+                    DurabilityMinimumValue = MilitaryDurabilityMinimumValue,
+                    EngineMaximumValue = MilitaryMotorMaximumValue,
+                    EngineMinimumValue = MilitaryMotorMinimumValue,
+                    FuelMaximumValue = MilitaryFuelMaximumValue,
+                    FuelMinimumValue = MilitaryFuelMinimumValue,
+                    HealthMaximumValue = MilitaryHealthMaximumValue,
+                    HealthMinimumValue = MilitaryHealthMinimumValue,
+                    MassMaximumValue = MilitaryMassMaximumValue,
+                    MassMinimumValue = MilitaryMassMinimumValue,
+                    BoostFuelMaximumValue = MilitaryBoostFuelMaximumValue,
+                    BoostFuelMinimumValue = MilitaryBoostFuelMinimumValue,
+                    FuelConsumptionIdleMinimumValue = MilitaryIdleFuelConsumptionMinimumValue,
+                    FuelConsumptionIdleMaximumValue = MilitaryIdleFuelConsumptionMaximumValue,
+                    FuelConsumptionGasMaximumValue = MilitaryGasFuelConsumptionMaximumValue,
+                    FuelConsumptionGasMinimumValue = MilitaryGasFuelConsumptionMinimumValue,
+                    BoostPowerMaximumValue = MilitaryBoostPowerMaximumValue,
+                    BoostPowerMinimumValue = MilitaryBoostPowerMinimumValue,
+                    BoostRegenMaximumValue = MilitaryBoostRegenMaximumValue,
+                    BoostRegenMinimumValue = MilitaryBoostRegenMinimumValue,
+                    WheelStiffnessMaximumValue = MilitaryWheelStiffnessMaximumValue,
+                    WheelStiffnessMinimumValue = MilitaryWheelStiffnessMinimumValue,
+                    AbilityPowerMaximumValue = 0,
+                    AbilityPowerMinimumValue = 0,
+                    AbilityTimeMaximumValue = 0,
+                    AbilityTimeMinimumValue = 0,
                 };
             case Vehicles.Fustang:
                 return new PartUpgrade
                 {
-                    _ammoMaximumValue = FustangAmmoMaximumValue,
-                    _ammoMinimumValue = FustangAmmoMinimumValue,
-                    _brakeMaximumValue = FustangBrakeMaximumValue,
-                    _brakeMinimumValue = FustangBrakeMinimumValue,
-                    _durabilityMaximumValue = FustangDurabilityMaximumValue,
-                    _durabilityMinimumValue = FustangDurabilityMinimumValue,
-                    _engineMaximumValue = FustangMotorMaximumValue,
-                    _engineMinimumValue = FustangMotorMinimumValue,
-                    _fuelMaximumValue = FustangFuelMaximumValue,
-                    _fuelMinimumValue = FustangFuelMinimumValue,
-                    _healthMaximumValue = FustangHealthMaximumValue,
-                    _healthMinimumValue = FustangHealthMinimumValue,
-                    _massMaximumValue = FustangMassMaximumValue,
-                    _massMinimumValue = FustangMassMinimumValue,
-                    _boostFuelMaximumValue = FustangBoostFuelMaximumValue,
-                    _boostFuelMinimumValue = FustangBoostFuelMinimumValue,
-                    _fuelConsumptionIdleMinimumValue = FustangIdleFuelConsumptionMinimumValue,
-                    _fuelConsumptionIdleMaximumValue = FustangIdleFuelConsumptionMaximumValue,
-                    _fuelConsumptionGasMaximumValue = FustangGasFuelConsumptionMaximumValue,
-                    _fuelConsumptionGasMinimumValue = FustangGasFuelConsumptionMinimumValue,
-                    _boostPowerMaximumValue = FustangBoostPowerMaximumValue,
-                    _boostPowerMinimumValue = FustangBoostPowerMinimumValue,
-                    _boostRegenMaximumValue = FustangBoostRegenMaximumValue,
-                    _boostRegenMinimumValue = FustangBoostRegenMinimumValue,
-                    _wheelStiffnessMaximumValue = FustangWheelStiffnessMaximumValue,
-                    _wheelStiffnessMinimumValue = FustangWheelStiffnessMinimumValue,
-                    _abilityPowerMaximumValue = FustangAbilityPowerMaximumValue,
-                    _abilityPowerMinimumValue = FustangAbilityPowerMinimumValue,
-                    _abilityTimeMaximumValue = FustangAbilityTimeMaximumValue,
-                    _abilityTimeMinimumValue = FustangAbilityTimeMinimumValue,
+                    AmmoMaximumValue = FustangAmmoMaximumValue,
+                    AmmoMinimumValue = FustangAmmoMinimumValue,
+                    BrakeMaximumValue = FustangBrakeMaximumValue,
+                    BrakeMinimumValue = FustangBrakeMinimumValue,
+                    DurabilityMaximumValue = FustangDurabilityMaximumValue,
+                    DurabilityMinimumValue = FustangDurabilityMinimumValue,
+                    EngineMaximumValue = FustangMotorMaximumValue,
+                    EngineMinimumValue = FustangMotorMinimumValue,
+                    FuelMaximumValue = FustangFuelMaximumValue,
+                    FuelMinimumValue = FustangFuelMinimumValue,
+                    HealthMaximumValue = FustangHealthMaximumValue,
+                    HealthMinimumValue = FustangHealthMinimumValue,
+                    MassMaximumValue = FustangMassMaximumValue,
+                    MassMinimumValue = FustangMassMinimumValue,
+                    BoostFuelMaximumValue = FustangBoostFuelMaximumValue,
+                    BoostFuelMinimumValue = FustangBoostFuelMinimumValue,
+                    FuelConsumptionIdleMinimumValue = FustangIdleFuelConsumptionMinimumValue,
+                    FuelConsumptionIdleMaximumValue = FustangIdleFuelConsumptionMaximumValue,
+                    FuelConsumptionGasMaximumValue = FustangGasFuelConsumptionMaximumValue,
+                    FuelConsumptionGasMinimumValue = FustangGasFuelConsumptionMinimumValue,
+                    BoostPowerMaximumValue = FustangBoostPowerMaximumValue,
+                    BoostPowerMinimumValue = FustangBoostPowerMinimumValue,
+                    BoostRegenMaximumValue = FustangBoostRegenMaximumValue,
+                    BoostRegenMinimumValue = FustangBoostRegenMinimumValue,
+                    WheelStiffnessMaximumValue = FustangWheelStiffnessMaximumValue,
+                    WheelStiffnessMinimumValue = FustangWheelStiffnessMinimumValue,
+                    AbilityPowerMaximumValue = FustangAbilityPowerMaximumValue,
+                    AbilityPowerMinimumValue = FustangAbilityPowerMinimumValue,
+                    AbilityTimeMaximumValue = FustangAbilityTimeMaximumValue,
+                    AbilityTimeMinimumValue = FustangAbilityTimeMinimumValue,
                 };
             case Vehicles.KnightRider:
                 return new PartUpgrade
                 {
-                    _ammoMaximumValue = KnightRiderAmmoMaximumValue,
-                    _ammoMinimumValue = KnightRiderAmmoMinimumValue,
-                    _brakeMaximumValue = KnightRiderBrakeMaximumValue,
-                    _brakeMinimumValue = KnightRiderBrakeMinimumValue,
-                    _durabilityMaximumValue = KnightRiderDurabilityMaximumValue,
-                    _durabilityMinimumValue = KnightRiderDurabilityMinimumValue,
-                    _engineMaximumValue = KnightRiderMotorMaximumValue,
-                    _engineMinimumValue = KnightRiderMotorMinimumValue,
-                    _fuelMaximumValue = KnightRiderFuelMaximumValue,
-                    _fuelMinimumValue = KnightRiderFuelMinimumValue,
-                    _healthMaximumValue = KnightRiderHealthMaximumValue,
-                    _healthMinimumValue = KnightRiderHealthMinimumValue,
-                    _massMaximumValue = KnightRiderMassMaximumValue,
-                    _massMinimumValue = KnightRiderMassMinimumValue,
-                    _boostFuelMaximumValue = KnightRiderBoostFuelMaximumValue,
-                    _boostFuelMinimumValue = KnightRiderBoostFuelMinimumValue,
-                    _fuelConsumptionIdleMinimumValue = KnightRiderIdleFuelConsumptionMinimumValue,
-                    _fuelConsumptionIdleMaximumValue = KnightRiderIdleFuelConsumptionMaximumValue,
-                    _fuelConsumptionGasMaximumValue = KnightRiderGasFuelConsumptionMaximumValue,
-                    _fuelConsumptionGasMinimumValue = KnightRiderGasFuelConsumptionMinimumValue,
-                    _boostPowerMaximumValue = KnightRiderBoostPowerMaximumValue,
-                    _boostPowerMinimumValue = KnightRiderBoostPowerMinimumValue,
-                    _boostRegenMaximumValue = KnightRiderBoostRegenMaximumValue,
-                    _boostRegenMinimumValue = KnightRiderBoostRegenMinimumValue,
-                    _wheelStiffnessMaximumValue = KnightRiderWheelStiffnessMaximumValue,
-                    _wheelStiffnessMinimumValue = KnightRiderWheelStiffnessMinimumValue,
-                    _abilityPowerMaximumValue = KnightRiderAbilityPowerMaximumValue,
-                    _abilityPowerMinimumValue = KnightRiderAbilityPowerMinimumValue,
-                    _abilityTimeMaximumValue = KnightRiderAbilityTimeMaximumValue,
-                    _abilityTimeMinimumValue = KnightRiderAbilityTimeMinimumValue,
+                    AmmoMaximumValue = KnightRiderAmmoMaximumValue,
+                    AmmoMinimumValue = KnightRiderAmmoMinimumValue,
+                    BrakeMaximumValue = KnightRiderBrakeMaximumValue,
+                    BrakeMinimumValue = KnightRiderBrakeMinimumValue,
+                    DurabilityMaximumValue = KnightRiderDurabilityMaximumValue,
+                    DurabilityMinimumValue = KnightRiderDurabilityMinimumValue,
+                    EngineMaximumValue = KnightRiderMotorMaximumValue,
+                    EngineMinimumValue = KnightRiderMotorMinimumValue,
+                    FuelMaximumValue = KnightRiderFuelMaximumValue,
+                    FuelMinimumValue = KnightRiderFuelMinimumValue,
+                    HealthMaximumValue = KnightRiderHealthMaximumValue,
+                    HealthMinimumValue = KnightRiderHealthMinimumValue,
+                    MassMaximumValue = KnightRiderMassMaximumValue,
+                    MassMinimumValue = KnightRiderMassMinimumValue,
+                    BoostFuelMaximumValue = KnightRiderBoostFuelMaximumValue,
+                    BoostFuelMinimumValue = KnightRiderBoostFuelMinimumValue,
+                    FuelConsumptionIdleMinimumValue = KnightRiderIdleFuelConsumptionMinimumValue,
+                    FuelConsumptionIdleMaximumValue = KnightRiderIdleFuelConsumptionMaximumValue,
+                    FuelConsumptionGasMaximumValue = KnightRiderGasFuelConsumptionMaximumValue,
+                    FuelConsumptionGasMinimumValue = KnightRiderGasFuelConsumptionMinimumValue,
+                    BoostPowerMaximumValue = KnightRiderBoostPowerMaximumValue,
+                    BoostPowerMinimumValue = KnightRiderBoostPowerMinimumValue,
+                    BoostRegenMaximumValue = KnightRiderBoostRegenMaximumValue,
+                    BoostRegenMinimumValue = KnightRiderBoostRegenMinimumValue,
+                    WheelStiffnessMaximumValue = KnightRiderWheelStiffnessMaximumValue,
+                    WheelStiffnessMinimumValue = KnightRiderWheelStiffnessMinimumValue,
+                    AbilityPowerMaximumValue = KnightRiderAbilityPowerMaximumValue,
+                    AbilityPowerMinimumValue = KnightRiderAbilityPowerMinimumValue,
+                    AbilityTimeMaximumValue = KnightRiderAbilityTimeMaximumValue,
+                    AbilityTimeMinimumValue = KnightRiderAbilityTimeMinimumValue,
                 };
             default:
                 return new PartUpgrade
                 {
-                    _ammoMaximumValue = HatchbackAmmoMaximumValue,
-                    _ammoMinimumValue = HatchbackAmmoMinimumValue,
-                    _brakeMaximumValue = HatchbackBrakeMaximumValue,
-                    _brakeMinimumValue = HatchbackBrakeMinimumValue,
-                    _durabilityMaximumValue = HatchbackDurabilityMaximumValue,
-                    _durabilityMinimumValue = HatchbackDurabilityMinimumValue,
-                    _engineMaximumValue = HatchbackMotorMaximumValue,
-                    _engineMinimumValue = HatchbackMotorMinimumValue,
-                    _fuelMaximumValue = HatchbackFuelMaximumValue,
-                    _fuelMinimumValue = HatchbackFuelMinimumValue,
-                    _healthMaximumValue = HatchbackHealthMaximumValue,
-                    _healthMinimumValue = HatchbackHealthMinimumValue,
-                    _massMaximumValue = HatchbackMassMaximumValue,
-                    _massMinimumValue = HatchbackMassMinimumValue,
-                    _boostFuelMaximumValue = HatchbackBoostFuelMaximumValue,
-                    _boostFuelMinimumValue = HatchbackBoostFuelMinimumValue,
-                    _fuelConsumptionIdleMinimumValue = HatchbackIdleFuelConsumptionMinimumValue,
-                    _fuelConsumptionIdleMaximumValue = HatchbackIdleFuelConsumptionMaximumValue,
-                    _fuelConsumptionGasMaximumValue = HatchbackGasFuelConsumptionMaximumValue,
-                    _fuelConsumptionGasMinimumValue = HatchbackGasFuelConsumptionMinimumValue,
-                    _boostPowerMaximumValue = HatchbackBoostPowerMaximumValue,
-                    _boostPowerMinimumValue = HatchbackBoostPowerMinimumValue,
-                    _boostRegenMaximumValue = HatchbackBoostRegenMaximumValue,
-                    _boostRegenMinimumValue = HatchbackBoostRegenMinimumValue,
-                    _wheelStiffnessMaximumValue = HatchbackWheelStiffnessMaximumValue,
-                    _wheelStiffnessMinimumValue = HatchbackWheelStiffnessMinimumValue,
-                    _abilityPowerMaximumValue = 0,
-                    _abilityPowerMinimumValue = 0,
-                    _abilityTimeMaximumValue = 0,
-                    _abilityTimeMinimumValue = 0,
+                    AmmoMaximumValue = HatchbackAmmoMaximumValue,
+                    AmmoMinimumValue = HatchbackAmmoMinimumValue,
+                    BrakeMaximumValue = HatchbackBrakeMaximumValue,
+                    BrakeMinimumValue = HatchbackBrakeMinimumValue,
+                    DurabilityMaximumValue = HatchbackDurabilityMaximumValue,
+                    DurabilityMinimumValue = HatchbackDurabilityMinimumValue,
+                    EngineMaximumValue = HatchbackMotorMaximumValue,
+                    EngineMinimumValue = HatchbackMotorMinimumValue,
+                    FuelMaximumValue = HatchbackFuelMaximumValue,
+                    FuelMinimumValue = HatchbackFuelMinimumValue,
+                    HealthMaximumValue = HatchbackHealthMaximumValue,
+                    HealthMinimumValue = HatchbackHealthMinimumValue,
+                    MassMaximumValue = HatchbackMassMaximumValue,
+                    MassMinimumValue = HatchbackMassMinimumValue,
+                    BoostFuelMaximumValue = HatchbackBoostFuelMaximumValue,
+                    BoostFuelMinimumValue = HatchbackBoostFuelMinimumValue,
+                    FuelConsumptionIdleMinimumValue = HatchbackIdleFuelConsumptionMinimumValue,
+                    FuelConsumptionIdleMaximumValue = HatchbackIdleFuelConsumptionMaximumValue,
+                    FuelConsumptionGasMaximumValue = HatchbackGasFuelConsumptionMaximumValue,
+                    FuelConsumptionGasMinimumValue = HatchbackGasFuelConsumptionMinimumValue,
+                    BoostPowerMaximumValue = HatchbackBoostPowerMaximumValue,
+                    BoostPowerMinimumValue = HatchbackBoostPowerMinimumValue,
+                    BoostRegenMaximumValue = HatchbackBoostRegenMaximumValue,
+                    BoostRegenMinimumValue = HatchbackBoostRegenMinimumValue,
+                    WheelStiffnessMaximumValue = HatchbackWheelStiffnessMaximumValue,
+                    WheelStiffnessMinimumValue = HatchbackWheelStiffnessMinimumValue,
+                    AbilityPowerMaximumValue = 0,
+                    AbilityPowerMinimumValue = 0,
+                    AbilityTimeMaximumValue = 0,
+                    AbilityTimeMinimumValue = 0,
                 };
         }
     }

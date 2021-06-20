@@ -110,6 +110,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ads/RewardedDoubleComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.24/UnityEngine.TestRunner/NUnitExtensions/Commands/BeforeAfterTestCommandBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ads@3.7.1/Runtime/Advertisement/AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Canvas/CanvasController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Canvas/SkillButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.24/UnityEngine.TestRunner/Assertions/LogScope/LogScope.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Menu/About/About.cs" root0="FORCE_HIGHLIGHTING" />
@@ -126,12 +127,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraTypes.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Level Picker/LevelButton.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/BackToLevelPicker.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/NeedsPanelMain.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/LevelEnd.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/VehicleController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Level/LevelEnd.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/CameraButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/RestartButton.cs" />
@@ -162,8 +157,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/IAP/IAPButtons.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/CarLock.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IAP/IAP.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Upgrade/PartUpgrade.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Intro/IntroAnimator.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Ads/GaragePlayInterstitial.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/FPSCounter.cs" />
@@ -174,9 +167,17 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Delete.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Level/EndLevelAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Entity.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Component/GameComponent.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Vehicle.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/GarageController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/SteeringTypes.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Settings/SteeringButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Controller/Steering.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Component/GameComponent.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/CanvasController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Vehicle.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/UpgradePartButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Upgrade/PartUpgrade.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/NeedsPanelMain.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rzUrHIsnNENMvSG8DY2w48mZTp" />
@@ -290,6 +291,7 @@
       <workItem from="1623836942744" duration="3682000" />
       <workItem from="1624101766064" duration="1419000" />
       <workItem from="1624142104859" duration="93000" />
+      <workItem from="1624184452606" duration="8764000" />
     </task>
     <servers />
   </component>
