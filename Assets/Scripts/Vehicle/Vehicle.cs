@@ -183,13 +183,11 @@ public class Vehicle : MonoBehaviour
 
 
         _wheels = GetComponentsInChildren<WheelCollider>();
-        if (GameController.GetCurrentQuality() < QualityTypes.Medium)
+        lightsObject.SetActive(GameController.GetCurrentQuality() >= QualityTypes.Low);
+
+        if (decorationLights != null)
         {
-            lightsObject.SetActive(false);
-        }
-        else if (decorationLights != null && GameController.GetCurrentQuality() > QualityTypes.Medium)
-        {
-            decorationLights.SetActive(true);
+            decorationLights.SetActive(GameController.GetCurrentQuality() > QualityTypes.Medium);
         }
 
         PrepareCar();

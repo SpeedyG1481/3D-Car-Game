@@ -28896,7 +28896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3715556896003586697, guid: 7a87860e1a0102a459123bf59f67f2d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.42
+      value: -8.32
       objectReference: {fileID: 0}
     - target: {fileID: 3715556896003586697, guid: 7a87860e1a0102a459123bf59f67f2d4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -73418,7 +73418,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.4836241, g: 0.6214858, b: 0.7169812, a: 1}
-  m_Intensity: 0.85
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -73476,7 +73476,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023427451}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 2039, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

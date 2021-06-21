@@ -20,15 +20,15 @@ public class GameComponent : MonoBehaviour
     {
         _qualityTypes = GameController.GetCurrentQuality();
         _audioSource = GetComponent<AudioSource>();
-        if (_qualityTypes >= QualityTypes.Medium && pointLight != null)
+        if (pointLight != null)
         {
-            pointLight.SetActive(true);
+            pointLight.SetActive(_qualityTypes >= QualityTypes.Medium);
         }
     }
 
     private void Update()
     {
-        if (_qualityTypes >= QualityTypes.Medium)
+        if (_qualityTypes >= QualityTypes.Low)
         {
             var vector3 = Vector3.up;
             if (!rotationDirectionY)
