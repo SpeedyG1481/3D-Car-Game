@@ -22,7 +22,7 @@ public class GameComponent : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         if (pointLight != null)
         {
-            pointLight.SetActive(_qualityTypes >= QualityTypes.Medium);
+            pointLight.SetActive(_qualityTypes > QualityTypes.High);
         }
     }
 

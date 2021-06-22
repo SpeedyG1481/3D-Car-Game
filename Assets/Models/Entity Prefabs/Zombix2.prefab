@@ -1501,7 +1501,7 @@ MonoBehaviour:
   removeTime: 10
   radius: 125
   attackSpeed: 3.75
-  damagePower: 55
+  damagePower: 65
   stopRange: 10
   damageRange: 10
   idlingAndRunning: {fileID: 8300000, guid: 932e49af84a09a54bba6b9d1ab92def7, type: 3}
@@ -1561,8 +1561,8 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.21272194
-      value: 0.36221683
+      time: 0.38269722
+      value: 0.6288794
       inSlope: -1.0101012
       outSlope: -1.0101012
       tangentMode: 0

@@ -127,9 +127,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Level/LevelEnd.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/CameraButton.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/RestartButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/HomeButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader/Scenes.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Main Menu/SettingsButton.cs" />
@@ -167,17 +164,20 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Delete.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Level/EndLevelAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Entity.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/GarageController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/SteeringTypes.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Settings/SteeringButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Controller/Steering.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/CanvasController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/UpgradePartButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Upgrade/PartUpgrade.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/GarageController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/NeedsPanelMain.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Vehicle.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Component/GameComponent.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Settings/DetailType.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Settings/DetailButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Detail/DetailController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rzUrHIsnNENMvSG8DY2w48mZTp" />
@@ -294,7 +294,13 @@
       <workItem from="1624184452606" duration="9076000" />
       <workItem from="1624197891665" duration="1790000" />
       <workItem from="1624210269067" duration="34000" />
-      <workItem from="1624265492122" duration="339000" />
+      <workItem from="1624265492122" duration="950000" />
+      <workItem from="1624284359746" duration="3497000" />
+      <workItem from="1624293336500" duration="765000" />
+      <workItem from="1624294490103" duration="73000" />
+      <workItem from="1624303234556" duration="3206000" />
+      <workItem from="1624337360659" duration="720000" />
+      <workItem from="1624340488247" duration="23000" />
     </task>
     <servers />
   </component>

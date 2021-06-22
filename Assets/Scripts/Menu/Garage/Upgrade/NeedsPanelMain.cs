@@ -122,7 +122,7 @@ public class NeedsPanelMain : MonoBehaviour
         ammoNeedText.color = GameController.AmmoCount >= upgrade.AmmoNeed
             ? new Color32(51, 173, 0, 255)
             : new Color32(255, 64, 0, 255);
-        ammoPowerText.text = "+%" + (partUpgradeData.Ammo /
+        ammoPowerText.text = "+%" + ((float) partUpgradeData.Ammo /
                 (partUpgradeData.AmmoMaximumValue + partUpgradeData.AmmoMinimumValue) * 100)
             .ToString("0.00");
         ammoCountText.text = GameController.AmmoCount.ToString();

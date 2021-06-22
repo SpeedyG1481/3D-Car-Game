@@ -318,4 +318,26 @@ public static class GameController
         PlayerPrefs.SetInt("QualitySettings", index);
         QualitySettings.SetQualityLevel(index, true);
     }
+
+    public static void SetDetailLevel(DetailType detailType)
+    {
+        PlayerPrefs.SetString("DetailSettings", detailType.ToString());
+    }
+
+    public static DetailType GetCurrentDetailLevel()
+    {
+        var detail = DetailType.Low;
+        var detailStoreValue = PlayerPrefs.GetString("DetailSettings");
+
+        foreach (var detailType in (DetailType[]) Enum.GetValues(typeof(DetailType)))
+        {
+            if (detailType.ToString() == detailStoreValue)
+            {
+                detail = detailType;
+                break;
+            }
+        }
+
+        return detail;
+    }
 }
