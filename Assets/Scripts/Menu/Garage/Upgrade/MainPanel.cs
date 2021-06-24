@@ -1,16 +1,14 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainPanel : MonoBehaviour
 {
     [SerializeField] private UpgradeType upgradeType;
-    [SerializeField] private GameObject[] gameObjects;
+    [SerializeField] private Image fillImage;
 
-    void Update()
+    private void Update()
     {
-        var activeColumns = GameController.GetCurrentUpgradeLevel(upgradeType);
-        for (var i = 0; i < gameObjects.Length; i++)
-        {
-            gameObjects[i].SetActive(i < activeColumns);
-        }
+        float activeColumns = GameController.GetCurrentUpgradeLevel(upgradeType);
+        fillImage.fillAmount = activeColumns / GameController.TotalUpgrade;
     }
 }

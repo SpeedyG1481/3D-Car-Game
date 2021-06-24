@@ -6,8 +6,8 @@ public class GaragePlayInterstitial
 {
     private InterstitialAd _interstitial;
 
-    private string androidAdId = "ca-app-pub-8847668020520840~4064880005";
-    private string iOSAdId = "ca-app-pub-8847668020520840~9125634992";
+    private string androidAdId = "ca-app-pub-8847668020520840/5374678976";
+    private string iOSAdId = "ca-app-pub-8847668020520840/6033154529";
 
     public void Initialize()
     {

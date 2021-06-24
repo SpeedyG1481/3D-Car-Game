@@ -6,8 +6,8 @@ public class RewardedGoTo10
 {
     private RewardedAd _rewarded;
 
-    private string androidAdId = "ca-app-pub-8847668020520840~4064880005";
-    private string iOSAdId = "ca-app-pub-8847668020520840~9125634992";
+    private string androidAdId = "ca-app-pub-8847668020520840/2041938623";
+    private string iOSAdId = "ca-app-pub-8847668020520840/8328338895";
 
     public void Initialize(EventHandler<Reward> onReward)
     {

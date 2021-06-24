@@ -9,7 +9,7 @@ public static class GameController
     public static readonly string InterstitialTestId = "ca-app-pub-3940256099942544/1033173712";
 
     public static readonly int TotalUpgrade = 7;
-    public static readonly bool DebugMode = true;
+    public static readonly bool DebugMode = false;
 
     public static int CurrentPlayingLevel = 1;
     public static int CurrentPlayingCar = 1;
@@ -28,6 +28,23 @@ public static class GameController
     {
         if (CurrentPlayingLevel > GetCurrentLevel)
             return;
+
+        switch (CurrentPlayingLevel)
+        {
+            case 1:
+                OpenCar(Vehicles.Sedan);
+                break;
+            case 2:
+                OpenCar(Vehicles.Pickup);
+                break;
+            case 3:
+                OpenCar(Vehicles.Bugee);
+                OpenCar(Vehicles.Military6X6);
+                break;
+            // case 4:
+            //     OpenCar(Vehicles.Fustang);
+            //     break;
+        }
 
         PlayerPrefs.SetInt("LevelValue", CurrentPlayingLevel + 1);
     }

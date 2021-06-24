@@ -10,6 +10,8 @@ public class Delete : MonoBehaviour
     {
         _button = GetComponent<Button>();
         _button.onClick.AddListener(ButtonListener);
+
+        gameObject.SetActive(GameController.DebugMode);
     }
 
     private void ButtonListener()

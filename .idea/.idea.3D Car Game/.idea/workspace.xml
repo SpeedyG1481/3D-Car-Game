@@ -127,7 +127,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/HomeButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader/Scenes.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Main Menu/SettingsButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/FPS.cs" />
@@ -146,22 +145,18 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader/SceneLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Other/Bullet.cs" />
       <option value="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4A4D5436-EA7D-4A82-94F2-3953CA7D8C25/6a/644299ff/RewardedAd.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Ads/RewardedGoTo10.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/DoubleGameComponentButton.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Ads/RewardedDoubleComponent.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/GoTo10.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/PlayGameButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IAP/IAPButtons.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/CarLock.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IAP/IAP.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Intro/IntroAnimator.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Ads/GaragePlayInterstitial.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/FPSCounter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Alien.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Gun/Gun.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Robot.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Zombie.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Delete.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Level/EndLevelAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Entity.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Other/SteeringTypes.cs" />
@@ -175,9 +170,14 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Vehicle.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Component/GameComponent.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Settings/DetailType.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Settings/DetailButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Detail/DetailController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/MainPanel.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Delete.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Ads/RewardedGoTo10.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Ads/RewardedDoubleComponent.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Ads/GaragePlayInterstitial.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rzUrHIsnNENMvSG8DY2w48mZTp" />
@@ -301,6 +301,8 @@
       <workItem from="1624303234556" duration="3206000" />
       <workItem from="1624337360659" duration="720000" />
       <workItem from="1624340488247" duration="23000" />
+      <workItem from="1624524826702" duration="2630000" />
+      <workItem from="1624528431638" duration="784000" />
     </task>
     <servers />
   </component>

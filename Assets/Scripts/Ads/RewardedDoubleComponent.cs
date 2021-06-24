@@ -6,8 +6,8 @@ public class RewardedDoubleComponent
 {
     private RewardedAd _rewarded;
 
-    private string androidAdId = "ca-app-pub-8847668020520840~4064880005";
-    private string iOSAdId = "ca-app-pub-8847668020520840~9125634992";
+    private string androidAdId = "ca-app-pub-8847668020520840/6061268204";
+    private string iOSAdId = "ca-app-pub-8847668020520840/6743794482";
 
     public void Initialize(EventHandler<Reward> onReward)
     {
