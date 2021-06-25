@@ -14,8 +14,27 @@ public static class GameController
     public static int CurrentPlayingLevel = 1;
     public static int CurrentPlayingCar = 1;
 
-    public static float GetMusicVolume => PlayerPrefs.GetFloat("MusicSound");
-    public static float GetSfxVolume => PlayerPrefs.GetFloat("SFXSound");
+    public static float GetMusicVolume
+    {
+        get
+        {
+            if (PlayerPrefs.HasKey("MusicSound"))
+                return PlayerPrefs.GetFloat("MusicSound");
+            else
+                return 0.25F;
+        }
+    }
+
+    public static float GetSfxVolume
+    {
+        get
+        {
+            if (PlayerPrefs.HasKey("SFXSound"))
+                return PlayerPrefs.GetFloat("SFXSound");
+            else
+                return 0.25F;
+        }
+    }
 
     public static int GetCurrentLevel => PlayerPrefs.GetInt("LevelValue") == 0 ? 1 : PlayerPrefs.GetInt("LevelValue");
 

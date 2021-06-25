@@ -174,10 +174,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Detail/DetailController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/MainPanel.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Delete.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Ads/RewardedGoTo10.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Ads/RewardedDoubleComponent.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Ads/GaragePlayInterstitial.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rzUrHIsnNENMvSG8DY2w48mZTp" />
@@ -303,6 +303,7 @@
       <workItem from="1624340488247" duration="23000" />
       <workItem from="1624524826702" duration="2630000" />
       <workItem from="1624528431638" duration="784000" />
+      <workItem from="1624612693810" duration="402000" />
     </task>
     <servers />
   </component>
