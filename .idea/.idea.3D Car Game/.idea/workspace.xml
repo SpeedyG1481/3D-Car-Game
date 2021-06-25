@@ -127,7 +127,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader/Scenes.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Main Menu/SettingsButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/FPS.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Pause/Buttons/FPSButton.cs" />
@@ -163,10 +162,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Settings/SteeringButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/Controller/Steering.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/CanvasController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/UpgradePartButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Upgrade/PartUpgrade.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/GarageController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/NeedsPanelMain.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Vehicle/Vehicle.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Component/GameComponent.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Settings/DetailType.cs" />
@@ -178,6 +175,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Ads/RewardedDoubleComponent.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Ads/GaragePlayInterstitial.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Upgrade/Upgrade.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/NeedsPanelMain.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/UpgradePartButton.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rzUrHIsnNENMvSG8DY2w48mZTp" />
@@ -304,6 +304,8 @@
       <workItem from="1624524826702" duration="2630000" />
       <workItem from="1624528431638" duration="784000" />
       <workItem from="1624612693810" duration="402000" />
+      <workItem from="1624622373068" duration="35000" />
+      <workItem from="1624622498778" duration="3062000" />
     </task>
     <servers />
   </component>

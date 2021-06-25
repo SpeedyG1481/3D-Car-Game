@@ -1,6 +1,7 @@
-﻿public class Upgrade
-{
+﻿using UnityEngine;
 
+public class Upgrade
+{
     /*
      *
      * This values maximum upgrade needs for cars. If you want to x level need
@@ -495,7 +496,7 @@
 
                 break;
         }
-
+        
         return new Upgrade
         {
             _ammoNeed = ammoNeed,

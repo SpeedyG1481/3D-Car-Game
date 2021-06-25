@@ -7,6 +7,7 @@ public class UpgradePartButton : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip wrongSound;
     [SerializeField] private AudioClip successSound;
+    [SerializeField] private NeedsPanelMain needsPanelMain;
 
 
     private Button _button;
@@ -25,6 +26,7 @@ public class UpgradePartButton : MonoBehaviour
             GameController.UpgradePartLevel(upgradeType);
             audioSource.volume = GameController.GetSfxVolume;
             audioSource.PlayOneShot(successSound, GameController.GetSfxVolume);
+            needsPanelMain.DataUpgrade(upgradeType);
         }
         else
         {

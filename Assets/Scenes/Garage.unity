@@ -8110,6 +8110,7 @@ MonoBehaviour:
   audioSource: {fileID: 595760438}
   wrongSound: {fileID: 8300000, guid: e4bd9f5474f8ed340bbd55a1a5b9e2e2, type: 3}
   successSound: {fileID: 8300000, guid: bbc83ad024600e444b996ab7c38a18db, type: 3}
+  needsPanelMain: {fileID: 837892888}
 --- !u!114 &1064708422
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -48,15 +48,10 @@ public class NeedsPanelMain : MonoBehaviour
     {
         panel.SetActive(true);
         upgradePartButton.upgradeType = upgradeType;
+        DataUpgrade(upgradeType);
     }
 
-    private void LateUpdate()
-    {
-        if (panel.activeInHierarchy)
-            DataUpgrade();
-    }
-
-    private void DataUpgrade()
+    public void DataUpgrade(UpgradeType upgradeType)
     {
         var upgrade = Upgrade.GetUpgradeData(upgradeType);
         var partUpgradeData = PartUpgrade.GetPartUpgrade();
@@ -65,6 +60,7 @@ public class NeedsPanelMain : MonoBehaviour
         steelNeedText.color = GameController.SteelCount >= upgrade.SteelNeed
             ? new Color32(51, 173, 0, 255)
             : new Color32(255, 64, 0, 255);
+
         steelPowerText.text = "+%" + (partUpgradeData.Durability /
                 (partUpgradeData.DurabilityMaximumValue + partUpgradeData.DurabilityMinimumValue) * 100)
             .ToString("0.00");
