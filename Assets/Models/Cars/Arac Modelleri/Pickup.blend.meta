@@ -3,7 +3,92 @@ guid: 7373b2d1144f56e4d86def473d31e6d6
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 70071f6b71c906a4e91c984e58e8acdb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 33f9f4e78a07fa642a0dcd843f620ff7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arka body
+    second: {fileID: 2100000, guid: 31870a8f9f2797a4989380fb30893285, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arka far
+    second: {fileID: 2100000, guid: e5744a07361405e40807e932ec403f7b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body
+    second: {fileID: 2100000, guid: f897c65eaf3ed9b4c8971354809889e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: camlar
+    second: {fileID: 2100000, guid: 33f9f4e78a07fa642a0dcd843f620ff7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dikiz
+    second: {fileID: 2100000, guid: 3c787f9ab1253ce43b26a1b075ff30d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: far beyaz
+    second: {fileID: 2100000, guid: 6959c516f2de64f4782c9cad54bb3ab5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "far k\u0131rm\u0131z\u0131"
+    second: {fileID: 2100000, guid: d0a0af0d680824e4dbbd9fdb46906d0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: far sari
+    second: {fileID: 2100000, guid: 029eefd69f42e434b9bc20e0f9bba985, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "far \xFCst"
+    second: {fileID: 2100000, guid: 56609773d8af31142a1dce2a0955997c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jant
+    second: {fileID: 2100000, guid: be8c96805e441834d97407eb0cc51bee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kaput
+    second: {fileID: 2100000, guid: 5d0031a7b8a431e46a720cbe5694063f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "s\xFCspamsiyon"
+    second: {fileID: 2100000, guid: e92a0a313574aa34fab4905b54cd50bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: teker plastik
+    second: {fileID: 2100000, guid: 225e06b3b66743749a7310e180da4fc1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tutacak
+    second: {fileID: 2100000, guid: 1d4843b03c8ae3a4aaf0fce357c07356, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\xF6n s\xFCs"
+    second: {fileID: 2100000, guid: 95424c9e5cd599b4c8064861959ac404, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -4494,15 +4494,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 66e74af3c8deb5648ade526b7abf024d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 60
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 66e74af3c8deb5648ade526b7abf024d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 60
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 66e74af3c8deb5648ade526b7abf024d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 60
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 66e74af3c8deb5648ade526b7abf024d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12602,6 +12602,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 8449996119470504636, guid: 7373b2d1144f56e4d86def473d31e6d6, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 33f9f4e78a07fa642a0dcd843f620ff7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7373b2d1144f56e4d86def473d31e6d6, type: 3}
 --- !u!4 &1814030175 stripped
