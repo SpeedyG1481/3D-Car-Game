@@ -102,6 +102,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.24/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestMustExpectAllLogsAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.6.4/Runtime/Behaviours/CinemachineStateDrivenCamera.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1DE90147-4F3C-423D-B1AB-A532B12C7B1B/ef/f3cc4549/WheelHit.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.purchasing@3.2.2/Runtime/Stores/StandardPurchasingModule.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4D9F7249-F1DE-41E3-8466-8FEA10E9822F/da/0c0aa2a5/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.24/UnityEngine.TestRunner/Assertions/LogScope/LogScope.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.6.4/Runtime/Behaviours/CinemachineCollider.cs" root0="SKIP_HIGHLIGHTING" />
@@ -149,7 +150,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/PlayGameButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IAP/IAPButtons.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/CarLock.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/IAP/IAP.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Intro/IntroAnimator.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Canvas/FPSCounter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Entity/Parent/Enemy/Alien.cs" />
@@ -178,6 +178,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Upgrade/Upgrade.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/NeedsPanelMain.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Menu/Garage/Upgrade/UpgradePartButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/IAP/IAP.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rzUrHIsnNENMvSG8DY2w48mZTp" />
@@ -308,6 +309,7 @@
       <workItem from="1624622498778" duration="3214000" />
       <workItem from="1624740916531" duration="7000" />
       <workItem from="1624741074683" duration="22000" />
+      <workItem from="1624786125131" duration="578000" />
     </task>
     <servers />
   </component>
