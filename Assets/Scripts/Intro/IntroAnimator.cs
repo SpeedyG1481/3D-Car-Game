@@ -3,6 +3,7 @@ using UnityEngine;
 public class IntroAnimator : MonoBehaviour
 {
     private float _timer;
+
     private const float IntroTime = 6.25F;
 
     private void Awake()
